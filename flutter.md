@@ -67,15 +67,96 @@ git remote add origin https://gitlab.com/kkibria/<app_name>.git
 
 ## Add firebase to flutter project
 
-* Create a firebase project in firebase console.
-* coneect the flutter project with firebase.
-Todo: need to update, need to go thru the web setup again and document.....
+* Create a firebase project in firebase console with the <app_name> as the porject name.
+* Add an web app to the project.
+* Add a nickname for the app <app_name>_web.
+* Click on firebase hosting option.
+* Now click on Register button.
+
+* Add the firebase SDK to ``web/index.html`` file as instruceted in firebase console.
+
+* In the project ``Setting > General`` tab select Google Cloud Platform (GCP) resource location.
+
+* Coneect the flutter project with firebase.
 
 ```
 # run from inside <app_name> directory
 firebase init
 ```
+Select either ``Realtime Database`` or ``Firestore``, Because you can use only one of them, not both. Check the rest of the options.
+
+hit enter.
+
+Select ``Exiting project`` and select then firebase project you created.
+
+Note: selecting firestore is giving index trouble, so I selected Realtime
+
+Select all defaults except for the public directory, type ``build/web``.
+
+It will build an ``index.html`` file in ``build/web`` directory. Copy the firebase relevant portion in this file to the web template ``web/index.html`` file to update the template for future ``flutter build web`` command to build the app.
+
+The template will end up looking something like the following,
+```
+<!DOCTYPE html>
+<html>
+<head>
+
+  ...
+
+  <title>my awesome app</title>
+  <link rel="manifest" href="/manifest.json">
+
+  ...
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/7.8.2/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/7.8.2/firebase-auth.js"></script>
+  <script defer src="/__/firebase/7.8.2/firebase-database.js"></script>
+  <script defer src="/__/firebase/7.8.2/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/7.8.2/firebase-storage.js"></script>
+  <!-- initialize the SDK after all desired features are loaded -->
+  <script defer src="/__/firebase/init.js"></script>
+</head>
+
+<body>
+  <!-- This script installs service_worker.js to provide PWA functionality to
+       application. For more information, see:
+       https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/flutter_service_worker.js');
+      });
+    }
+  </script>
+
+  ...
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      try {
+        let app = firebase.app();
+        let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+        //document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+      } catch (e) {
+        console.error(e);
+        //document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+      }
+    });
+  </script>
+  
+  ...
+
+  <script src="main.dart.js" type="application/javascript"></script>
+</body>
+</html>
+```
+
+
+
 now you can use, 
 * firebase serve
 * firebase deploy
 
+... to be continued
