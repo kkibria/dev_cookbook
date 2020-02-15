@@ -14,6 +14,11 @@
 * [Widgets 101](https://www.youtube.com/watch?v=CXedqMlLo7M)
 * [Flutter's Rendering Pipeline](https://www.youtube.com/watch?v=UUfXWzp0-DU)
 * [The Mahogany Staircase - Flutter's Layered Design](https://www.youtube.com/watch?v=dkyY9WCGMi0)
+flutterweb-firebaseauth.
+
+# Firebase Auth sample
+* [firebase auth example](https://github.com/FirebaseExtended/flutterfire/tree/master/packages/firebase_auth/firebase_auth/example)
+* Youtube [Flutter Web - Firebase Authentication for your web apps](https://youtu.be/qtJU5T0tF-M). Github link used in this video, https://github.com/rajayogan/
 
 # Articles on rendering
 * [The Engine architecture](https://github.com/flutter/flutter/wiki/The-Engine-architecture)
@@ -83,11 +88,11 @@ git remote add origin https://gitlab.com/kkibria/<app_name>.git
 # run from inside <app_name> directory
 firebase init
 ```
-Select either ``Realtime Database`` or ``Firestore``, Because you can use only one of them, not both. Check the rest of the options.
+Select either ``Realtime Database`` or ``Firestore``, Because you can use only one of them. Both can be use if there is a need but probably not common. Check the rest of the options as necessary.
 
 hit enter.
 
-Select ``Exiting project`` and select then firebase project you created.
+Select ``Exiting project`` and hit enter. Then select the firebase project you just created.
 
 Note: selecting firestore is giving index trouble, so I selected Realtime
 
@@ -103,20 +108,22 @@ The template will end up looking something like the following,
 
   ...
 
-  <title>my awesome app</title>
+  <title>my awesome pwa app</title>
   <link rel="manifest" href="/manifest.json">
 
   ...
-
+  
   <!-- update the version number as needed -->
   <script defer src="/__/firebase/7.8.2/firebase-app.js"></script>
   <!-- include only the Firebase features as you need -->
   <script defer src="/__/firebase/7.8.2/firebase-auth.js"></script>
   <script defer src="/__/firebase/7.8.2/firebase-database.js"></script>
+  <script defer src="/__/firebase/7.8.2/firebase-firestore.js"></script>
   <script defer src="/__/firebase/7.8.2/firebase-messaging.js"></script>
   <script defer src="/__/firebase/7.8.2/firebase-storage.js"></script>
   <!-- initialize the SDK after all desired features are loaded -->
   <script defer src="/__/firebase/init.js"></script>
+  
 </head>
 
 <body>
@@ -137,11 +144,16 @@ The template will end up looking something like the following,
     document.addEventListener('DOMContentLoaded', function() {
       try {
         let app = firebase.app();
-        let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-        //document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+        let features = 
+          [
+            'auth', 
+            'database',
+            'firestore', 
+            'messaging', 
+            'storage'
+          ].filter(feature => typeof app[feature] === 'function');
       } catch (e) {
         console.error(e);
-        //document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
       }
     });
   </script>
