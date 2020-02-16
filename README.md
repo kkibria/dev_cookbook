@@ -1,4 +1,4 @@
-# this repo consists of all my programming recipes
+# This repo consists of all my programming recipes
 
 ## gitbook articles
 
