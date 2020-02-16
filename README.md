@@ -1,4 +1,4 @@
-# This repo consists of all my programming recipes
+# this repo consists of all my programming recipes
 
 ## gitbook articles
 
@@ -24,6 +24,4 @@ Once you're strong enough, save the world:
 echo 'You got to trust me on this, I saved the world'
 ```
 {% endcode %}
-
-
 
