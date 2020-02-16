@@ -172,3 +172,6 @@ now you can use,
 * firebase deploy
 
 ... to be continued
+
+google api problem
+https://stackoverflow.com/questions/58495985/firebase-403-permission-denied-firebaseerror-installations-requests-are-blo/58496014#58496014
