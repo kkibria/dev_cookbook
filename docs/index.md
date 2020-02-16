@@ -7,11 +7,11 @@ title: Table of Contents
 
 # {{ page.title }}
 
-* [Flutter](flutter.md)
-* [How to create a new project in gitlab](project.md)
+* [Flutter](_topic/flutter.md)
+* [How to create a new project in gitlab](_topic/project.md)
 * [Houdini](houdini.md)
 * [Using showdown to render markdown in browser](showdown.md)
 
-{% for page in site.categories %}
-  * {{ page }} 
+{% for topic in site.topics %}
+  * {{ topic.url }} {{ topic.title }} 
 {% endfor %}
