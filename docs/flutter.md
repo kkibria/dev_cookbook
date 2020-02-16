@@ -22,7 +22,8 @@
 ## Firebase Auth sample
 
 * [firebase auth example](https://github.com/FirebaseExtended/flutterfire/tree/master/packages/firebase_auth/firebase_auth/example)
-* Youtube [Flutter Web - Firebase Authentication for your web apps](https://youtu.be/qtJU5T0tF-M). Github link used in this video, [https://github.com/rajayogan/](https://github.com/rajayogan/flutterweb-firebaseauth).
+* Youtube [Flutter Web - Firebase Authentication for your web apps](https://youtu.be/qtJU5T0tF-M).
+  Github [link](https://github.com/rajayogan/flutterweb-firebaseauth) used in this video.
 
 ## Articles on rendering
 
