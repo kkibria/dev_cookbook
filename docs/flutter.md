@@ -1,4 +1,4 @@
-# flutter
+# Flutter
 
 ## Flutter Text and rendering features
 
@@ -18,13 +18,11 @@
 * [Widgets 101](https://www.youtube.com/watch?v=CXedqMlLo7M)
 * [Flutter's Rendering Pipeline](https://www.youtube.com/watch?v=UUfXWzp0-DU)
 * [The Mahogany Staircase - Flutter's Layered Design](https://www.youtube.com/watch?v=dkyY9WCGMi0)
-
-  flutterweb-firebaseauth.
-
+  
 ## Firebase Auth sample
 
 * [firebase auth example](https://github.com/FirebaseExtended/flutterfire/tree/master/packages/firebase_auth/firebase_auth/example)
-* Youtube [Flutter Web - Firebase Authentication for your web apps](https://youtu.be/qtJU5T0tF-M). Github link used in this video, [https://github.com/rajayogan/](https://github.com/rajayogan/)
+* Youtube [Flutter Web - Firebase Authentication for your web apps](https://youtu.be/qtJU5T0tF-M). Github link used in this video, [https://github.com/rajayogan/](https://github.com/rajayogan/flutterweb-firebaseauth).
 
 ## Articles on rendering
 
