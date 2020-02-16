@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 # This repo consists of all my programming recipes
 
 ## gitbook articles
 * https://medium.com/@rebeccapeltz/publish-your-book-online-with-gitbook-fc0ce9b7f12
-=======
 # this repo consists of all my programming recipes
 
 ## Getting Super Powers
@@ -28,5 +26,4 @@ echo 'You got to trust me on this, I saved the world'
 {% endcode %}
 
 
->>>>>>> 74e2a99595f49cc8fdde92c09c31d03aee3c228d
 
