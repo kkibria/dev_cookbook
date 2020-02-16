@@ -1,4 +1,8 @@
-# How to create a new project in gitlab
+---
+title: How to create a new project in gitlab
+---
+
+# {{ page.title }}
 
 Create a local project directory. In this example we will use **prj\_dir** as the directory name. Now populate the **prj\_dir** with all the files and folders that will be used for initial commit.
 

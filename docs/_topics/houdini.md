@@ -1,8 +1,9 @@
 ---
-description: Developing 3D models for games
+title: Developing 3D models for games
 ---
 
-# Houdini
+# {{ page.title }}
+## Houdini
 
 Houdini is a software from sidefx.
 

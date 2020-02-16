@@ -1,5 +1,8 @@
-# Using showdown to perform client side processing of markup files
+---
+title: Using showdown to perform client side processing of markup files
+---
 
+# {{ page.title }}
 ```
 <!DOCTYPE html>
 <html>
