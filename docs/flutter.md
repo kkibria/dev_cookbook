@@ -1,8 +1,10 @@
 ---
+
 title: Flutter matters
+
 ---
 
-# Flutter
+# {{ page.title }}
 
 ## Flutter Text and rendering features
 

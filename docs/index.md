@@ -1,4 +1,10 @@
-# Table of contents
+---
+
+title: Table of contents
+
+---
+
+# {{ page.title }}
 
 * [Flutter](flutter.md)
 * [How to create a new project in gitlab](project.md)
