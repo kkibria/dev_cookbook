@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>dev_cookbook</title>
-  <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+    <meta charset="UTF-8">
+    <title>dev_cookbook</title>
+    <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
 </head>
+
 <body>
     <script>
-    var converter = new showdown.Converter(),
-        text      = '# hello, markdown!',
-        html      = converter.makeHtml(text);
-
-
-        var btn = document.createElement("DIV");   // Create a <button> element
-btn.innerHTML = html;                   // Insert text
-document.body.appendChild(btn);               // Append <button> to <body>
+        var div = document.createElement("DIV");
+        document.body.appendChild(div);               // Append <button> to <body>
+        var converter = new showdown.Converter();
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                div.innerHTML = converter.makeHtml(this.responseText);
+            }
+        };
+        xhttp.open("GET", "README.md", true);
+        xhttp.send();
     </script>
 </body>
+
 </html>
