@@ -1,3 +1,6 @@
+# Using showdown to perform client side processing of markup files
+
+```
 <!DOCTYPE html>
 <html>
 
@@ -24,3 +27,4 @@
 </body>
 
 </html>
+```
