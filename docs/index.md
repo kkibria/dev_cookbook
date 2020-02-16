@@ -6,6 +6,6 @@ title: Table of Contents
 
 {% for topic in site.topics %}
 {% raw %}
-* [{{{topic.title}}}]({{{topic.url})}] 
+* [{{{topic.title}}}]({{{topic.url}}}) 
 {% endraw %}
 {% endfor %}
