@@ -13,5 +13,5 @@ title: Table of Contents
 * [Using showdown to render markdown in browser](showdown.md)
 
 {% for topic in site.topics %}
-* [{{ topic.title }}]({{ topic.title }}] 
+* [{{topic.title}}]({{topic.title}}] 
 {% endfor %}
