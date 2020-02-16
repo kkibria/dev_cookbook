@@ -1,1 +1,2 @@
-# this repo consists of all my programming recepies
+# this repo consists of all my programming recipes
+
