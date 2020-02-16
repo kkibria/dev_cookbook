@@ -11,6 +11,6 @@ title: Table of contents
 * [Houdini](houdini.md)
 * [Using showdown to render markdown in browser](showdown.md)
 
-{% for post in site.posts %}
-  * {{ post.url }} -- {{ post.title }}
+{% for page in site.pages %}
+  * {{ page.url }} -- {{ page.title }}
 {% endfor %}
