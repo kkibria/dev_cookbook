@@ -5,6 +5,6 @@
 * [Houdini](houdini.md)
 * [Using showdown to render markdown in browser](showdown.md)
 
-{% for post in site %}
-  * {{ post.url }}
+{% for post in site.posts %}
+  * {{ post.url }} -- {{ post.title}}
 {% endfor %}
