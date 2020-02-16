@@ -1,6 +1,7 @@
 ---
 
-title: Table of contents
+catagory: toc
+title: Table of Contents
 
 ---
 
@@ -11,6 +12,6 @@ title: Table of contents
 * [Houdini](houdini.md)
 * [Using showdown to render markdown in browser](showdown.md)
 
-{% for page in site.pages %}
-  * {{ page.url }} -- {{ page.title }}
+{% for page in site.categories %}
+  * {{ page }} 
 {% endfor %}
