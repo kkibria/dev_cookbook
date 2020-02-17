@@ -68,7 +68,7 @@ title: Flutter matters
 
 * Set powershell script policy by running in an **admin powershell** for Windows machine. Otherwise firebase commands will not run.
 
-  ```text
+  ```khankibria
   Set-ExecutionPolicy RemoteSigned
   ```
 
