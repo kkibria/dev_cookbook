@@ -2,3 +2,6 @@ theme: jekyll-theme-cayman
 collections:
   topics:
     output: true
+
+defaults:
+  layout: default
