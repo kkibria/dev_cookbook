@@ -1,3 +1,4 @@
 theme: jekyll-theme-cayman
 collections:
-  - topics
+  topics:
+    output: true
