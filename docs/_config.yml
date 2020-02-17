@@ -2,6 +2,7 @@ theme: jekyll-theme-cayman
 collections:
   topics:
     output: true
+    permalink: /:collection/:path/
 
 defaults:
   layout: default
