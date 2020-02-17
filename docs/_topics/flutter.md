@@ -1,6 +1,6 @@
 ---
 title: Flutter matters
-layout: deafult
+layout: default
 ---
 
 # {{ page.title }}
