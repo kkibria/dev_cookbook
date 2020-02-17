@@ -5,4 +5,4 @@ collections:
     permalink: /:collection/:path/
 
 defaults:
-  layout: default
+  layout: topic
