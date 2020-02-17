@@ -1,10 +1,8 @@
-# This repo consists of all my programming recipes
+---
+title: Javascript libraries that can be included in the documents
+---
 
-## gitbook articles that inspired me to create this book
-
-* [https://medium.com/@rebeccapeltz/publish-your-book-online-with-gitbook-fc0ce9b7f12](https://medium.com/@rebeccapeltz/publish-your-book-online-with-gitbook-fc0ce9b7f12)
-
-## Javascript libraries that can be included in the documents
+# {{ page.title }}
 
 * for math expression https://github.com/KaTeX/KaTeX is a good library to provide client side rendering. Need to explore...
 
