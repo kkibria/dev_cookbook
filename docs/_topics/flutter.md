@@ -82,7 +82,7 @@ flutter create <app_name>
 
 * Add git and setup for gitlab
 
-  ```text
+  ```bash
   cd <app_name>
   git init
   git add .
