@@ -2,3 +2,4 @@ theme: jekyll-theme-cayman
 collections:
   topics:
     output: true
+    theme: jekyll-theme-cayman
