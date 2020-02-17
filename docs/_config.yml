@@ -5,4 +5,8 @@ collections:
     permalink: /:collection/:path/
 
 defaults:
-  layout: topic
+  -
+    scope:
+      path: ""
+    values:
+      layout: "topic"
