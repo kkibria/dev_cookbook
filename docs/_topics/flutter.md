@@ -36,7 +36,7 @@ title: Flutter matters
 * [Everything you need to know about tree data structures](https://www.freecodecamp.org/news/all-you-need-to-know-about-tree-data-structures-bceacb85490c/)
 * [Android’s Font Renderer](https://medium.com/@romainguy/androids-font-renderer-c368bbde87d9)
 
-## Flutter PWA
+## Flutter
 
 ### Setup
 
@@ -72,54 +72,98 @@ title: Flutter matters
   Set-ExecutionPolicy RemoteSigned
   ```
 
-### Create a flutter project with PWA
+### Create a flutter project
 
-PWA will be added for web platform.
+Type following flutter cli command in shell to create a starter flutter project.
 
 ```text
 flutter create <app_name>
+cd <app_name>
 ```
+This creates a folder named '`<app_name>`' in the current working directory. Next we change working directory to newly created '`<app_name>`' folder.
 
-* Add git and setup for gitlab
+Android app, IOS app, and web app target support will be added to the project by the cli command.
 
-  ```bash
-  cd <app_name>
-  git init
-  git add .
-  git commit -m "intial commit"
-  git push --set-upstream https://gitlab.com/kkibria/<app_name>.git master
-  git remote add origin https://gitlab.com/kkibria/<app_name>.git
-  ```
+### Add git and setup for gitlab
+
+```bash
+git init
+git add .
+git commit -m "intial commit"
+git push --set-upstream https://gitlab.com/kkibria/<app_name>.git master
+git remote add origin https://gitlab.com/kkibria/<app_name>.git
+```
 
 ### Add firebase to flutter project
 
-* Create a firebase project in firebase console with the  as the porject name.
-* Add an web app to the project.
-* Add a nickname for the app \_web.
+* Create a firebase project in firebase console with the `<app_name>` as the project name.
+
+### Add firebase SDK support dart libraries to flutter project
+
+Add firebase libraries to the `dependecies` section of `pubspec.yaml` file.
+
+```
+name: mypwa
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+  firebase_auth: ^0.15.4
+  firebase_messaging: ^6.0.9
+  firebase_database: ^3.1.1
+  cloud_firestore: ^0.13.2+2
+  firebase_storage: ^3.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+```
+
+### Webapp with PWA
+PWA support was already added for web platform by `flutter create` command.
+* Add an web app to the firebase project.
+* Add a nickname for the `<app_name>_web`.
 * Click on firebase hosting option.
 * Now click on Register button.
 * Add the firebase SDK to `web/index.html` file as instruceted in firebase console.
 * In the project `Setting > General` tab select Google Cloud Platform \(GCP\) resource location.
-* Coneect the flutter project with firebase.
+
+### Coneect the flutter project with firebase.
+
+Run following firebase CLI command from inside <app_name> directory.
 
 ```text
-# run from inside <app_name> directory
 firebase init
 ```
 
-Select either `Realtime Database` or `Firestore`, Because you can use only one of them. Both can be use if there is a need but probably not common. Check the rest of the options as necessary.
-
-
-
-hit enter.
+Select either `Realtime Database` or `Firestore`, or both as necessary. Both can be used if there is a need but probably not common. Check the rest of the options as necessary as well. Hit enter.
 
 Select `Exiting project` and hit enter. Then select the firebase project you just created.
 
-Note: selecting firestore is giving index trouble, so I selected Realtime
+Note: selecting firestore is giving index trouble, so I selected Realtime.
 
 Select all defaults except for the public directory, type `build/web`.
 
-It will build an `index.html` file in `build/web` directory. Copy the firebase relevant portion in this file to the web template `web/index.html` file to update the template for future `flutter build web` command to build the app.
+## Android app from flutter
+Todo......
+
+## IOS app from flutter
+Todo.....
+
+## Web app from flutter
+
+### Update the flutter web template
+`firebase init` will build an `index.html` file in `build/web` directory. Copy the firebase relevant portion in this file to the web template `web/index.html` file to update the template for future `flutter build web` command to build the app.
 
 The template will end up looking something like the following,
 
@@ -186,6 +230,7 @@ The template will end up looking something like the following,
 </body>
 </html>
 ```
+
 
 now you can use,
 
