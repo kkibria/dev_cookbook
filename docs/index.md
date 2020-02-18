@@ -1,5 +1,5 @@
 ---
-title: Table of contents111
+title: Table of contents
 ---
 
 # {{ page.title }}
