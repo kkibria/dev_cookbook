@@ -98,8 +98,9 @@ git remote add origin https://gitlab.com/kkibria/<app_name>.git
 
 ### Create a firebase project
 * Go to firebase [console](https://console.firebase.google.com).
-
 * Create a new firebase project in firebase console with the `<app_name>` as the project name.
+* In the project `Setting > General` tab select Google Cloud Platform \(GCP\) resource location.
+* Select the `Database` tab. Configure the firestore database into Native mode.
 
 ### Add the firebase SDK support libraries
 
@@ -129,8 +130,6 @@ PWA support was already added for web platform by `flutter create` command. We n
 * Click on firebase hosting option.
 * Now click on Register button.
 * It will show a javascript snippet that will show how to add firebase javascript SDK to `web/index.html`. For now we wont add the snippet. We will do it later.
-* In the project `Setting > General` tab select Google Cloud Platform \(GCP\) resource location.
-* Configure firestore into Native mode.
 
 ### Coneect the flutter web target with firebase webapp.
 
@@ -162,17 +161,11 @@ Todo.....
 The template will end up looking something like the following,
 
 ```text
-<!DOCTYPE html>
-<html>
 <head>
-
   ...
-
   <title>my awesome pwa app</title>
   <link rel="manifest" href="/manifest.json">
-
   ...
-
   <!-- update the version number as needed -->
   <script defer src="/__/firebase/7.8.2/firebase-app.js"></script>
   <!-- include only the Firebase features as you need -->
@@ -184,46 +177,8 @@ The template will end up looking something like the following,
   <script defer src="/__/firebase/7.8.2/firebase-storage.js"></script>
   <!-- initialize the SDK after all desired features are loaded -->
   <script defer src="/__/firebase/init.js"></script>
-
+  ...
 </head>
-
-<body>
-  <!-- This script installs service_worker.js to provide PWA functionality to
-       application. For more information, see:
-       https://developers.google.com/web/fundamentals/primers/service-workers -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/flutter_service_worker.js');
-      });
-    }
-  </script>
-
-  ...
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      try {
-        let app = firebase.app();
-        let features = 
-          [
-            'auth', 
-            'database',
-            'firestore', 
-            'messaging', 
-            'storage'
-          ].filter(feature => typeof app[feature] === 'function');
-      } catch (e) {
-        console.error(e);
-      }
-    });
-  </script>
-
-  ...
-
-  <script src="main.dart.js" type="application/javascript"></script>
-</body>
-</html>
 ```
 
 
