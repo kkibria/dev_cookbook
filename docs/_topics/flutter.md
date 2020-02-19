@@ -97,12 +97,13 @@ git remote add origin https://gitlab.com/kkibria/<app_name>.git
 ## Add firebase to tha flutter project
 
 ### Create a firebase project
+* Go to firebase [console](https://console.firebase.google.com).
 
-Create a new firebase project in firebase console with the `<app_name>` as the project name.
+* Create a new firebase project in firebase console with the `<app_name>` as the project name.
 
-### Add firebase SDK support dart libraries to flutter project
+### Add the firebase SDK support libraries
 
-Add firebase libraries to the `dependecies` section of `pubspec.yaml` file.
+Add firebase dart libraries to the `dependecies` section of `pubspec.yaml` file.
 
 ```
 ...
@@ -129,6 +130,7 @@ PWA support was already added for web platform by `flutter create` command. We n
 * Now click on Register button.
 * It will show a javascript snippet that will show how to add firebase javascript SDK to `web/index.html`. For now we wont add the snippet. We will do it later.
 * In the project `Setting > General` tab select Google Cloud Platform \(GCP\) resource location.
+* Configure firestore into Native mode.
 
 ### Coneect the flutter web target with firebase webapp.
 
