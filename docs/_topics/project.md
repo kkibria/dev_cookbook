@@ -14,4 +14,3 @@ git commit -m "intial commit"
 git push --set-upstream https://gitlab.com/kkibria/prj_dir.git master
 git remote add origin https://gitlab.com/kkibria/prj_dir.git
 ```
-
