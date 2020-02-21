@@ -1,0 +1,20 @@
+---
+title: Flutter Sign-in for your users
+---
+
+# {{ page.title }}
+
+## google sign in
+Enable the google sign-in in the authentication tab in firebase console for the project. In the enable dialog, expand the web SDK config.
+Copy the Web client ID and save setting.  Lets say this value is ``somerandomstuff.apps.googleusercontent.com``. Now copy the client ID value into the ``web/index.html`` file in a meta tag.
+
+```text
+<head>
+  ...
+  <meta name="google-signin-client_id" content="somerandomstuff.apps.googleusercontent.com" />
+  ...
+  <title>my awesome pwa app</title>
+  <link rel="manifest" href="/manifest.json">
+  ...
+ /head>
+```
