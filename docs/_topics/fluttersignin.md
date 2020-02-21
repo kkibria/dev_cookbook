@@ -18,3 +18,6 @@ Copy the Web client ID and save setting.  Lets say this value is ``somerandomstu
   ...
  /head>
 ```
+
+## email link sign in
+* read [article](https://medium.com/@huzaifa.ameen229/firebase-email-link-authentication-ac2504068562)
