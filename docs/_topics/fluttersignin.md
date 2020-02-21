@@ -22,3 +22,4 @@ Copy the Web client ID and save setting.  Lets say this value is ``somerandomstu
 ## email link sign in
 * read [article](https://medium.com/@huzaifa.ameen229/firebase-email-link-authentication-ac2504068562)
 * read [article](https://medium.com/@ayushsahu_52982/passwordless-login-with-firebase-flutter-f0819209677)
+* read [article](https://medium.com/mindorks/working-with-firebase-dynamic-links-a581df8fee6f)
