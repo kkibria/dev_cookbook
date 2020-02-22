@@ -66,5 +66,8 @@ FYI, you can restore hard disk drive from a previously generated ISO image using
 $ sudo dd if=output.iso of=/dev/dvd bs=4096 conv=noerror
 ```
 
+## Windows platform DVD decoding in Handbrake
+Widonws distribution lacks video decoder for some DVDs. You will see choppy output in sudch case. Download [libdvdcss-2.dll file from VLC](http://download.videolan.org/pub/libdvdcss/1.2.12/) and copy into HandBrake directory. It should resolve the decoder issue.
+
 > I got these instructions from [article1](https://www.lifewire.com/how-to-use-ubuntu-to-convert-dvds-to-mp4-4111375) and [article2](https://www.cyberciti.biz/tips/linux-creating-cd-rom-iso-image.html). Read for more details. 
 
