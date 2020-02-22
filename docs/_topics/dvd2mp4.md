@@ -80,5 +80,5 @@ Widonws distribution lacks video decoder for some DVDs. You will see choppy outp
 > * [linux-creating-cd-rom-iso-image](https://www.cyberciti.biz/tips/linux-creating-cd-rom-iso-image.html).
 > * [wikipedia dd](https://en.wikipedia.org/wiki/Dd_(Unix)).
 
-{% assign links =  "one two" | split " " %}
-{{ links | push: "blah" }}
+{% assign links = "one two" | split " " %}
+{{ links }}
