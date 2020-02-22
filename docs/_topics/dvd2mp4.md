@@ -79,5 +79,4 @@ Widonws distribution lacks video decoder for some DVDs. You will see choppy outp
 > * [how-to-use-ubuntu-to-convert-dvds-to-mp4](https://www.lifewire.com/how-to-use-ubuntu-to-convert-dvds-to-mp4-4111375).
 > * [linux-creating-cd-rom-iso-image](https://www.cyberciti.biz/tips/linux-creating-cd-rom-iso-image.html).
 > * [wikipedia dd](https://en.wikipedia.org/wiki/Dd_(Unix)).
-> * {{ "https://en.wikipedia.org/wiki/Dd_(Unix)" | split "_" | join " " }} 
-
+>
