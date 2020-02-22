@@ -49,16 +49,22 @@ sudo dpkg-reconfigure libdvd-pkg
 The old linux machine which has a DVD drive is slow. My other machine is fast but there is no DVD drive. So I decided to rip the DVDs to ISO image first and then use the faster machine to turn into mp4. 
 
 Create an ISO disk image from a CD-ROM, DVD or Blu-ray disk.
-First get blocksize. I am using ``/dev/dvd``.
+First get block count. I am using ``/dev/dvd``. In your machine it could be ``/dev/sr0``. Make sure you are using the right device name for your machine.
 ```
 isosize -d 2048 /dev/dvd
 ```
 
 Now run dd command and display progress bar while using dd command:
-
 ```
 $ sudo dd if=/dev/dvd of=output.iso bs=2048 count=<blocks> status=progress
 ```
+
+Combining both in the same script,
+```
+blocks=$(isosize -d 2048 /dev/dvd)
+dd if=/dev/sr0 of=isoimage.iso bs=2048 count=$blocks status=progress
+```
+
 Now you can use output.iso for hard disk installation or as a backup copy of CD/DVD media. Please note that dd command is standard UNIX command and you should able to create backup/iso image under any UNIX like operating system.
 
 FYI, you can restore hard disk drive from a previously generated ISO image using the dd command itself using,
@@ -69,5 +75,9 @@ $ sudo dd if=output.iso of=/dev/dvd bs=4096 conv=noerror
 ## Windows platform DVD decoding in Handbrake
 Widonws distribution lacks video decoder for some DVDs. You will see choppy output in sudch case. Download [libdvdcss-2.dll file from VLC](http://download.videolan.org/pub/libdvdcss/1.2.12/) and copy into HandBrake directory. It should resolve the decoder issue.
 
-> I got these instructions from [article1](https://www.lifewire.com/how-to-use-ubuntu-to-convert-dvds-to-mp4-4111375) and [article2](https://www.cyberciti.biz/tips/linux-creating-cd-rom-iso-image.html). Read for more details. 
+> I got these instructions from following sources. Read for more details. 
+> * [how-to-use-ubuntu-to-convert-dvds-to-mp4](https://www.lifewire.com/how-to-use-ubuntu-to-convert-dvds-to-mp4-4111375).
+> * [linux-creating-cd-rom-iso-image](https://www.cyberciti.biz/tips/linux-creating-cd-rom-iso-image.html).
+> * [wikipedia dd](https://en.wikipedia.org/wiki/Dd_(Unix)).
+> * {{ https://en.wikipedia.org/wiki/Dd_(Unix) | url_title }} 
 
