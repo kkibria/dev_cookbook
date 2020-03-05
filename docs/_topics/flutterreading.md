@@ -41,3 +41,6 @@ title: Flutter matters
 ## Stack Overflow
 * google api problem [https://stackoverflow.com/questions/58495985/firebase-403-permission-denied-firebaseerror-installations-requests-are-blo/58496014\#58496014](https://stackoverflow.com/questions/58495985/firebase-403-permission-denied-firebaseerror-installations-requests-are-blo/58496014#58496014)
 
+## Flutter UI design tools
+* (flutter IDE)[https://github.com/Norbert515/flutter_ide]
+* (flutter studio)[https://medium.com/@pmutisya/flutter-studio-version-2-41cce10fcf3d], no source code! he has two apps, (https://flutterstudio.app)[https://flutterstudio.app] and (https://devicedb.app/)[https://devicedb.app/].
