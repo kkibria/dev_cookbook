@@ -96,9 +96,16 @@ lists all the tracks.
 cdparanoia -B
 ```
 
-converts all the tracks in ``.wav`` format.
+converts all the tracks in ``.wav`` format. If the CD has bad tracks and you dont want those tracks then ``-X``
+option will not output those tracks.
 
-following python snippet will convert all the files tp mp3.
+```
+cdparanoia -BX
+```
+
+
+
+Following python snippet will convert all the files tp mp3.
 
 ```
 #!/usr/bin/env python3
