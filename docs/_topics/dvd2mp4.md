@@ -1,9 +1,10 @@
 ---
-title: Converting old DVDs into mp4
+title: Converting old DVDs/cd into mp4/mp3
 ---
 
 # {{ page.title }}
 
+# DVDs
 Old DVDs take space and bulky. I have tons of those that I accumulated over the years and running out of space in my cabinet. This will be an ongoing project for me to turn them into mp4 so that I can store them in a hard drive and view them from my TV.
 
 You will need first install the following software before ripping a DVD:
@@ -73,9 +74,34 @@ $ sudo dd if=output.iso of=/dev/dvd bs=4096 conv=noerror
 ```
 
 ## Windows platform DVD decoding in Handbrake
-Windows distribution lacks video decoder for some DVDs. You will see choppy output in sudch case. Download [libdvdcss-2.dll file from VLC](http://download.videolan.org/pub/libdvdcss/1.2.12/) and copy into HandBrake directory. It should resolve the decoder issue.
+Windows distribution lacks video decoder for some DVDs. You will see choppy output in such case. Download [libdvdcss-2.dll file from VLC](http://download.videolan.org/pub/libdvdcss/1.2.12/) and copy into HandBrake directory. It should resolve the decoder issue.
 
 > I got these instructions from following sources. Read for more details. 
 > * [how-to-use-ubuntu-to-convert-dvds-to-mp4](https://www.lifewire.com/how-to-use-ubuntu-to-convert-dvds-to-mp4-4111375).
 > * [linux-creating-cd-rom-iso-image](https://www.cyberciti.biz/tips/linux-creating-cd-rom-iso-image.html).
 > * [wikipedia dd](https://en.wikipedia.org/wiki/Dd_(Unix)).
+
+
+# Audio CDs
+This [recepie](https://www.cyberciti.biz/faq/linux-ripping-and-encoding-audio-files/) worked pretty good.
+install ``cdparanoia`` and ``lame``
+
+
+```
+cdparanoia -vsQ
+```
+lists all the tracks.
+
+```
+cdparanoia -B
+```
+
+converts all the tracks in ``.wav`` format.
+
+following python snippet will convert all the files tp mp3.
+
+```
+```
+
+
+
