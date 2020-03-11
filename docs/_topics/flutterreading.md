@@ -46,3 +46,6 @@ title: Flutter matters
 * [flutter studio](https://medium.com/@pmutisya/flutter-studio-version-2-41cce10fcf3d), no source code! he has two apps, [https://flutterstudio.app](https://flutterstudio.app) and [https://devicedb.app/](https://devicedb.app/).
 * [anotther flutter studio project](https://github.com/thebuggycoder/flutterstudio), 
 has source code but broken code at the moment.
+
+## Dart serialization
+* [serializing-your-object-in-flutter](https://medium.com/flutter-community/serializing-your-object-in-flutter-ab510f0b8b47)
