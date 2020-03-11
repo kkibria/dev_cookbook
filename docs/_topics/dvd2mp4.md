@@ -103,9 +103,7 @@ option will not output those tracks.
 cdparanoia -BX
 ```
 
-
-
-Following python snippet will convert all the files tp mp3.
+Following python snippet will convert all the files tp mp3 using ``lame``.
 
 ```
 #!/usr/bin/env python3
