@@ -15,3 +15,5 @@ git push --set-upstream https://gitlab.com/kkibria/prj_dir.git master
 git remote add origin https://gitlab.com/kkibria/prj_dir.git
 git pull
 ```
+
+I created a convenience npm module that will execute the above commands without typing them individually. You can clone from [https://gitlab.com/kkibria/gitlab.git](https://gitlab.com/kkibria/gitlab.git), build the npm module and install.
