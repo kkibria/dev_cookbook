@@ -101,6 +101,17 @@ converts all the tracks in ``.wav`` format.
 following python snippet will convert all the files tp mp3.
 
 ```
+#!/usr/bin/env python3
+import os
+from pathlib import Path
+
+for path in Path('.').rglob('*.wav'):
+    newpath = path.with_name(path.stem.replace(' ', '-') +'.mp3')
+    cmd = "lame -V2 '{0}' '{1}';rm '{0}';".format(str(path), str(newpath))
+    print(cmd)
+    returned_value = os.system(cmd)
+    print(returned_value)
+    
 ```
 
 
