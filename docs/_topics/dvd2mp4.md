@@ -98,7 +98,7 @@ cdparanoia -B
 
 converts all the tracks in ``.wav`` format.
 
-following python snippet will convert all the files tp mp3.
+following python snippet will convert all the files tp mp3 using ``lame``.
 
 ```
 #!/usr/bin/env python3
