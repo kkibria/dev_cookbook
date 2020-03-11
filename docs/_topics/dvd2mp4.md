@@ -73,7 +73,7 @@ $ sudo dd if=output.iso of=/dev/dvd bs=4096 conv=noerror
 ```
 
 ## Windows platform DVD decoding in Handbrake
-Widonws distribution lacks video decoder for some DVDs. You will see choppy output in sudch case. Download [libdvdcss-2.dll file from VLC](http://download.videolan.org/pub/libdvdcss/1.2.12/) and copy into HandBrake directory. It should resolve the decoder issue.
+Windows distribution lacks video decoder for some DVDs. You will see choppy output in sudch case. Download [libdvdcss-2.dll file from VLC](http://download.videolan.org/pub/libdvdcss/1.2.12/) and copy into HandBrake directory. It should resolve the decoder issue.
 
 > I got these instructions from following sources. Read for more details. 
 > * [how-to-use-ubuntu-to-convert-dvds-to-mp4](https://www.lifewire.com/how-to-use-ubuntu-to-convert-dvds-to-mp4-4111375).
