@@ -49,3 +49,84 @@ has source code but broken code at the moment.
 
 ## Dart serialization
 * [serializing-your-object-in-flutter](https://medium.com/flutter-community/serializing-your-object-in-flutter-ab510f0b8b47)
+
+## Page Routing
+* Flutter [web routing with parameters](https://medium.com/flutter-community/advance-url-navigation-for-flutter-web-d8b5f2d424e6)
+
+
+## Firebase security videos
+* [Security Rules](https://youtu.be/DBKB6r5BFqo)
+* [Firebase Database Rules Tutorial](https://youtu.be/qLrDWBKTUZo)
+* [Firestore Rules Testing with the Emulator - New Feature](https://youtu.be/Rx4pVS1vPGY)
+
+## Firebase database rule generator
+* [bolt](https://github.com/FirebaseExtended/bolt)
+
+## Cloud Firestore rule generator
+* [fireward](https://github.com/bijoutrouvaille/fireward)
+
+## Firestore
+* [Firestore Security Rules Cookbook](https://fireship.io/snippets/firestore-rules-recipes/)
+
+
+### firestore rules common functions
+```
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    function emailVerified() {
+      return request.auth.token.email_verified;
+    }
+    function userExists() {
+      return exists(/databases/$(database)/documents/users/$(request.auth.uid));
+    }
+
+    // [READ] Data that exists on the Firestore document
+    function existingData() {
+      return resource.data;
+    }
+    // [WRITE] Data that is sent to a Firestore document
+    function incomingData() {
+      return request.resource.data;
+    }
+
+    // Does the logged-in user match the requested userId?
+    function isUser(userId) {
+      return request.auth.uid == userId;
+    }
+
+    // Fetch a user from Firestore
+    function getUserData() {
+      return get(/databases/$(database)/documents/accounts/$(request.auth.uid)).data
+    }
+
+    // Fetch a user-specific field from Firestore
+    function userEmail(userId) {
+      return get(/databases/$(database)/documents/users/$(userId)).data.email;
+    }
+
+
+    // example application for functions
+    match /orders/{orderId} {
+      allow create: if isSignedIn() && emailVerified() && isUser(incomingData().userId);
+      allow read, list, update, delete: if isSignedIn() && isUser(existingData().userId);
+    }
+
+  }
+}
+```
+
+### firestore rules data validation
+
+```
+function isValidProduct() {
+  return incomingData().price > 10 && 
+         incomingData().name.size() < 50 &&
+         incomingData().category in ['widgets', 'things'] &&
+         existingData().locked == false && 
+         getUserData().admin == true
+}
+```
