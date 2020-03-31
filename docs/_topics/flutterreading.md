@@ -139,5 +139,6 @@ function isValidProduct() {
 * [https://github.com/jorgecoca/todo_reporter.dart](https://github.com/jorgecoca/todo_reporter.dart)
 
 
-## Flutter renderobject
+## Flutter renderobject / painting
 * [How to Create a Flutter Widget Using a RenderObject](https://nicksnettravels.builttoroam.com/create-a-flutter-widget/)
+* [Creating a custom clock widget in Flutter](https://stackoverflow.com/questions/45130497/creating-a-custom-clock-widget-in-flutter/45133660)
