@@ -130,3 +130,14 @@ function isValidProduct() {
          getUserData().admin == true
 }
 ```
+
+
+
+## dart code generation
+* [[Part 1] Code generation in Dart: the basics](https://medium.com/flutter-community/part-1-code-generation-in-dart-the-basics-3127f4c842cc)
+* [[Part 2] Code generation in Dart: Annotations, source_gen and build_runner](https://medium.com/flutter-community/part-2-code-generation-in-dart-annotations-source-gen-and-build-runner-bbceee28697b)
+* [https://github.com/jorgecoca/todo_reporter.dart](https://github.com/jorgecoca/todo_reporter.dart)
+
+
+## Flutter renderobject
+* [How to Create a Flutter Widget Using a RenderObject](https://nicksnettravels.builttoroam.com/create-a-flutter-widget/)
