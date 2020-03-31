@@ -15,6 +15,7 @@ title: Flutter matters
 * [full-flutter-website](https://medium.com/flutter-community/more-than-a-flutter-web-app-is-a-full-flutter-website-c6bb210b1f16)
 * [flutter-web-plugin](https://medium.com/flutter/how-to-write-a-flutter-web-plugin-5e26c689ea1)
 
+
 ## YouTube videos
 * [Widgets 101](https://www.youtube.com/watch?v=CXedqMlLo7M)
 * [Flutter's Rendering Pipeline](https://www.youtube.com/watch?v=UUfXWzp0-DU)
@@ -37,6 +38,10 @@ title: Flutter matters
 * [Flutter’s Rendering Engine: A Tutorial ](https://medium.com/saugo360/flutters-rendering-engine-a-tutorial-part-1-e9eff68b825d)
 * [Everything you need to know about tree data structures](https://www.freecodecamp.org/news/all-you-need-to-know-about-tree-data-structures-bceacb85490c/)
 * [Android’s Font Renderer](https://medium.com/@romainguy/androids-font-renderer-c368bbde87d9)
+
+## Flutter renderobject / painting
+* [How to Create a Flutter Widget Using a RenderObject](https://nicksnettravels.builttoroam.com/create-a-flutter-widget/)
+* [Creating a custom clock widget in Flutter](https://stackoverflow.com/questions/45130497/creating-a-custom-clock-widget-in-flutter/45133660)
 
 ## Stack Overflow
 * google api problem [Firebase: 403 PERMISSION_DENIED](https://stackoverflow.com/questions/58495985/firebase-403-permission-denied-firebaseerror-installations-requests-are-blo/58496014#58496014)
@@ -139,6 +144,3 @@ function isValidProduct() {
 * [https://github.com/jorgecoca/todo_reporter.dart](https://github.com/jorgecoca/todo_reporter.dart)
 
 
-## Flutter renderobject / painting
-* [How to Create a Flutter Widget Using a RenderObject](https://nicksnettravels.builttoroam.com/create-a-flutter-widget/)
-* [Creating a custom clock widget in Flutter](https://stackoverflow.com/questions/45130497/creating-a-custom-clock-widget-in-flutter/45133660)
