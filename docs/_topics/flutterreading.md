@@ -144,3 +144,8 @@ function isValidProduct() {
 * [todo_reporter.dart in github](https://github.com/jorgecoca/todo_reporter.dart)
 
 
+## flutter markdown editing
+We can use this editor as a basis for markdown editing
+* [Soft and gentle rich text editing](https://github.com/memspace/zefyr)
+* [Markdown Editor With Flutter](https://learningflutter.net/flutter-markdown-editor/). 
+This is incomplete, but at least the idea is there for us to examine.
