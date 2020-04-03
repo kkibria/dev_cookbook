@@ -149,3 +149,8 @@ We can use this editor as a basis for markdown editing
 * [Soft and gentle rich text editing](https://github.com/memspace/zefyr)
 * [Markdown Editor With Flutter](https://learningflutter.net/flutter-markdown-editor/). 
 This is incomplete, but at least the idea is there for us to examine.
+
+## Built_Value library
+* [Dart’s built_value for Immutable Object Models](https://medium.com/dartlang/darts-built-value-for-immutable-object-models-83e2497922d4)
+* [Dart’s built_collection for Immutable Collections](https://medium.com/dartlang/darts-built-collection-for-immutable-collections-db662f705eff)
+* [Introduction To Built_Value Library In Dart](https://www.stacksecrets.com/flutter/introduction-to-built_value-library-in-dart)
