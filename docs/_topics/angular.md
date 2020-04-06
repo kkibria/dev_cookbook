@@ -18,9 +18,3 @@ Should we use material2 instead of bootstrap? some people say matrial2 grid has 
 
 ## web based code editor/text editor
 * [codemirror](https://codemirror.net/), source in [github](https://github.com/codemirror/codemirror)
-
-## Svelte with firebase
-* [Rich Harris - Rethinking reactivity](https://youtu.be/AdNJ3fydeao)
-* [svelte.dev](https://svelte.dev/)
-* [Svelte 3 Reaction & QuickStart Tutorial](https://youtu.be/043h4ugAj4c)
-
