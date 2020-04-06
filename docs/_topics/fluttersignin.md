@@ -16,7 +16,7 @@ Copy the Web client ID and save setting.  Lets say this value is ``somerandomstu
   <title>my awesome pwa app</title>
   <link rel="manifest" href="/manifest.json">
   ...
- /head>
+/head>
 ```
 
 ## email link sign in
