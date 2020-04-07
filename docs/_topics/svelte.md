@@ -29,6 +29,8 @@ title: Svelte, firebase
 * [migrating to Sapper part 3 - RSS feed](https://lacourt.dev/2019/06/29)
 * [migrating to Sapper part 2 bis - Netlify, GitHub Actions with Cypress.io](https://lacourt.dev/2019/06/30)
 
+## Search Engine Optimisation (SEO)
+* [SPA SEO: A Single-Page App Guide to Google’s 1st Page](https://snipcart.com/spa-seo)
 
 ## A recepie to be tried
 from <https://dev.to/nedwards/comment/h1l7> ...snip -->
