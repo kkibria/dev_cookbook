@@ -5,6 +5,7 @@ title: Svelte, firebase
 
 ## svelte components
 * <https://github.com/hperrin/svelte-material-ui>
+* <https://github.com/collardeau/svelte-fluid-header>
 
 ## Svelte with firebase
 * [svelte](https://svelte.dev/)
