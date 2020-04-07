@@ -57,6 +57,7 @@ firebase init
 * don't install dependencies now
 * public directory: functions/static (Sapper project will go into functions folder)
 * SPA: no
+
 Move or rename ``package.json``, and delete ``.gitignore`` (sapper will create these for us later)
 
 ```bash
@@ -91,6 +92,7 @@ npm install
 ``index.js``:
 * ``const {expressServer} = require('./__sapper__/build/server/server')``
 * ``exports.ssr = functions.https.onRequest(expressServer);``
+
 ```bash
 npm run build
 npm run dev
@@ -102,6 +104,7 @@ Page reload will bring up Sapper project.
 ``firebase.json``:
 
 * ``"rewrites": [ { "source": "**", "function": "ssr" }]``
+
 ```bash
 npm run build
 firebase deploy
@@ -120,6 +123,7 @@ In output, look for confirmation that content is SSR.
 
 ``routes``:
 * create new ``.svelte`` page, and add some quick HTML content
+
 ```
 npm run deploy
 ```
