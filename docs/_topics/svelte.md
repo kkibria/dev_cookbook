@@ -39,7 +39,10 @@ Thanks very much for breaking this down.
 
 I also tried following this video, 
 <https://youtu.be/fxfFMn4VMpQ>
-and found the workflow a bit more manageable when creating a Firebase project first, and then adding in a new Sapper project. I got through it without any issues, on Windows. Would have much preferred it to be a write-up like yours though, so here's a summary:
+and found the workflow a bit more manageable when creating a Firebase project. Sources from video <https://github.com/sveltecasts/006-deploy-sapper-to-firebase-cloud-functions>. 
+
+
+First, and then adding in a new Sapper project. I got through it without any issues, on Windows. Would have much preferred it to be a write-up like yours though, so here's a summary:
 
 Create a new empty folder, then navigate to it in the VS Code terminal.
 
