@@ -1,6 +1,7 @@
 ---
 title: Svelte, firebase
 ---
+# {{ page.title }}
 
 ## Svelte with firebase
 * [svelte](https://svelte.dev/)
