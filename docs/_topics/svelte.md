@@ -3,6 +3,9 @@ title: Svelte, firebase
 ---
 # {{ page.title }}
 
+## svelte components
+* <https://github.com/hperrin/svelte-material-ui>
+
 ## Svelte with firebase
 * [svelte](https://svelte.dev/)
 * [Rich Harris - Rethinking reactivity](https://youtu.be/AdNJ3fydeao)
