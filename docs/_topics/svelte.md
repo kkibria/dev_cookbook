@@ -14,7 +14,7 @@ title: Svelte, firebase
 * [Client-side (SPA) routing in Svelte](https://youtu.be/edFp-vuDlLs)
 * [Micro client-side router inspired by the Express router](https://visionmedia.github.io/page.js/)
 * [Svelte routing with page.js, Part 1](https://dev.to/ism/svelte-routing-with-page-js-part-1-2h9h)
-* [Svelte routing with page.js, Part 2](https://dev.to/ism/svelte-routing-with-page-js-part-2-4l76)
+* [Svelte routing with page.js, Part 2](https://dev.to/ism/svelte-routing-with-page-js-part-2-4l76), code in <https://github.com/iljoo/svelte-pagejs>.
 
 
 ## Sapper
