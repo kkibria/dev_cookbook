@@ -3,10 +3,13 @@ title: Svelte, firebase
 ---
 # {{ page.title }}
 
-## svelte components
+## Svelte components
 * <https://github.com/hperrin/svelte-material-ui>
 * <https://github.com/collardeau/svelte-fluid-header>
 * <https://flaviocopes.com/svelte-state-management/>
+
+## Svelte Browser compatibility
+* [Making a svelte app compatible with Internet Explorer 11](https://blog.az.sg/posts/svelte-and-ie11/)
 
 ## Svelte with firebase
 * [svelte](https://svelte.dev/)
