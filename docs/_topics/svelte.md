@@ -10,6 +10,7 @@ title: Svelte, firebase
 
 ## Svelte Browser compatibility
 * [Making a svelte app compatible with Internet Explorer 11](https://blog.az.sg/posts/svelte-and-ie11/)
+* [Svelte3, Rollup and Babel7](http://simey.me/svelte3-rollup-and-babel7/)
 
 ## Svelte with firebase
 * [svelte](https://svelte.dev/)
