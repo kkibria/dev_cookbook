@@ -3,6 +3,15 @@ title: Svelte, firebase
 ---
 # {{ page.title }}
 
+## Svelte components
+* <https://github.com/hperrin/svelte-material-ui>
+* <https://github.com/collardeau/svelte-fluid-header>
+* <https://flaviocopes.com/svelte-state-management/>
+
+## Svelte Browser compatibility
+* [Making a svelte app compatible with Internet Explorer 11](https://blog.az.sg/posts/svelte-and-ie11/)
+* [Svelte3, Rollup and Babel7](http://simey.me/svelte3-rollup-and-babel7/)
+
 ## Svelte with firebase
 * [svelte](https://svelte.dev/)
 * [Rich Harris - Rethinking reactivity](https://youtu.be/AdNJ3fydeao)
