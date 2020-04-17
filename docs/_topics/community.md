@@ -16,12 +16,12 @@ How would we structure our data for such a site?
 ## NOSQL databse
 Lets assume the data will be saved in a NOSQL databse.
 
-The tructure will look like,
+The structure will look like,
 
 ```
 users:
     userid:
-
+```
     
 
 
