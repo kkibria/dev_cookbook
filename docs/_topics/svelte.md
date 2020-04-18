@@ -42,6 +42,7 @@ title: Svelte, firebase
 * [migrating to Sapper part 2 - TDD with Cypress.io](https://lacourt.dev/2019/06/21)
 * [migrating to Sapper part 3 - RSS feed](https://lacourt.dev/2019/06/29)
 * [migrating to Sapper part 2 bis - Netlify, GitHub Actions with Cypress.io](https://lacourt.dev/2019/06/30)
+* <https://github.com/fusionstrings/firebase-functions-sapper>
 
 ## SPA & Search Engine Optimization (SEO)
 * [SPA SEO: A Single-Page App Guide to Google’s 1st Page](https://snipcart.com/spa-seo)
