@@ -1,5 +1,5 @@
 ---
-title: Using showdown to perform client side processing of markup files
+title: Showdown.js, a Markup renderer in browser
 ---
 
 # {{ page.title }}
