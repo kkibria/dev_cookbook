@@ -27,7 +27,7 @@ Showdown use:
 <body>
     <script>
         var div = document.createElement("DIV");
-        document.body.appendChild(div);               // Append <button> to <body>
+        document.body.appendChild(div);   // Append <button> to <body>
         var converter = new showdown.Converter();
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {

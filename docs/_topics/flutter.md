@@ -15,11 +15,11 @@ title: Flutter Apps
   npm install -g firebase-tools
   ```
 
-* log into firebase using the firbase CLI.
+* log into firebase using the firebase CLI.
 
   ```text
   firebase login
-  # this will test the succesfull login
+  # this will test the successful login
   # by listing all your projects
   firebase projects:list
   ```
@@ -55,7 +55,7 @@ Android app, IOS app, and web app target support will be added to the project by
 ```bash
 git init
 git add .
-git commit -m "intial commit"
+git commit -m "initial commit"
 git push --set-upstream https://gitlab.com/kkibria/<app_name>.git master
 git remote add origin https://gitlab.com/kkibria/<app_name>.git
 ```
@@ -65,21 +65,21 @@ git remote add origin https://gitlab.com/kkibria/<app_name>.git
 ### Create a firebase project
 * Go to firebase [console](https://console.firebase.google.com).
 * Create a new firebase project in firebase console with the `<app_name>` as the project name.
-* In the project `Setting > General` tab select Google Cloud Platform \(GCP\) resource location.
+* In the project `Setting > General` tab select Google Cloud Platform (GCP) resource location.
 * Select the `Database` tab. Configure the firestore database into Native mode.
 
 ### Add the firebase SDK support libraries
 
-Add firebase dart libraries to the `dependecies` section of `pubspec.yaml` file.
+Add firebase dart libraries to the `dependencies` section of `pubspec.yaml` file.
 
-```
+```yaml
 ...
 
 dependencies:
   ...
 
   # flutter firebase SDK libraries
-  # comment out the ones you dont need
+  # comment out the ones you don't need
   firebase_auth: ^0.15.4
   firebase_messaging: ^6.0.9
   firebase_database: ^3.1.1
@@ -97,7 +97,7 @@ PWA support was already added for web platform by `flutter create` command. We n
 * Now click on Register button.
 * It will show a javascript snippet that will show how to add firebase javascript SDK to `web/index.html`. For now we wont add the snippet. We will do it later.
 
-## Coneect the flutter web target with firebase webapp.
+## Connect the flutter web target with firebase webapp.
 
 Run following firebase CLI command from inside <app_name> directory.
 
@@ -124,14 +124,14 @@ Todo.....
 We have to configure the web template file. When we build the web app, the web template file gets copied over to the `build/web` folder.
 
 ### Update the flutter web template
-`firebase init` will build an `index.html` file in `build/web` directory. You will see the firebase javascript SDK snippet we saw earlier, is allready included in this `index.html`. 
+`firebase init` will build an `index.html` file in `build/web` directory. You will see the firebase javascript SDK snippet we saw earlier, is already included in this `index.html`. 
 
 However, every time flutter will build our web app this file will be overridden from a template file.
 Therefore, copy the firebase relevant portion in this file to the web template `web/index.html` file to update the template. Next time we build the web target with `flutter build web` command the javascript SDK snippet will persist.
 
 The template will end up looking something like the following,
 
-```text
+```html
 <head>
   ...
   <title>my awesome pwa app</title>
@@ -140,7 +140,7 @@ The template will end up looking something like the following,
   <!-- update the version number as needed -->
   <script defer src="/__/firebase/7.8.2/firebase-app.js"></script>
   <!-- include only the Firebase features as you need -->
-  <!-- comment out the ones you dont need -->
+  <!-- comment out the ones you don't need -->
   <script defer src="/__/firebase/7.8.2/firebase-auth.js"></script>
   <script defer src="/__/firebase/7.8.2/firebase-database.js"></script>
   <script defer src="/__/firebase/7.8.2/firebase-firestore.js"></script>

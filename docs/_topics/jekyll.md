@@ -8,7 +8,7 @@ title: Jekyll stuff
 
 Filters are to be saved in ``_plugins`` directory.
 
-```
+```ruby
 module Jekyll
   module BibFilter
     REGEXP = /\bjournal\b[\w\s= \{\-\.\,\(\)\-\:\+\'\/\..]+\},?/

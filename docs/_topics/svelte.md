@@ -43,11 +43,11 @@ title: Svelte, firebase
 * [migrating to Sapper part 3 - RSS feed](https://lacourt.dev/2019/06/29)
 * [migrating to Sapper part 2 bis - Netlify, GitHub Actions with Cypress.io](https://lacourt.dev/2019/06/30)
 
-## SPA & Search Engine Optimisation (SEO)
+## SPA & Search Engine Optimization (SEO)
 * [SPA SEO: A Single-Page App Guide to Google’s 1st Page](https://snipcart.com/spa-seo)
 * [Why Single Page Application Views Should be Hydrated on the Client, Not the Server](https://love2dev.com/blog/why-single-page-application-views-should-be-hydrated-on-the-client-not-the-server/)
 
-## A recepie to be tried
+## A recipe to be tried
 from <https://dev.to/nedwards/comment/h1l7> ...snip -->
 
 Thanks very much for breaking this down.
@@ -139,7 +139,7 @@ In output, look for confirmation that content is SSR.
 ``routes``:
 * create new ``.svelte`` page, and add some quick HTML content
 
-```
+```bash
 npm run deploy
 ```
 Verify new content shows.

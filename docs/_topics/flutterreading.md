@@ -23,15 +23,12 @@ title: Flutter matters
   
 ## Firebase Auth sample
 * [firebase auth example](https://github.com/FirebaseExtended/flutterfire/tree/master/packages/firebase_auth/firebase_auth/example)
-* Youtube [Flutter Web - Firebase Authentication for your web apps](https://youtu.be/qtJU5T0tF-M).
-  Github [link](https://github.com/rajayogan/flutterweb-firebaseauth) used in this video.
 * Medium [auth-in-flutter](https://medium.com/@greg.perry/auth-in-flutter-97275b29b550)
 
 ## Firebase Auth articles
-* [do-you-really-know-cors](https://dzone.com/articles/do-you-really-know-cors)
-* [flutter-passwordless-authentication-a-guide-for-phone-email-login](https://proandroiddev.com/flutter-passwordless-authentication-a-guide-for-phone-email-login-6759252f4e)
-* [passwordless-login-with-firebase-flutter](https://medium.com/@ayushsahu_52982/passwordless-login-with-firebase-flutter-f0819209677)
-* [flutter-email-verification-and-password-reset](https://medium.com/@levimatheri/flutter-email-verification-and-password-reset-db2eed893d1d) 
+* [Flutter Password-less Authentication — a guide for phone & email login](https://proandroiddev.com/flutter-passwordless-authentication-a-guide-for-phone-email-login-6759252f4e)
+* [Flutter: How to implement Password-less login with Firebase](https://medium.com/@ayushsahu_52982/passwordless-login-with-firebase-flutter-f0819209677)
+* [Flutter: Email verification and password reset](https://medium.com/@levimatheri/flutter-email-verification-and-password-reset-db2eed893d1d) 
 
 ## Articles on rendering
 * [The Engine architecture](https://github.com/flutter/flutter/wiki/The-Engine-architecture)
@@ -39,17 +36,14 @@ title: Flutter matters
 * [Everything you need to know about tree data structures](https://www.freecodecamp.org/news/all-you-need-to-know-about-tree-data-structures-bceacb85490c/)
 * [Android’s Font Renderer](https://medium.com/@romainguy/androids-font-renderer-c368bbde87d9)
 
-## Flutter renderobject / painting
+## Flutter RenderObject / painting
 * [How to Create a Flutter Widget Using a RenderObject](https://nicksnettravels.builttoroam.com/create-a-flutter-widget/)
 * [Creating a custom clock widget in Flutter](https://stackoverflow.com/questions/45130497/creating-a-custom-clock-widget-in-flutter/45133660)
-
-## Stack Overflow
-* google api problem [Firebase: 403 PERMISSION_DENIED](https://stackoverflow.com/questions/58495985/firebase-403-permission-denied-firebaseerror-installations-requests-are-blo/58496014#58496014)
 
 ## Flutter UI design tools
 * [flutter IDE](https://github.com/Norbert515/flutter_ide)
 * [flutter studio](https://medium.com/@pmutisya/flutter-studio-version-2-41cce10fcf3d), no source code! he has two apps, [https://flutterstudio.app](https://flutterstudio.app) and [https://devicedb.app/](https://devicedb.app/).
-* [anotther flutter studio project](https://github.com/thebuggycoder/flutterstudio), 
+* [another flutter studio project](https://github.com/thebuggycoder/flutterstudio), 
 has source code but broken code at the moment.
 
 ## Dart serialization
@@ -58,93 +52,13 @@ has source code but broken code at the moment.
 ## Page Routing
 * Flutter [web routing with parameters](https://medium.com/flutter-community/advance-url-navigation-for-flutter-web-d8b5f2d424e6)
 
-
-## Firebase security videos
-* [Security Rules](https://youtu.be/DBKB6r5BFqo)
-* [Firebase Database Rules Tutorial](https://youtu.be/qLrDWBKTUZo)
-* [Firestore Rules Testing with the Emulator - New Feature](https://youtu.be/Rx4pVS1vPGY)
-
-## Firebase database rule generator
-* [bolt](https://github.com/FirebaseExtended/bolt)
-
-## Cloud Firestore rule generator
-* [fireward](https://github.com/bijoutrouvaille/fireward)
-
-## Firestore
-* [Firestore Security Rules Cookbook](https://fireship.io/snippets/firestore-rules-recipes/)
-
-
-### firestore rules common functions
-```
-service cloud.firestore {
-  match /databases/{database}/documents {
-
-    function isSignedIn() {
-      return request.auth != null;
-    }
-    function emailVerified() {
-      return request.auth.token.email_verified;
-    }
-    function userExists() {
-      return exists(/databases/$(database)/documents/users/$(request.auth.uid));
-    }
-
-    // [READ] Data that exists on the Firestore document
-    function existingData() {
-      return resource.data;
-    }
-    // [WRITE] Data that is sent to a Firestore document
-    function incomingData() {
-      return request.resource.data;
-    }
-
-    // Does the logged-in user match the requested userId?
-    function isUser(userId) {
-      return request.auth.uid == userId;
-    }
-
-    // Fetch a user from Firestore
-    function getUserData() {
-      return get(/databases/$(database)/documents/accounts/$(request.auth.uid)).data
-    }
-
-    // Fetch a user-specific field from Firestore
-    function userEmail(userId) {
-      return get(/databases/$(database)/documents/users/$(userId)).data.email;
-    }
-
-
-    // example application for functions
-    match /orders/{orderId} {
-      allow create: if isSignedIn() && emailVerified() && isUser(incomingData().userId);
-      allow read, list, update, delete: if isSignedIn() && isUser(existingData().userId);
-    }
-
-  }
-}
-```
-
-### firestore rules data validation
-
-```
-function isValidProduct() {
-  return incomingData().price > 10 && 
-         incomingData().name.size() < 50 &&
-         incomingData().category in ['widgets', 'things'] &&
-         existingData().locked == false && 
-         getUserData().admin == true
-}
-```
-
-
-
 ## dart code generation
 * [[Part 1] Code generation in Dart: the basics](https://medium.com/flutter-community/part-1-code-generation-in-dart-the-basics-3127f4c842cc)
 * [[Part 2] Code generation in Dart: Annotations, source_gen and build_runner](https://medium.com/flutter-community/part-2-code-generation-in-dart-annotations-source-gen-and-build-runner-bbceee28697b)
 * [todo_reporter.dart in github](https://github.com/jorgecoca/todo_reporter.dart)
 
 
-## flutter markdown editing
+## Flutter markdown editing
 We can use this editor as a basis for markdown editing
 * [Soft and gentle rich text editing](https://github.com/memspace/zefyr)
 * [Markdown Editor With Flutter](https://learningflutter.net/flutter-markdown-editor/). 
