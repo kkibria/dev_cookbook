@@ -6,7 +6,7 @@ title: Flutter Sign-in for your users
 
 ## Google sign in
 
-* Firebase [Google sign in](firebase#Google-sign-in)
+* Firebase [Google sign in](firebase#google-sign-in)
 
 ## Email link sign in
 * Article [Flutter: How to implement Password-less login with Firebase](https://medium.com/@ayushsahu_52982/passwordless-login-with-firebase-flutter-f0819209677).

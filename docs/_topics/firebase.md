@@ -19,7 +19,7 @@ title: Firebase matters
 ](https://stackoverflow.com/questions/51374411/.firebase-says-domain-not-whitelisted-for-a-link-that-is-whitelisted)
 
 
-## <a name="Google-sign-in"></a>Google sign in
+## Google sign in
 Enable the google sign-in in the authentication tab in firebase console for the project. In the enable dialog, expand the web SDK config.
 Copy the Web client ID and save setting.  Lets say this value is ``somerandomstuff.apps.googleusercontent.com``. Now copy the client ID value into the ``web/index.html`` file in a meta tag.
 
