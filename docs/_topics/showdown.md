@@ -6,14 +6,15 @@ title: Using showdown to perform client side processing of markup files
 
 ## Showdown
 * Github Showdown.js [source](https://github.com/showdownjs/showdown).
-* Code highlighting (showdown highlightjs extension)[https://stackoverflow.com/questions/21785658/showdown-highlightjs-extension]
-* Github Showdoen higlighter [source](https://github.com/Bloggify/showdown-highlight),
+* Code highlighting (showdown highlight js extension)[https://stackoverflow.com/questions/21785658/showdown-highlightjs-extension]
+* Github Showdown highlighter [source](https://github.com/Bloggify/showdown-highlight),
 * Highlight.js, a general purpose highlighter, <https://highlightjs.org/>, Github [source](https://github.com/highlightjs/highlight.js).
-* Check showdown extentions, [Github](https://github.com/showdownjs/extension-boilerplate). To develop a new extension take a look at their  [template](https://github.com/showdownjs/extension-boilerplate) at github. There are other extensions, google it.
+* Check showdown extensions, [Github](https://github.com/showdownjs/extension-boilerplate). To develop a new extension take a look at their  [template](https://github.com/showdownjs/extension-boilerplate) at github. There are other extensions, google it.
+* Showdown extension writeup, <https://github.com/showdownjs/ng-showdown/wiki/Creating-an-Extension>.
 
 Showdown use:
 
-```
+```html
 <!DOCTYPE html>
 <html>
 
