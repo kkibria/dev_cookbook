@@ -47,9 +47,8 @@ title: Svelte, firebase
 * [SPA SEO: A Single-Page App Guide to Google’s 1st Page](https://snipcart.com/spa-seo)
 * [Why Single Page Application Views Should be Hydrated on the Client, Not the Server](https://love2dev.com/blog/why-single-page-application-views-should-be-hydrated-on-the-client-not-the-server/)
 
-## Svelte with firebase and a router
-
-
+## Svelte with firebase and page.js router
+* I am building a template, work in progress: <https://github.com/kkibria/svelte-page-blog>.
 
 ## Svelte build to standalone app with electron
 * [Getting started with Electron and Svelte](https://dev.to/o_a_e/getting-started-with-electron-and-svelte-2gn8), 
