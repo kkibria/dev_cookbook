@@ -55,7 +55,39 @@ title: Svelte, firebase
 * [Getting started with Electron and Svelte](https://dev.to/o_a_e/getting-started-with-electron-and-svelte-2gn8), 
   github template <https://github.com/jzillmann/template-electron-svelte>.
 
+## Svelte Component exported functions
+``Comp1.svelte`` file.
+```html
+<script>
+    import Comp2, {mod_param as C2param} from 'Comp2.svelte';
 
+    console.log(C2param.someText);
+    C2param.someFunc("Comp2 function called from Comp1");
+</script>
+```
+
+``Comp2.svelte`` file.
+```html
+<script>
+  // This is component instance context
+...
+</script>
+
+<script context="module">
+  // This is component module context
+  export const mod_param = {
+    someFunc: (text) => {
+      console.log(text);
+    },
+
+    someText: "hello from Comp2" 
+  }
+</script>
+```
+> Exchanging data between components module and instance context is tricky
+> So appropriate handling required in such case. It is best to use 
+> [REPL](https://svelte.dev/repl) sandbox ``JS output`` window to 
+> check the exact use case.   
 
 
 ## A recipe to be tried
