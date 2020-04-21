@@ -3,6 +3,9 @@ title: Svelte, firebase
 ---
 # {{ page.title }}
 
+# General capabilities
+* [The Svelte Handbook](https://www.freecodecamp.org/news/the-svelte-handbook/)
+
 ## Svelte components
 * <https://github.com/hperrin/svelte-material-ui>
 * <https://github.com/collardeau/svelte-fluid-header>
