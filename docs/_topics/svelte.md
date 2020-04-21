@@ -89,6 +89,11 @@ title: Svelte, firebase
 > [REPL](https://svelte.dev/repl) sandbox ``JS output`` window to 
 > check the exact use case.   
 
+## Login data passing with context API
+
+* [REPL context API demo](https://svelte.dev/tutorial/context-api)
+* [Lighter and Faster - A Guide to the Svelte Framework](https://www.toptal.com/front-end/svelte-framework-guide),
+  Github [source](https://github.com/teimurjan/svelte-login-form)
 
 ## A recipe to be tried
 from <https://dev.to/nedwards/comment/h1l7> ...snip -->
