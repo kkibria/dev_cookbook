@@ -59,11 +59,12 @@ title: Svelte, firebase
   github template <https://github.com/jzillmann/template-electron-svelte>.
 
 ## Svelte markdown editor
-* [Build Markdown editor using Svelte in 10 minutes](https://dev.to/karkranikhil/build-markdown-editor-using-svelte-in-10-minutes-1c69), this uses [marked.js](https://marked.js.org) parser, [github](https://github.com/markedjs/marked).
+* [Build Markdown editor using Svelte in 10 minutes](https://dev.to/karkranikhil/build-markdown-editor-using-svelte-in-10-minutes-1c69),
+  this uses [marked.js](https://marked.js.org) parser, [github](https://github.com/markedjs/marked).
 * Stackedit is a vue markdown editor, but provides scroll sync. We can take
-  a look at the source code and do similar thing in Svelte. Uses <https://github.com/markdown-it/markdown-it>.
-
+  a look at the source code and do similar thing in Svelte. Uses <https://github.com/markdown-it/markdown-it>. markdown-it has most versatile
 * Nice scrollbar sync example, <https://github.com/vincentcn/markdown-scroll-sync>.
+* Another scrollbar sync example, <https://github.com/jonschlinkert/remarkable>. Look in the demo directory.
 
 ## Svelte Component exported functions
 ``Comp1.svelte`` file.
