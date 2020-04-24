@@ -65,6 +65,12 @@ title: Svelte, firebase
   a look at the source code and do similar thing in Svelte. Uses <https://github.com/markdown-it/markdown-it>. markdown-it has most versatile collection of plugins.
 * Nice scrollbar sync example, <https://github.com/vincentcn/markdown-scroll-sync>.
 * Another scrollbar sync example, <https://github.com/jonschlinkert/remarkable>. Look in the demo directory.
+* The most promising markdown editing seems to be ``markdown-it``, ``vscode`` uses this for their markdown support as well. 
+  This seems to be a project which evolved from 
+  ``remarkable``. Check Github <https://github.com/markdown-it/markdown-it> in the ``support/demo_template`` directory for the scroll syncing javascript source.
+  With some modification this can be integrated with svelte.
+  I like the way vscode does it, whenever the cursor is on a line, it finds the whole element in the preview window and draws a side bar to indicate
+  the element being edited.     
 
 ## Svelte Component exported functions
 ``Comp1.svelte`` file.
