@@ -1,10 +1,21 @@
 ---
-title: Showdown.js, a Markup renderer in browser
+title: Markdown renderer and editor in browser
 ---
 
 # {{ page.title }}
 
-## Showdown
+## markdown-it
+```bash
+#install markdown-it
+npm install markdown-it
+#install markdown-it addons
+npm install markdown-it-abbr markdown-it-container markdown-it-deflist markdown-it-emoji markdown-it-footnote markdown-it-ins markdown-it-mark markdown-it-sub markdown-it-sub
+#install highlighter for markdown
+npm install highlight.js
+```
+### setting up for markdown editing
+
+## Showdown.js
 * Github Showdown.js [source](https://github.com/showdownjs/showdown).
 * Code highlighting (showdown highlight js extension)[https://stackoverflow.com/questions/21785658/showdown-highlightjs-extension]
 * Github Showdown highlighter [source](https://github.com/Bloggify/showdown-highlight),
