@@ -1,11 +1,11 @@
 ---
-title: Firebase matters 1
+title: Firebase matters
 ---
-
-{:toc}
 
 # {{ page.title }}
 
+* This will become a table of contents (this text will be scrapped).
+{:toc}
 
 ## Firebase Auth sample
 * YouTube [Flutter Web - Firebase Authentication for your web apps](https://youtu.be/qtJU5T0tF-M).
