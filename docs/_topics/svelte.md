@@ -3,8 +3,16 @@ title: Svelte, firebase
 ---
 # {{ page.title }}
 
-# General capabilities
+## General capabilities
 * [The Svelte Handbook](https://www.freecodecamp.org/news/the-svelte-handbook/)
+
+### create a starter svelte project
+```bash
+npx degit sveltejs/template my-svelte-project
+cd my-svelte-project
+npm install
+npm run dev
+```
 
 ## Svelte components
 * <https://github.com/hperrin/svelte-material-ui>
