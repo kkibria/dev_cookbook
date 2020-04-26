@@ -7,7 +7,7 @@ title: Javascript library
 ## Using require like a node package in browser.
 
 Lets take an example where we will use node package in a javascript file. This kind of setup would work in a node environment without
-problem. But in a browser using ``require`` would normally be a problem, We can use the following method to make it work in browser.
+problem. But in a browser using ``require`` would normally be a problem. But we can use the following method to make it work in browser.
 
 In this example we will instantiate jquery with ``require`` as a node module. First get jquery module using npm. Then make ``test.js`` module as following.
 At the end of the file we will export the API.
