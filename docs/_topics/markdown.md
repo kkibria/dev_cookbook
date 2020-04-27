@@ -4,16 +4,52 @@ title: Markdown renderer and editor in browser
 
 # {{ page.title }}
 
-## markdown-it
+## ``markdown-it`` package 
 ```bash
 #install markdown-it
 npm install markdown-it
 #install markdown-it addons
-npm install markdown-it-abbr markdown-it-container markdown-it-deflist markdown-it-emoji markdown-it-footnote markdown-it-ins markdown-it-mark markdown-it-sub markdown-it-sub
+npm install markdown-it-abbr markdown-it-container markdown-it-deflist markdown-it-emoji markdown-it-footnote markdown-it-ins markdown-it-mark markdown-it-sub markdown-it-sup
 #install highlighter for markdown
 npm install highlight.js
 ```
-### setting up for markdown editing
+### Setting up for markdown editing
+
+Add a javascript file, for example ``myjs.js`` as shown,
+```javascript
+'use strict';
+
+const MarkdownIt = require('markdown-it');
+module.exports.mdHtml = new MarkdownIt()
+    .use(require('markdown-it-abbr'))
+    .use(require('markdown-it-container'), 'warning')
+    .use(require('markdown-it-deflist'))
+    .use(require('markdown-it-emoji'))
+    .use(require('markdown-it-footnote'))
+    .use(require('markdown-it-ins'))
+    .use(require('markdown-it-mark'))
+    .use(require('markdown-it-sub'))
+    .use(require('markdown-it-sup'));
+```
+Now we can [wrap this javascript for browser](jslib) and use it our webapp. For instance in Svelte we can do the following, 
+```svelte
+<script>
+    import md from "./myjs.js";
+  
+    let src = 'markdown content';
+    $:markdown = md.render(src);
+  };
+</script>
+
+<textarea bind:value={source} />
+<div>{markdown}</div>
+```
+### Synchronized scrolling
+This is a rather interesting subject, this sample [project](https://github.com/kkibria/svelte-page-blog) I did implements it using the scheme used in [markdown-it](https://github.com/markdown-it/markdown-it/blob/master/support/demo_template/index.js) demo. VS code uses something probably similar, but they have more feature. VS code [source](https://github.com/microsoft/vscode) is worth exploring to learn more.
+
+Every time the content is updated, it injects the line numbers in the generated content using ``injectLineNumbers``. Next, ``buildScrollMap`` builds a map of line number versus position using a hidden element, ``sourceLikeDiv``. This map is used by the following scroll handlers,
+* ``syncSrcScroll``: handler that monitors generated content scroll position and synchronizes the markdown source position.
+* ``syncResultScroll``: handler that monitors markdown source content scroll position and synchronizes the generated content position.
 
 ## Showdown.js
 * Github Showdown.js [source](https://github.com/showdownjs/showdown).
@@ -23,7 +59,7 @@ npm install highlight.js
 * Check showdown extensions, [Github](https://github.com/showdownjs/extension-boilerplate). To develop a new extension take a look at their  [template](https://github.com/showdownjs/extension-boilerplate) at github. There are other extensions, google it.
 * Showdown extension writeup, <https://github.com/showdownjs/ng-showdown/wiki/Creating-an-Extension>.
 
-Showdown use:
+### Showdown use
 
 ```html
 <!DOCTYPE html>
