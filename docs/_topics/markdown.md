@@ -31,7 +31,9 @@ module.exports.mdHtml = new MarkdownIt()
     .use(require('markdown-it-sub'))
     .use(require('markdown-it-sup'));
 ```
-Now we can [wrap this javascript for browser](jslib) and use it our webapp. For instance in Svelte we can do the following, 
+Now we can [wrap this javascript for browser](jslib) and use it our html web app. 
+
+For instance in Svelte we can do the following, 
 ```html
 <script>
     import md from "./myjs.js";

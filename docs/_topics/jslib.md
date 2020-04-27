@@ -47,7 +47,7 @@ js-beautify gen-test.js -o pretty-gen-test.js
 ```
 Check the outputs, you can see jquery has already been included in the output. 
 
-Now we can load ``gen-test.js`` in the browser in an html file. It also works with svelte. Following shows using it in svelte source. 
+Now we can load ``gen-test.js`` in the browser in an html file. It also works with svelte. Following shows using it in a svelte source. 
 
 ```html
 <script>
@@ -68,4 +68,4 @@ Now we can load ``gen-test.js`` in the browser in an html file. It also works wi
 </main>
 ```
 
-I have build this as an npm project in github <https://github.com/kkibria/svelte-js-library> with svelte template.
+I have built this as an npm project in [github](https://github.com/kkibria/svelte-js-library) with svelte template.
