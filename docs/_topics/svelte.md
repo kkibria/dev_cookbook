@@ -86,6 +86,10 @@ npm run dev
   I like the way vscode does it, whenever the cursor is on a line, it finds the whole element in the preview window and draws a side bar to indicate
   the element being edited.     
 
+
+## Firebase storage with svelte
+* [RxFire in Svelte 3 using Firebase Firestore and Authentication](https://dev.to/ajonpllc/rxfire-in-svelte-3-using-firebase-firestore-and-authentication-pca)
+
 ## Svelte Component exported functions
 ``Comp1.svelte`` file.
 ```html
