@@ -24,6 +24,16 @@ npm run dev
 * with tailwind we can import external css file into a component, <https://mattferderer.com/add-postcss-imports-to-tailwind-css>
 * css in js for svelte, <https://svelte.dev/blog/svelte-css-in-js>
 
+## Generated content and global styling in production build
+Svelte allows css support of generated content with global styling. However it (with postcss and purgecss) removes any css that is not being used by the static content during production build, if it is loaded from a css file using postcss-include facility even it is a global style. During development build this doesn't happen though since we don't run purgecss in development build. To ensure those styles are retained we need to tell purgecss about those. For instance if we used a highlighter such as highlight.js which prepends highlight classes with ``hljs-`` prefix. Then we can retain styling for them by adding a whitelist pattern ``/hljs-/``
+in ``postcss.config.js``.
+```javascript
+const purgecss = require('@fullhuman/postcss-purgecss')({
+  content: ['./src/**/*.svelte', './src/**/*.html'],
+  whitelistPatterns: [/svelte-/, /hljs-/],
+  defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
+})
+```
 
 ## Svelte Browser compatibility
 * [Making a svelte app compatible with Internet Explorer 11](https://blog.az.sg/posts/svelte-and-ie11/)
