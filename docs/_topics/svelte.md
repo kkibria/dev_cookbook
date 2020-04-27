@@ -19,6 +19,12 @@ npm run dev
 * <https://github.com/collardeau/svelte-fluid-header>
 * <https://flaviocopes.com/svelte-state-management/>
 
+## Styling
+* <https://css-tricks.com/what-i-like-about-writing-styles-with-svelte/>
+* with tailwind we can import external css file into a component, <https://mattferderer.com/add-postcss-imports-to-tailwind-css>
+* css in js for svelte, <https://svelte.dev/blog/svelte-css-in-js>
+
+
 ## Svelte Browser compatibility
 * [Making a svelte app compatible with Internet Explorer 11](https://blog.az.sg/posts/svelte-and-ie11/)
 * [Svelte3, Rollup and Babel7](http://simey.me/svelte3-rollup-and-babel7/)
