@@ -44,6 +44,7 @@ Copy the Web client ID and save setting.  Lets say this value is ``somerandomstu
 * [Security Rules](https://youtu.be/DBKB6r5BFqo)
 * [Firebase Database Rules Tutorial](https://youtu.be/qLrDWBKTUZo)
 * [Firestore Rules Testing with the Emulator - New Feature](https://youtu.be/Rx4pVS1vPGY)
+* [Security Rules! 🔑 | Get to Know Cloud Firestore #6](https://youtu.be/eW5MdE3ZcAw)
 
 ## Firebase database rule generator
 * [bolt](https://github.com/FirebaseExtended/bolt)
