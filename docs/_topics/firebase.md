@@ -13,14 +13,13 @@ title: Firebase matters
 
 ## Firebase Auth articles
 * Cross-Origin Resource Sharing (CORS) article, [Do you really know CORS?](https://dzone.com/articles/do-you-really-know-cors).
-
+* Using function api- [How to Build a Role-based API with Firebase Authentication](https://www.toptal.com/firebase/role-based-firebase-authentication) [github](https://github.com/joaqcid/firebase-user-role-api)
 
 ## Email link sign in
 * Article [Firebase Email Link Authentication](https://medium.com/@huzaifa.ameen229/firebase-email-link-authentication-ac2504068562).
 * Article [Working with Firebase Dynamic links](https://medium.com/mindorks/working-with-firebase-dynamic-links-a581df8fee6f).
 * We have to whitelist dynamic link domain, article [Firebase says “Domain not whitelisted” for a link that is whitelisted
 ](https://stackoverflow.com/questions/51374411/.firebase-says-domain-not-whitelisted-for-a-link-that-is-whitelisted)
-
 
 ## Google sign in
 Enable the google sign-in in the authentication tab in firebase console for the project. In the enable dialog, expand the web SDK config.
