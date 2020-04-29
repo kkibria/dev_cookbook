@@ -63,7 +63,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
 * [Svelte routing with page.js, Part 1](https://dev.to/ism/svelte-routing-with-page-js-part-1-2h9h)
 * [Svelte routing with page.js, Part 2](https://dev.to/ism/svelte-routing-with-page-js-part-2-4l76), code in <https://github.com/iljoo/svelte-pagejs>.
 * [Setting up Routing In Svelte with Page.js](https://jackwhiting.co.uk/posts/setting-up-routing-in-svelte-with-pagejs/)
-* Svelte with firebase and page.js router- I am building a template, work in progress: <https://github.com/kkibria/svelte-page-blog>.
+* Svelte with firebase and page.js router- I have built a template, work in progress: <https://github.com/kkibria/svelte-page-markdown>.
 
 ## SPA & Search Engine Optimization (SEO)
 * [SPA SEO: A Single-Page App Guide to Google’s 1st Page](https://snipcart.com/spa-seo)
