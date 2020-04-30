@@ -4,7 +4,6 @@ title: Firestore matters
 
 # {{ page.title }}
 
-
 ## Firestore security
 Cloud firestore is a database for a serverless architecture Firebase uses. Followings are notes I took from watching a google firebase team provided youtube playlist [Get to know Cloud Firestore](https://www.youtube.com/playlist?list=PLl-K7zZEsYLluG5MCVEzXAQ7ACZBCuZgZ).
 
@@ -43,12 +42,11 @@ var messageRef = firestore.collection('rooms').doc('roomA').collection('messages
 Each level fragment pattern will come in pair ``.collection(...).doc(...)``.
 
 
-every field is automatically indexed in a document
-depending on the search we have create composite indexes
-if a search fails firestore will send a link to console
-which can be used to create exact composite that is needed.
+Every field in a document is automatically indexed by Firestore. Depending on the search we may have create composite indexes
+if a search fails. Firestore will send a link to console
+which can be used to create exact composite index that is needed for that specific search.
 
-Note, we will have to copy it back to our firestore project.
+Note, we will have to copy the composite index it back to our firestore project so that it will be pushed when we deploy next time.
 > Question: does the firestore emulator do the same? Answer No.
 Emulator will automatically build the indexes if it is missing.
 there is no way currently to figure out what are the indexes

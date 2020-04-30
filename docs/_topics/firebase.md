@@ -14,6 +14,7 @@ title: Firebase matters
 ## Firebase Auth articles
 * Cross-Origin Resource Sharing (CORS) article, [Do you really know CORS?](https://dzone.com/articles/do-you-really-know-cors).
 * Using function api- [How to Build a Role-based API with Firebase Authentication](https://www.toptal.com/firebase/role-based-firebase-authentication) [github](https://github.com/joaqcid/firebase-user-role-api)
+* [Controlling Data Access Using Firebase Auth Custom Claims (Firecasts)](https://youtu.be/3hj_r_N0qMs)
 
 ## Email link sign in
 * Article [Firebase Email Link Authentication](https://medium.com/@huzaifa.ameen229/firebase-email-link-authentication-ac2504068562).
@@ -42,6 +43,7 @@ Copy the Web client ID and save setting.  Lets say this value is ``somerandomstu
 ## Firebase security videos
 * [Security Rules](https://youtu.be/DBKB6r5BFqo)
 * [Firebase Database Rules Tutorial](https://youtu.be/qLrDWBKTUZo)
+* Youtube [Firestore Security Rules - How to Hack a Firebase App](https://youtu.be/b7PUm7LmAOw)
 * [Firestore Rules Testing with the Emulator - New Feature](https://youtu.be/Rx4pVS1vPGY)
 * [Security Rules! 🔑 | Get to Know Cloud Firestore #6](https://youtu.be/eW5MdE3ZcAw)
 
