@@ -13,7 +13,7 @@ title: Firebase matters
 
 ## Firebase Auth articles
 * Cross-Origin Resource Sharing (CORS) article, [Do you really know CORS?](https://dzone.com/articles/do-you-really-know-cors).
-* Using function api- [How to Build a Role-based API with Firebase Authentication](https://www.toptal.com/firebase/role-based-firebase-authentication) [github](https://github.com/joaqcid/firebase-user-role-api)
+* Using function api- [How to Build a Role-based API with Firebase Authentication](https://www.toptal.com/firebase/role-based-firebase-authentication), sources in [github](https://github.com/joaqcid/firebase-user-role-api).
 * [Controlling Data Access Using Firebase Auth Custom Claims (Firecasts)](https://youtu.be/3hj_r_N0qMs)
 
 ## Email link sign in
