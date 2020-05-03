@@ -78,7 +78,7 @@ Now we can load ``gen-test.js`` in the browser in an html file. It also works wi
 I have built this as an npm project in [github](https://github.com/kkibria/svelte-js-library) with svelte template.
 
 ## Use rollup
-if you have rollup this can also be done. ``rollup.config.js`` can be configured as, 
+If you have installed ``rollup`` this can also be done with added benefit of tree shaking. ``rollup.config.js`` can be configured as, 
 
 ```javascript
 import resolve from '@rollup/plugin-node-resolve';
