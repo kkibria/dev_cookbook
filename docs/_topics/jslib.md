@@ -58,20 +58,20 @@ Now we can load ``gen-test.js`` in the browser in an html file. It also works wi
 
 ```html
 <script>
-    import { onMount } from 'svelte';
-    import test from "./gen-test.js"
+  import { onMount } from 'svelte';
+  import test from "./gen-test.js"
 
-    let name = test.getName();
-    let location = test.getLocation();
-    let dob = test.dob;
+  let name = test.getName();
+  let location = test.getLocation();
+  let dob = test.dob;
 
-    test.injectEl();
+  test.injectEl();
 </script>
 
 <main>
-    <h1>Hello {name}!</h1>
-    <p>Location: {location}, dob: {dob}</p>
-    <div class="inject-dev"></div>
+  <h1>Hello {name}!</h1>
+  <p>Location: {location}, dob: {dob}</p>
+  <div class="inject-dev"></div>
 </main>
 ```
 
@@ -85,18 +85,20 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 export default {
-    ...
-    plugins: [
-        resolve({
-            browser: true,
-            preferBuiltins: false, // only if you need rollup
-                                   // to look inside node_modules
-                                   // for builtins
-            dedupe: ['svelte']
-        }),
-        json(),
-        commonjs()
-    ]
+  ...
+  plugins: [
+    resolve({
+      browser: true,
+
+      // only if you need rollup to look inside
+      // node_modules for builtins
+      preferBuiltins: false, 
+
+      dedupe: ['svelte']
+    }),
+    json(),
+    commonjs()
+  ]
 }
 ```
 
