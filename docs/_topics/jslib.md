@@ -38,7 +38,12 @@ module.exports.dob = dob;
 module.exports.injectEl = injectEl;
 ```
 
-### Wrap everything up in a single module 
+Now wrap everything up in a single module
+You have two options,
+* Use ``browserify``.
+* Use ``rollup``.
+
+### Use browserify 
 Assuming you have already installed ``browserify`` and ``js-beautify``, run them.
 ```bash
 browserify test.js --s test -o gen-test.js
@@ -69,3 +74,31 @@ Now we can load ``gen-test.js`` in the browser in an html file. It also works wi
 ```
 
 I have built this as an npm project in [github](https://github.com/kkibria/svelte-js-library) with svelte template.
+
+### Use rollup
+if you have rollup this can also be done. ``rollup.config.js`` can be configured as, 
+
+```javascript
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
+export default {
+	...
+	plugins: [
+		resolve({
+			browser: true,
+			preferBuiltins: false, // only if you rollup to look inside node_modules for builtins
+			dedupe: ['svelte']
+		}),
+		json(),
+		commonjs()
+	]
+}
+```
+
+#### node builtins
+node commonjs packages has some builtins which will be missing, you have two options
+* Import the builtins packages individually with npm, if you have only a few missing. Set ``preferBuiltins`` to ``false`` 
+so that rollup can get them from ``node_modules``.
+* All node builtins  can be included using npm packages ``rollup-plugin-node-builtins`` and ``rollup-plugin-node-globals`` with rollup.
+The default ``preferBuiltins`` value is ``true``, so rollup will use these instead.
