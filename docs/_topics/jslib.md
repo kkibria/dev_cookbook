@@ -4,9 +4,9 @@ title: Javascript library
 
 # {{ page.title }}
 
-## Using require like a node package in browser.
+## Using require like a node package in browser
 
-Lets take an example where we will use node package in a javascript file. This kind of setup would work in a node environment without
+Lets take an example where we will use node package in a ``commonjs`` javascript file. This kind of setup would work in a node environment without
 problem. But in a browser using ``require`` would normally be a problem. We can use the following method to make it work in browser.
 
 In this example we will instantiate jquery with ``require`` as a node module. First get jquery module using npm. Then make ``test.js`` module as following.
@@ -38,13 +38,15 @@ module.exports.dob = dob;
 module.exports.injectEl = injectEl;
 ```
 
-Now wrap everything up in a single module
+Now wrap everything up in a single module.
 You have two options,
 * Use ``browserify``.
 * Use ``rollup``.
 
-### Use browserify 
-Assuming you have already installed ``browserify`` and ``js-beautify``, run them.
+## Use browserify 
+
+Assuming you have already installed ``browserify`` and ``js-beautify``, run them. If node builtins are used your ``commonjs`` file, ``browserify`` --s option will include them.
+
 ```bash
 browserify test.js --s test -o gen-test.js
 #optional only if you like to examine the generated file.
@@ -75,7 +77,7 @@ Now we can load ``gen-test.js`` in the browser in an html file. It also works wi
 
 I have built this as an npm project in [github](https://github.com/kkibria/svelte-js-library) with svelte template.
 
-### Use rollup
+## Use rollup
 if you have rollup this can also be done. ``rollup.config.js`` can be configured as, 
 
 ```javascript
@@ -87,7 +89,9 @@ export default {
 	plugins: [
 		resolve({
 			browser: true,
-			preferBuiltins: false, // only if you rollup to look inside node_modules for builtins
+			preferBuiltins: false, // only if you need rollup
+								   // to look inside node_modules
+								   // for builtins
 			dedupe: ['svelte']
 		}),
 		json(),
@@ -96,8 +100,8 @@ export default {
 }
 ```
 
-#### node builtins
-node commonjs packages has some builtins which will be missing, you have two options
+### node builtins
+If node builtins are used your ``commonjs`` file, they will be missing. You have two options,
 * Import the builtins packages individually with npm, if you have only a few missing. Set ``preferBuiltins`` to ``false`` 
 so that rollup can get them from ``node_modules``.
 * All node builtins  can be included using npm packages ``rollup-plugin-node-builtins`` and ``rollup-plugin-node-globals`` with rollup.
