@@ -45,7 +45,7 @@ You have two options,
 
 ## Use browserify 
 
-Assuming you have already installed ``browserify`` and ``js-beautify``, run them. If node builtins are used your ``commonjs`` file, ``browserify`` --s option will include them.
+Assuming you have already installed ``browserify`` and ``js-beautify``, run them. If node builtins are used your ``commonjs`` file, ``browserify --s`` option will include them.
 
 ```bash
 browserify test.js --s test -o gen-test.js
