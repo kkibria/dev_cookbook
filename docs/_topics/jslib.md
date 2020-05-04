@@ -108,3 +108,14 @@ If node builtins are used your ``commonjs`` file, they will be missing. You have
 so that rollup can get them from ``node_modules``.
 * All node builtins  can be included using npm packages ``rollup-plugin-node-builtins`` and ``rollup-plugin-node-globals`` with rollup.
 The default ``preferBuiltins`` value is ``true``, so rollup will use these instead.
+
+## Create javascript for older browsers
+babel with rollup can transpile for older browsers.
+
+* [babel Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/)
+* [Making a svelte app compatible with Internet Explorer 11](https://blog.az.sg/posts/svelte-and-ie11/)
+* [Svelte3, Rollup and Babel7](http://simey.me/svelte3-rollup-and-babel7/)
+
+## File io from browsers
+
+* [Saving / Loading files with Javascript (from the browser)](http://simey.me/saving-loading-files-with-javascript/)
