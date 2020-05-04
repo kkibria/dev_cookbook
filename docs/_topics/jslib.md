@@ -111,7 +111,7 @@ The default ``preferBuiltins`` value is ``true``, so rollup will use these inste
 
 ## Create javascript for older browsers
 
-The way to fix language version problems is transpiling the code using babel. To make sure transpiled javascript works on older browser we have to test it on different browsers to see if and why it fails. Cross browser testing sites like <https://www.lambdatest.com> are helpful but can be expansive depending on situation.
+The way to fix language version problems is transpiling the javascript code using **babel**. To make sure transpiled code works on older browser, we have to test it on different browsers to see if and why it fails. Cross browser testing sites like <https://www.lambdatest.com> are helpful but can be expansive depending on situation.
 
 ### babel with rollup
 
