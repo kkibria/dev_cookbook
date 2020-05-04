@@ -113,7 +113,7 @@ The default ``preferBuiltins`` value is ``true``, so rollup will use these inste
 
 The way to fix language version problems is transpiling the code using babel. To make sure transpiled javascript works on older browser we have to test it on different browsers to see if and why it fails. Cross browser testing sites like <https://www.lambdatest.com> are helpful but can be expansive depending on situation.
 
-### babel with rollup can transpile for older browsers.
+### babel with rollup
 
 * [babel Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/)
 * [Making a svelte app compatible with Internet Explorer 11](https://blog.az.sg/posts/svelte-and-ie11/)
