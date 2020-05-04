@@ -91,3 +91,9 @@ Every time the content is updated, it injects the line numbers in the generated 
 
 </html>
 ```
+
+## Using a code editor for entering text
+Instead of a text area to enter source, we an use a code editor. 
+* [Dillinger](https://dillinger.io/) is a good example, Github [source](https://github.com/joemccann/dillinger). It also integrated server side pdf generation of markdown render.
+* Dillinger uses [Ace](https://ace.c9.io/) code editor, Github [source](https://github.com/ajaxorg/ace). Ace allows highlighting code.
+* highlight.js has Markdown syntax highlighting, integrating markdown highlighting might be a good idea.

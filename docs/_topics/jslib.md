@@ -110,11 +110,20 @@ so that rollup can get them from ``node_modules``.
 The default ``preferBuiltins`` value is ``true``, so rollup will use these instead.
 
 ## Create javascript for older browsers
-babel with rollup can transpile for older browsers.
+
+The way to fix language version problems is transpiling the code using babel. To make sure transpiled javascript works on older browser we have to test it on different browsers to see if and why it fails. Cross browser testing sites like <https://www.lambdatest.com> are helpful but can be expansive depending on situation.
+
+### babel with rollup can transpile for older browsers.
 
 * [babel Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/)
 * [Making a svelte app compatible with Internet Explorer 11](https://blog.az.sg/posts/svelte-and-ie11/)
 * [Svelte3, Rollup and Babel7](http://simey.me/svelte3-rollup-and-babel7/)
+* Browser support for javascript, [ECMAScript compatibility table](https://kangax.github.io/compat-table/es6/)
+
+
+### babel with webpack
+* [Dillinger](https://dillinger.io/) is a good example, Github [source](https://github.com/joemccann/dillinger). I tried their site on IE11 and it worked fine.
+* Good info on using babel in the Github [source](https://github.com/babel/babel-loader) readme of the webpack plugin ``babel-loader``.
 
 ## File io from browsers
 
