@@ -1,18 +1,17 @@
 ---
-title: Fronend code sandboxes
+title: Frontend code development
 ---
 
 # {{ page.title }}
 
-
-## code editing
+## Code editing sandboxes
 
 * <https://codesandbox.io/>.
 * <https://codepen.io/>.
 * <https://jsfiddle.net/>.
 * A review of sandboxes: [9 Best Online Code Editors for Web Applications](https://geekflare.com/online-code-editors/).
 
-## css framework
+## CSS framework
 * [Tailwind](https://tailwind.run/) uses a concept of utility functions as
 a building block of css style.
 * [Fun with Viewport Units](https://css-tricks.com/fun-viewport-units/).
