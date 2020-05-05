@@ -40,8 +40,8 @@ module.exports.injectEl = injectEl;
 
 Now wrap everything up in a single module.
 You have two options,
-* Use ``browserify``.
-* Use ``rollup``.
+  * Use ``browserify``.
+  * Use ``rollup``.
 
 ## Use browserify 
 
@@ -78,6 +78,7 @@ Now we can load ``gen-test.js`` in the browser in an html file. It also works wi
 I have built this as an npm project in [github](https://github.com/kkibria/svelte-js-library) with svelte template.
 
 ## Use rollup
+
 If you have installed ``rollup`` this can also be done with added benefit of tree shaking. ``rollup.config.js`` can be configured as, 
 
 ```javascript
@@ -103,25 +104,29 @@ export default {
 ```
 
 ### node builtins
+
 If node builtins are used your ``commonjs`` file, they will be missing. You have two options,
-* Import the builtins packages individually with npm, if you have only a few missing. Set ``preferBuiltins`` to ``false`` 
+
+* Import the individual builtin packages with npm, if you have only a few missing. Set ``preferBuiltins`` to ``false`` 
 so that rollup can get them from ``node_modules``.
-* All node builtins  can be included using npm packages ``rollup-plugin-node-builtins`` and ``rollup-plugin-node-globals`` with rollup.
-The default ``preferBuiltins`` value is ``true``, so rollup will use these instead.
+* All node builtins can be included using npm packages ``rollup-plugin-node-builtins`` and ``rollup-plugin-node-globals`` with rollup. Set ``preferBuiltins`` to ``true`` so that rollup will use builtins from these instead. You can remove ``preferBuiltins`` altogether since  
+it default value is ``true`` anyways. 
 
 ## Create javascript for older browsers
 
-The way to fix language version problems is transpiling the javascript code using **babel**. To make sure transpiled code works on older browser, we have to test it on different browsers to see if and why it fails. Cross browser testing sites like <https://www.lambdatest.com> are helpful but can be expansive depending on situation.
+The way to fix language version problems is transpiling the javascript code using [**babel**](https://babeljs.io/). To make sure transpiled code works on older browser, we have to test it on different browsers to see if and why it fails. Cross browser testing sites like <https://www.lambdatest.com> are helpful but can be expansive depending on situation. Check the following to get an insight,
+
+* [babel Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/).
+* Browser support for javascript, [ECMAScript compatibility table](https://kangax.github.io/compat-table/es6/).
+* Youtube video, [Do you really need BABEL to compile JavaScript](https://youtu.be/MzZilaM16oY)?
 
 ### babel with rollup
 
-* [babel Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/)
-* [Making a svelte app compatible with Internet Explorer 11](https://blog.az.sg/posts/svelte-and-ie11/)
-* [Svelte3, Rollup and Babel7](http://simey.me/svelte3-rollup-and-babel7/)
-* Browser support for javascript, [ECMAScript compatibility table](https://kangax.github.io/compat-table/es6/)
-
+* [Making a svelte app compatible with Internet Explorer 11](https://blog.az.sg/posts/svelte-and-ie11/).
+* [Svelte3, Rollup and Babel7](http://simey.me/svelte3-rollup-and-babel7/).
 
 ### babel with webpack
+
 * [Dillinger](https://dillinger.io/) is a good example, Github [source](https://github.com/joemccann/dillinger). I tried their site on IE11 and it worked fine.
 * Good info on using babel in the Github [source](https://github.com/babel/babel-loader) readme of the webpack plugin ``babel-loader``.
 

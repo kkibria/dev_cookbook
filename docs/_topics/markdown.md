@@ -47,9 +47,9 @@ For instance in Svelte we can do the following,
 <div>{markdown}</div>
 ```
 ### Synchronized scrolling
-This is a rather interesting subject, this sample [project](https://github.com/kkibria/svelte-page-markdown) I did implements it using the scheme used in [markdown-it](https://github.com/markdown-it/markdown-it/blob/master/support/demo_template/index.js) demo. VS code uses something probably similar, but they have more feature. VS code [source](https://github.com/microsoft/vscode) is worth exploring to learn more.
+This is a rather interesting subject. This sample [project](https://github.com/kkibria/svelte-page-markdown) I did, implements it using the scheme used in [markdown-it](https://github.com/markdown-it/markdown-it/blob/master/support/demo_template/index.js) demo. VS code uses something probably similar, but they have more feature. VS code [source](https://github.com/microsoft/vscode) is worth exploring to learn more.
 
-Every time the content is updated, it injects the line numbers in the generated content using ``injectLineNumbers``. Next, ``buildScrollMap`` builds a map of line number versus position using a hidden element, ``sourceLikeDiv``. This map is used by the following scroll handlers,
+Every time the content is updated, the demo injects the line numbers in the generated content using ``injectLineNumbers``. Next, ``buildScrollMap`` builds a map of line number versus position using a hidden element, ``sourceLikeDiv``. This map is used by the following scroll handlers,
 * ``syncSrcScroll``: handler that monitors generated content scroll position and synchronizes the markdown source position.
 * ``syncResultScroll``: handler that monitors markdown source content scroll position and synchronizes the generated content position.
 
