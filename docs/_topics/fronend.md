@@ -22,7 +22,9 @@ a building block of css style.
 ## Javascript, SVG and CSS to create graphical widgets and animations
 * [Amelia Wattenberger](https://wattenberger.com/)'s site has lot of interesting articles about frontend visuals. 
 * [Creating a Gauge in React](https://wattenberger.com/blog/gauge) by Amelia.
-* [Data-Driven Documents](https://d3js.org/) d3js javascript library, Github [source](https://github.com/d3/d3). Really awesome visual effects can be built using this library. d3 has bunch of cool features like force simulation, goe projections etc.
+* [Data-Driven Documents](https://d3js.org/) d3js javascript library, Github [source](https://github.com/d3/d3).
+Really awesome visual effects can be built using this library. 
+d3 has bunch of cool features like force simulation, goe projections etc.
 
 ## Common Javascript DOM recipes
 * [How to manage HTML DOM](https://htmldom.dev/).

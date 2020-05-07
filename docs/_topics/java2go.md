@@ -28,5 +28,16 @@ work in progress for near future.
 * [An open compiler front end framework for
 building Java language extensions](https://research.cs.cornell.edu/polyglot/).
 
-# GRAAL
+## GRAAL
 * [How to Create a New JVM Language in Under an Hour by Oleg Šelajev](https://youtu.be/14hqB7Q0I58).
+
+## Some info on go
+* Default go library install path for a user in windows, ``%UserProfile%\go`` directory. Check [Windows special directories/shortcuts](https://superuser.com/questions/217504/is-there-a-list-of-windows-special-directories-shortcuts-like-temp) for similar paths in windows.
+* Pigeon is a PEG base parser generator in go. We can use antlr java grammar from and convert in a Pigeon gammer file and use Pigeon to parse.
+Check [Documentation](https://pkg.go.dev/github.com/mna/pigeon?tab=doc).
+
+## Use antlr and keep everything in Java world to translate
+## Use antlr to generate a java parser in with golang
+I prefer this option. This seems to be the path of lease resistance for now.
+* [Parsing with ANTLR 4 and Go](https://blog.gopheracademy.com/advent-2017/parsing-with-antlr4-and-go/).
+The author has already created golang parsers for all available grammars in (Github)[https://github.com/bramp/antlr4-grammars.git]. 
