@@ -33,7 +33,7 @@ building Java language extensions](https://research.cs.cornell.edu/polyglot/).
 
 ## Some info on go
 * Default go library install path for a user in windows, ``%UserProfile%\go`` directory. Check [Windows special directories/shortcuts](https://superuser.com/questions/217504/is-there-a-list-of-windows-special-directories-shortcuts-like-temp) for similar paths in windows.
-* Pigeon is a PEG base parser generator in go. We can use antlr java grammar from and convert in a Pigeon gammer file and use Pigeon to parse.
+* Pigeon is a PEG based parser generator in go. We can use antlr java grammar from and convert in a Pigeon gammer file and use Pigeon to parse.
 Check [Documentation](https://pkg.go.dev/github.com/mna/pigeon?tab=doc).
 
 ## Use antlr and keep everything in Java world to translate
