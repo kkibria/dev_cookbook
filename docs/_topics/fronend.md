@@ -28,3 +28,10 @@ d3 has bunch of cool features like force simulation, goe projections etc.
 
 ## Common Javascript DOM recipes
 * [How to manage HTML DOM](https://htmldom.dev/).
+
+## Serve side rendering with PWA
+* [How to combine PWA and isomorphic rendering (SSR)?](https://michaljanaszek.com/blog/combine-pwa-and-isomorphic-rendering/).
+* [How To Turn a Server-Side-Rendered React SPA Into a PWA](https://sunkanqiang.com/how-to-turn-ssr-react-spa-into-pwa/)
+* [SPAs, PWAs and SSR](https://simplabs.com/blog/2019/04/05/spas-pwas-and-ssr/)
+* [LinkedIn Lite: A Server-Side Rendered PWA](https://engineering.linkedin.com/blog/2018/07/linkedin-lite--a-server-side-rendered-pwa)
+* [Building a hybrid-rendered PWA](https://medium.com/dev-channel/building-a-hybrid-rendered-pwa-c9d645baf158)

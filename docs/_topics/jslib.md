@@ -105,12 +105,13 @@ export default {
 
 ### node builtins
 
+Read [node-resolve documentation](https://github.com/rollup/plugins/tree/master/packages/node-resolve) carefully. 
 If node builtins are used your ``commonjs`` file, they will be missing. You have two options,
 
 * Import the individual builtin packages with npm, if you have only a few missing. Set ``preferBuiltins`` to ``false`` 
 so that rollup can get them from ``node_modules``.
 * All node builtins can be included using npm packages ``rollup-plugin-node-builtins`` and ``rollup-plugin-node-globals`` with rollup. Set ``preferBuiltins`` to ``true`` so that rollup will use builtins from these instead. You can remove ``preferBuiltins`` altogether since  
-it default value is ``true`` anyways. 
+it default value is ``true`` anyways.  
 
 ## Create javascript for older browsers
 
@@ -119,8 +120,13 @@ The way to fix language version problems is transpiling the javascript code usin
 * [babel Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/).
 * Browser support for javascript, [ECMAScript compatibility table](https://kangax.github.io/compat-table/es6/).
 * Youtube video, [Do you really need BABEL to compile JavaScript](https://youtu.be/MzZilaM16oY)?
+* [Babel under the hood](https://medium.com/@makk.bit/babel-under-the-hood-63e3fb961243).
 
 ### babel with rollup
+
+Read [rollup babel plugin documentation](https://github.com/rollup/plugins/tree/master/packages/babel) carefully to understand how to configure the plugin. This plugin
+will invoke babel.
+Next we need to understand how to configure babel, read [Babel configuration documentation](https://babeljs.io/docs/en/configuration). 
 
 * [Making a svelte app compatible with Internet Explorer 11](https://blog.az.sg/posts/svelte-and-ie11/).
 * [Svelte3, Rollup and Babel7](http://simey.me/svelte3-rollup-and-babel7/).
@@ -129,6 +135,7 @@ The way to fix language version problems is transpiling the javascript code usin
 
 * [Dillinger](https://dillinger.io/) is a good example, Github [source](https://github.com/joemccann/dillinger). I tried their site on IE11 and it worked fine.
 * Good info on using babel in the Github [source](https://github.com/babel/babel-loader) readme of the webpack plugin ``babel-loader``.
+* [Support IE 11 Using Babel and Webpack](https://medium.com/@ramez.aijaz/transpile-typescript-to-es5-using-babel-and-webpack-f3b72a157399)
 
 ## File io from browsers
 
