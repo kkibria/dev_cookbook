@@ -72,7 +72,7 @@ This means ``Virtual1`` is the first output device, there might be more listed. 
 Lets say we want a monitor resolution of 960 x 600 @ 60Hz.  
 ```bash
 # get a Modeline 
-$ gtf 960 600 60
+gtf 960 600 60
 ```
 Lets say output will look like:
 ```txt
