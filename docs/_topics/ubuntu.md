@@ -102,17 +102,18 @@ The whole thing can be turned into a a bash script,
 ```bash
 #!/bin/bash
 
-# Get the modeline information we want for the following resolutions:
-RES="960 600 60"
-DEVICE=$( xrandr -q | grep "connected" | head -1 | cut -d ' ' -f1 )
-# modeline settings
-SETTINGS=$( gtf $RES | grep Modeline | cut -d ' ' -f4-16 )
-# Get name of modelines from settings
-NAME=$( echo $SETTINGS | cut -d ' ' -f1 )
-# Create the new modelines via xrandr
+# get the modeline for the following resolution
+RESOLUTION="960 600 60"
+# extract modeline settings
+SETTINGS=$( gtf $RESOLUTION | grep Modeline | cut -d ' ' -f4-16 )
+# define the mode
 xrandr --newmode $SETTINGS
-# Add the newly created modelines to devices
-xrandr --addmode $DEVICE $NAME
-# Finally, enable the new modes
-xrandr --output $DEVICE --mode $NAME0
+# get name of mode from settings
+MODE=$( echo $SETTINGS | cut -d ' ' -f1 )
+# get the first connected output device
+DEVICE=$( xrandr -q | grep "connected" | head -1 | cut -d ' ' -f1 )
+# map this mode to the device
+xrandr --addmode $DEVICE $MODE
+# switch to the new mode
+xrandr --output $DEVICE --mode $MODE
 ```
