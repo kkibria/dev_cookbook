@@ -98,7 +98,7 @@ Alternatively you can switch mode for the output from the terminal,
 xrandr --output Virtual1 --mode "960x600_60.00"
 ```
 
-The whole thing can be turned into a a bash script,
+The whole thing can be turned into a bash script,
 ```bash
 #!/bin/bash
 
