@@ -115,7 +115,7 @@ it default value is ``true`` anyways.
 
 ## Create javascript for older browsers
 
-The way to fix language version problems is transpiling the javascript code using [**babel**](https://babeljs.io/). To make sure transpiled code works on older browser, we have to test it on different browsers to see if and why it fails. Cross browser testing sites like <https://www.lambdatest.com> are helpful but can be expansive depending on situation. Check the following to get an insight,
+The way to fix language version problems is transpiling the javascript code using [**babel**](https://babeljs.io/). To make sure transpiled code works on older browser, we have to test it on different browsers to see if and why it fails. Cross browser testing sites like <https://www.lambdatest.com> or <https://saucelabs.com/> are helpful but can be expansive depending on situation. Check the following to get an insight,
 
 * [babel Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/).
 * Browser support for javascript, [ECMAScript compatibility table](https://kangax.github.io/compat-table/es6/).
