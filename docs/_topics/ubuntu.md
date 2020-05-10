@@ -17,7 +17,7 @@ eg. ``/dev/sda1`` is to create an empty file called forcefsck in the
 partition's root directory.
 
 ```bash
-# touch /forcefsck
+sudo touch /forcefsck
 ```
 
 This empty file will temporarily override any other settings and force 
@@ -41,9 +41,11 @@ is shut down since the ram filesystem is volatile.
 * Network: NAT / Host only 
 * Clipboard: bidirectional.
 
-### install linux and desktop
+### Setup linux
 
-Install ubuntu server from server.iso from a USB drive. Next,
+Install ubuntu server from server.iso using a USB drive.
+
+Now setup the desktop,
 
 ```bash
 sudo apt-get update
@@ -53,7 +55,7 @@ sudo apt-get install lubuntu-desktop
 sudo apt-get install virtualbox-guest-x11
 ```
 
-Now go to ``Start > Preferences > Monitor settings`` and Select a resolution of your choice. 
+Now go to ``Start > Preferences > Monitor settings`` and select a resolution of your choice. 
 
 ### Custom Resolution
 
@@ -114,12 +116,3 @@ xrandr --addmode $DEVICE $NAME
 # Finally, enable the new modes
 xrandr --output $DEVICE --mode $NAME0
 ```
-
-
-
-
-
-
-
-
-
