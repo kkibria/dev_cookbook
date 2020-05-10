@@ -117,3 +117,8 @@ xrandr --addmode $DEVICE $MODE
 # switch to the new mode
 xrandr --output $DEVICE --mode $MODE
 ```
+
+### Changing the cursor size
+To change the size of your mouse cursor, 
+open the desktop configuration file ``~/.config/lxsession/lubuntu/desktop.conf``, 
+find the key ``iGtk/CursorThemeSize`` and update the value to the desired size.
