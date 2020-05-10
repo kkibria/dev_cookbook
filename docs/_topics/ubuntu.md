@@ -102,7 +102,7 @@ The whole thing can be turned into a a bash script.
 
 # Get the modeline information we want for the following resolutions:
 RES="960 600 60"
-DEVICE=$( xrandr -q | grep " connected" | cut -d ' ' -f1 )
+DEVICE=$( xrandr -q | grep "connected" | head -1 | cut -d ' ' -f1 )
 # modeline settings
 SETTINGS=$( gtf $RES | grep Modeline | cut -d ' ' -f4-16 )
 # Get name of modelines from settings
