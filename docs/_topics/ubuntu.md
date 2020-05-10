@@ -122,3 +122,112 @@ xrandr --output $DEVICE --mode $MODE
 To change the size of your mouse cursor, 
 open the desktop configuration file ``~/.config/lxsession/lubuntu/desktop.conf``, 
 find the key ``iGtk/CursorThemeSize`` and update the value to the desired size.
+
+
+## Converting VirtualBox VDI (or VMDK) to a ISO
+* Inspired by the article, [Converting a virtual disk image: VDI or VMDK to an ISO you can distribute](https://www.turnkeylinux.org/blog/convert-vm-iso).
+* [TKLPatch - a simple appliance customization mechanism](https://www.turnkeylinux.org/docs/tklpatch). Source in [github](https://github.com/turnkeylinux/tklpatch).
+* [All about VDIs](https://forums.virtualbox.org/viewtopic.php?t=8046)
+
+create raw image 
+```bash
+VBoxManage clonemedium turnkey-core.vdi turnkey-core.raw --format RAW
+```
+Next, mount the raw disk as a loopback device.
+
+```bash
+mkdir turnkey-core.mount
+mount -o loop turnkey-core.raw turnkey-core.mount
+```
+
+
+GOTCHA 1: If your VM has partitions, it's a little tricker. You'll need to setup the loop device, partition mappings and finally mount the rootfs partition. You will need kpartx to setup the mappings.
+
+```bash
+loopdev=$(losetup -s -f turnkey-core.raw)
+
+apt-get install kpartx
+kpartx -a $loopdev
+
+# p1 refers to the first partition (rootfs)
+mkdir turnkey-core.mount
+mount /dev/mapper/$(basename $loopdev)p1 turnkey-core.mount
+```
+
+Extract root filesystem and tweak for ISO configuration
+Now, make a copy of the root filesystem and unmount the loopback.
+
+```bash
+mkdir turnkey-core.rootfs
+rsync -a -t -r -S -I turnkey-core.mount/ turnkey-core.rootfs
+
+umount -d turnkey-core.mount
+
+# If your VM had partitions (GOTCHA 1):
+kpartx -d $loopdev
+losetup -d $loopdev
+
+```
+
+Because the VM is an installed system as opposed to the ISO, the file system table needs to be updated.
+
+```bash
+cat>turnkey-core.rootfs/etc/fstab<<EOF
+aufs / aufs rw 0 0
+tmpfs /tmp tmpfs nosuid,nodev 0 0
+EOF
+```
+GOTCHA 2: If your VM uses a kernel optimized for virtualization (like the one included in the TurnKey VM builds), you need to replace it with a generic kernel, and also remove vmware-tools if installed.
+You can remove any other unneeded packages.
+
+```bash
+tklpatch-chroot turnkey-core.rootfs
+
+# inside the chroot
+apt-get update
+apt-get install linux-image-generic
+dpkg --purge $(dpkg-query --showformat='${Package}\n' -W 'vmware-tools*')
+dpkg --purge $(dpkg-query --showformat='${Package}\n' -W '*-virtual')
+
+exit
+```
+Generate the ISO
+Finally, prepare the cdroot and generate the ISO.
+
+```bash
+tklpatch-prepare-cdroot turnkey-core.rootfs/
+tklpatch-geniso turnkey-core.cdroot/
+```
+this will create my_system.iso
+
+Thats it!
+
+burn it to usb
+
+* [How to create a bootable Ubuntu USB flash drive from terminal?](https://askubuntu.com/questions/372607/how-to-create-a-bootable-ubuntu-usb-flash-drive-from-terminal)
+
+You can use dd.
+
+un mount the usb 
+```bash
+ sudo umount /dev/sd<?><?>  
+```
+where <?><?> is a letter followed by a number, look it up by running lsblk.
+
+It will look something like
+```text
+sdb      8:16   1  14.9G  0 disk 
+├─sdb1   8:17   1   1.6G  0 part /media/username/usb volume name
+└─sdb2   8:18   1   2.4M  0 part 
+```
+I would un mount sdb1.
+
+Then, next (this is a destructive command and wipes the entire USB drive with the contents of the iso, so be careful):
+
+
+```bash
+ sudo dd bs=4M if=path/to/my_system.iso of=/dev/sd<?> conv=fdatasync  status=progress
+```
+
+where my_system.iso is the input file, and /dev/sd<?> is the USB device you're writing to (run lsblk to see all drives to find out what <?> is for your USB).
+
