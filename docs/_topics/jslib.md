@@ -137,6 +137,12 @@ Next we need to understand how to configure babel, read [Babel configuration doc
 * Good info on using babel in the Github [source](https://github.com/babel/babel-loader) readme of the webpack plugin ``babel-loader``.
 * [Support IE 11 Using Babel and Webpack](https://medium.com/@ramez.aijaz/transpile-typescript-to-es5-using-babel-and-webpack-f3b72a157399)
 
+## Polyfill articles
+
+* [Polyfills: everything you ever wanted to know, or maybe a bit less](https://medium.com/hackernoon/polyfills-everything-you-ever-wanted-to-know-or-maybe-a-bit-less-7c8de164e423).
+* [Loading Polyfills Only When Needed](https://philipwalton.com/articles/loading-polyfills-only-when-needed/).
+
 ## File io from browsers
 
 * [Saving / Loading files with Javascript (from the browser)](http://simey.me/saving-loading-files-with-javascript/)
+
