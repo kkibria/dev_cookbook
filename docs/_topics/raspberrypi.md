@@ -1,5 +1,5 @@
 ---
-title: Angular, bootstrap, firebase
+title: Using Raspberry Pi
 ---
 
 # {{ page.title }}
