@@ -78,8 +78,8 @@ In our example, you’ll need to add the following entry:
 Comment = Pi shared folder
 path = /home/pi/devcode
 writeable=Yes
-create mask=0700
-directory mask=0700
+create mask=0750
+directory mask=0750
 valid users = pi 
 public=no
 ```
@@ -93,7 +93,7 @@ Then set a password as prompted.
 
 Finally, let’s restart Samba:
 ```
-sudo /etc/init.d/samba restart
+sudo /etc/init.d/smbd restart
 ```
 From now on, Samba will start automatically whenever you power on your Pi. 
 
@@ -121,13 +121,35 @@ mkdir -p /home/pi/devcode/httpd/cgi-bin
 cp -Rv /var/www/* /home/pi/devcode/httpd
 sudo chown -R www-data /home/pi/devcode/httpd
 sudo chgrp -R www-data /home/pi/devcode/httpd
+find /home/pi/devcode/httpd -type d -exec sudo chmod g+ws {} \;
+sudo adduser pi www-data
 ```
 
-Edit ``/etc/lighttpd/lighttpd.conf`` to update server configuration,
+We will edit ``/etc/lighttpd/lighttpd.conf`` with ``nano`` to update server configuration.
+```bash
+sudo nano /etc/lighttpd/lighttpd.conf
+```
+
+
+We will change document root in ``/etc/lighttpd/lighttpd.conf``,
+
 ```auto
-server.document-root        = "/home/pi/devcode/httpd"
+server.document-root        = "/home/pi/devcode/httpd/html"
+```
+
+We will Append following to the end of ``/etc/lighttpd/lighttpd.conf`` to enable cgi,
+
+```auto
+server.modules += ( "mod_cgi" )
+static-file.exclude-extensions += ( ".py", ".py3", ".sh", )
 $HTTP["url"] =~ "^/cgi-bin/" {
-    cgi.assign = (".py" => "/usr/bin/python3")
+	alias.url += ( "/cgi-bin/" => "/home/pi/devcode/httpd/cgi-bin/" )
+	cgi.assign = (
+		".py"  => "/usr/bin/python",
+		".py3" => "/usr/bin/python3",
+		".pl"  => "/usr/bin/perl",
+		".sh"  => "/bin/sh",
+	)
 }
 ```
 
@@ -136,8 +158,8 @@ Restart the server
 service lighttpd restart
 ```
 
-Now we can put static contents in ``httpd`` directory and all the handlers
-in ``httpd/cgi-bin`` directory. Test the server from a web browser 
+Now we can put static contents in ``httpd/html`` directory and all the handlers
+in ``httpd/cgi-bin`` directory. Go ahead, test the server from a web browser with some static content and cgi.
 
 ### Idea 1: Configure via wifi
 Set it up initially as a wifi access point on power up. 
