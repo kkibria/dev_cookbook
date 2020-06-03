@@ -12,7 +12,8 @@ title: Using Raspberry Pi
 * <https://youtu.be/RlgLIr2gZFg>
 
 ## IOT 
-We Make an IOT with Pi. First we need to setup the headless pi. We will use raspberry pi zero W.
+If we want to make an IOT with Pi, we will need to setup a headless pi first. We will use raspberry pi zero W since it has built-in wireless which
+can be used to network for development as well as connecting the device to the internet without additional hardware.  
 
 ## Setup for development
 We will use a PC to do code editing and run code to test during development. We will setup the wifi to connect the pi to a network that the PC is connected to.
