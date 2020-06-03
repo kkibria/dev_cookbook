@@ -24,8 +24,10 @@ take out the and reinsert the SD card in the PC to make the new filesystem visib
 of the SD.
 
 Create following two files in the disk image root directory.
+1. ``wpa_supplicant.conf``.
+2. ``ssh``.
 
-1. A ``wpa_supplicant.conf`` file with following content,
+The ``wpa_supplicant.conf`` file should contain the following content,
 
 ```auto
 country=US
@@ -38,7 +40,7 @@ network={
 }
 ```
 
-2. An empty file called ``ssh``. This will enable the ssh port in pi.
+The ``ssh`` file should be empty. This will enable incoming ssh connections into pi.
 
 These two files will setup the config during boot and then will be deleted during boot.
 
