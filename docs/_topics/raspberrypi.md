@@ -45,11 +45,6 @@ These two files will setup the config during boot and then will be deleted durin
 Insert the SD in pi and turn power on. After the boot completed,  
 we can connect to headless pi thru ssh from the computer on the wifi network for development.
 
-From ssh shell, we can scan wifi networks from pi to see all the available access points.
-```bash
- sudo iwlist wlan0 scan
-```
-
 ### Create a Samba share
 We will use code editor on the PC to edit files directly on the pi. We will 
 install Samba to do this.
@@ -103,6 +98,16 @@ The question is, how do we set it up with a PC or cell phone and input those
 setup?
 
 The basic strategy si to setup up a web page that collects the configuration data. We will need to setup a web server first to produce the interface.
+
+Once done, we can scan wifi networks from pi to get all the available access points. Fot instance we can following shell command to scan and return the result.  
+
+```bash
+ sudo iwlist wlan0 scan
+```
+
+We can use returned info in the configuration webpage 
+for the user to select a
+a wifi connection and provide password. 
 
 ### Installing the web server
 
@@ -176,19 +181,22 @@ Check an [implementation](#idea1-impl).
 ### Idea 2: Configure via bluetooth
 make pi a bluetooth device, connect your phone to it with an app the should display user interface and send the info to the device to get it configured.
 
-* <https://learn.adafruit.com/turning-your-raspberry-pi-zero-into-a-usb-gadget>
-
-The problem is phone has a usb otg connector, and so is pi zero. Both will be in gadget mode. But it can be made to work if pi zero is connected to a laptop or PC where, PC will be the host and pi zero will be a gadget. To connect to a phone we will need a special cable (not desired but possible).
-
 > is it possible that device will send a html page while the bt connections act as network connection? probably not a whole lot different from idea 1 if we do that.
 
 ### Idea 3: Configure via USB
 Connect the device with a usb cable to a computer of phone, again the same concept a user interface shows up to configure.
-* <https://desertbot.io/blog/headless-pi-zero-ssh-access-over-usb-windows>
-* <https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README>
+* [HEADLESS PI ZERO SSH ACCESS OVER USB (WINDOWS)](https://desertbot.io/blog/headless-pi-zero-ssh-access-over-usb-windows).
+* [Raspberry pi boot overlays](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README).
+* [Go Go Gadget Pi Zero](https://learn.adafruit.com/turning-your-raspberry-pi-zero-into-a-usb-gadget).
+* [RASPBERRY PI ZERO USB/ETHERNET GADGET TUTORIAL](https://www.circuitbasics.com/raspberry-pi-zero-ethernet-gadget/#:~:text=The%20Raspberry%20Pi%20Zero's%20small,is%20shared%20over%20USB%20too.).
 
+The problem is phone has a usb otg connector, and so is pi zero. Both will be in gadget mode. But it can be made to work if pi zero is connected to a laptop or PC where, PC will be the host and pi zero will be a gadget. To connect to a phone we will need a special cable (not desired but possible).
 
-> todo: check how to use docker container in pi
+Let's explore the idea of Pi as a device connected to PC or laptop host.  
+Pi has usb otg, means that it can be either a host or it can be a device.
+We can connect them with a cable and setup Pi as a Ethernet gadget. Then the configuration webpage will be visible from PC browser.
+
+> Todo.
 
 ## <a name="idea1-impl">Raspberry pi as Access Point and Wifi client
 
@@ -378,3 +386,4 @@ We will put minimal code on the sdio, the boot image should be downloaded and pr
 
 * Imaging sdio source code <https://github.com/raspberrypi/rpi-imager>
 
+> todo: check how to use docker container in pi
