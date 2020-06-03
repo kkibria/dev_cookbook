@@ -97,14 +97,15 @@ sudo /etc/init.d/samba restart
 ```
 From now on, Samba will start automatically whenever you power on your Pi. 
 
-## Configure IOT setup mechanism by user.
+## Configure IOT setup mechanism by user
 If we build IOT device, it needs to be configured. For example the user needs to setup the wifi connection information so that it can be connected to internet.
 The question is, how do we set it up with a PC or cell phone and input those
 setup?
 
 The basic strategy si to setup up a web page that collects the configuration data. We will need to setup a web server first to produce the interface.
 
-### Installing the web server.
+### Installing the web server
+
 We will be using instructions from [Installing Lighttpd with Python CGI support](https://mike632t.wordpress.com/2013/09/21/installing-lighttpd-with-python-cgi-support/#:~:text=Lighttpd%20is%20a%20lightweight%20web,such%20as%20the%20Raspberry%20Pi.).
 
 Install ``lighthttpd`` web server
@@ -138,10 +139,7 @@ service lighttpd restart
 Now we can put static contents in ``httpd`` directory and all the handlers
 in ``httpd/cgi-bin`` directory. Test the server from a web browser 
 
-
-
-
-### Idea 1: configure via wifi.
+### Idea 1: Configure via wifi
 Set it up initially as a wifi access point on power up. 
 Then use it to setup up the configuration.
 
@@ -151,7 +149,9 @@ Perhaps We can run both ap and client at the same time? Or a reset switch to sel
 * <https://pifi.imti.co/>.
 * <https://en.wikipedia.org/wiki/Captive_portal>.
 
-### Idea 2:
+Check an [implementation](#idea1-impl).
+
+### Idea 2: Configure via bluetooth
 make pi a bluetooth device, connect your phone to it with an app the should display user interface and send the info to the device to get it configured.
 
 * <https://learn.adafruit.com/turning-your-raspberry-pi-zero-into-a-usb-gadget>
@@ -160,7 +160,7 @@ The problem is phone has a usb otg connector, and so is pi zero. Both will be in
 
 > is it possible that device will send a html page while the bt connections act as network connection? probably not a whole lot different from idea 1 if we do that.
 
-### Idea 3:
+### Idea 3: Configure via USB
 Connect the device with a usb cable to a computer of phone, again the same concept a user interface shows up to configure.
 * <https://desertbot.io/blog/headless-pi-zero-ssh-access-over-usb-windows>
 * <https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README>
@@ -168,7 +168,7 @@ Connect the device with a usb cable to a computer of phone, again the same conce
 
 > todo: check how to use docker container in pi
 
-## Raspberry pi as Access Point and Wifi client
+## <a name="idea1-impl">Raspberry pi as Access Point and Wifi client
 
 This is an example of how the *idea 1* can be implemented. This was collected from the tutorials found on internet. 
 
