@@ -26,6 +26,7 @@ of the SD.
 Create following two files in the disk image root directory.
 
 1. A ``wpa_supplicant.conf`` file with following content,
+
 ```auto
 country=US
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -101,6 +102,45 @@ If we build IOT device, it needs to be configured. For example the user needs to
 The question is, how do we set it up with a PC or cell phone and input those
 setup?
 
+The basic strategy si to setup up a web page that collects the configuration data. We will need to setup a web server first to produce the interface.
+
+### Installing the web server.
+We will be using instructions from [Installing Lighttpd with Python CGI support](https://mike632t.wordpress.com/2013/09/21/installing-lighttpd-with-python-cgi-support/#:~:text=Lighttpd%20is%20a%20lightweight%20web,such%20as%20the%20Raspberry%20Pi.).
+
+Install ``lighthttpd`` web server
+
+```bash
+sudo apt-get install lighttpd
+```
+
+Create a directory for the content
+
+```bash
+mkdir -p /home/pi/devcode/httpd/cgi-bin
+cp -Rv /var/www/* /home/pi/devcode/httpd
+sudo chown -R www-data /home/pi/devcode/httpd
+sudo chgrp -R www-data /home/pi/devcode/httpd
+```
+
+Edit ``/etc/lighttpd/lighttpd.conf`` to update server configuration,
+```auto
+server.document-root        = "/home/pi/devcode/httpd"
+$HTTP["url"] =~ "^/cgi-bin/" {
+    cgi.assign = (".py" => "/usr/bin/python3")
+}
+```
+
+Restart the server
+```bash
+service lighttpd restart
+```
+
+Now we can put static contents in ``httpd`` directory and all the handlers
+in ``httpd/cgi-bin`` directory. Test the server from a web browser 
+
+
+
+
 ### Idea 1: configure via wifi.
 Set it up initially as a wifi access point on power up. 
 Then use it to setup up the configuration.
@@ -113,6 +153,10 @@ Perhaps We can run both ap and client at the same time? Or a reset switch to sel
 
 ### Idea 2:
 make pi a bluetooth device, connect your phone to it with an app the should display user interface and send the info to the device to get it configured.
+
+* <https://learn.adafruit.com/turning-your-raspberry-pi-zero-into-a-usb-gadget>
+
+The problem is phone has a usb otg connector, and so is pi zero. Both will be in gadget mode. But it can be made to work if pi zero is connected to a laptop or PC where, PC will be the host and pi zero will be a gadget. To connect to a phone we will need a special cable (not desired but possible).
 
 > is it possible that device will send a html page while the bt connections act as network connection? probably not a whole lot different from idea 1 if we do that.
 
