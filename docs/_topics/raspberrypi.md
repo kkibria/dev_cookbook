@@ -11,18 +11,19 @@ title: Using Raspberry Pi
 * <https://youtu.be/qeHpXVUwI08>
 * <https://youtu.be/RlgLIr2gZFg>
 
-## IOT 
+## IOT
 If we want to make an IOT with Pi, we will need to setup a headless pi first. We will use raspberry pi zero W since it has built-in wireless which
 can be used to network for development as well as connecting the device to the internet without additional hardware.  
 
 ## Setup for development
 We will use a PC to do code editing and run code to test during development. We will setup the wifi to connect the pi to a network that the PC is connected to.
 
-### Setup for headless wifi
+### Setup for headless wifi and USB networking
 First burn the minimal boot image to SD card using the PC. After the image is prepared,  
 take out the and reinsert the SD card in the PC to make the new filesystem visible. Now go to the root directory
 of the SD.
 
+First we will setup the wifi networking. 
 Create following two files in the disk image root directory.
 1. ``wpa_supplicant.conf``.
 2. ``ssh``.
@@ -42,8 +43,9 @@ network={
 
 The ``ssh`` file should be empty. This will enable incoming ssh connections into pi.
 
-These two files will setup the config during boot and then will be deleted during boot.
+These two files will setup the config during boot and then will be deleted after boot, but we will not boot it yet.
 
+Next we will setup USB networking. 
 Use a text editor to edit ``config.txt`` in the same directory.
 Go to the bottom and add,
 
@@ -52,7 +54,7 @@ dtoverlay=dwc2
 ```
 Save the ``config.txt``.
 
-Now edit ``cmdline.txt`` file and insert after ``rootwait`` (the last word on the first line) add a space and then ``modules-load=dwc2,g_serial``. Note that this line is a very long line. 
+Now edit ``cmdline.txt`` file and insert after ``rootwait`` (the last word on the first line) add a space and then ``modules-load=dwc2,g_ether``. Note that this line is a very long line. 
 
 ```auto
 ... rootwait modules-load=dwc2,g_ether ...
@@ -60,8 +62,14 @@ Now edit ``cmdline.txt`` file and insert after ``rootwait`` (the last word on th
 
 Save the ``cmdline.txt``
 
-Insert the SD in pi and turn power on. After the boot completed,  
-we can connect to headless pi thru ssh from the computer on the wifi network for development.
+Insert the SD in pi. Now we can use 
+USB networking to ssh into pi for development. First make sure that there is
+**no power cable is connected to the Pi**. Simply plug in the Pi USB OTG port to a PC or laptop with a cable. PC will recognize the
+Pi device power it thru the cable. After the boot completed, you can ssh into ``pi@raspberrypi.local``. 
+
+You can also ssh thru wifi. Detach the cable from computer. Plug in the power cable to the power port  
+and turn power on. After the boot completed, 
+we can connect to headless pi thru ssh from the computer on the wifi network.
 
 ### Create a Samba share
 We will use code editor on the PC to edit files directly on the pi. We will 
@@ -115,12 +123,12 @@ If we build IOT device, it needs to be configured. For example the user needs to
 The question is, how do we set it up with a PC or cell phone and input those
 setup?
 
-The basic strategy si to setup up a web page that collects the configuration data. We will need to setup a web server first to produce the interface.
+The basic strategy is to setup up a web page that collects the configuration data. We will need to setup a web server first to produce the interface.
 
 Once done, we can scan wifi networks from pi to get all the available access points. Fot instance we can following shell command to scan and return the result.  
 
 ```bash
- sudo iw wlan0 scan
+sudo iw wlan0 scan
 ```
 
 We can use returned info in the configuration webpage 
@@ -152,7 +160,6 @@ We will edit ``/etc/lighttpd/lighttpd.conf`` with ``nano`` to update server conf
 ```bash
 sudo nano /etc/lighttpd/lighttpd.conf
 ```
-
 
 We will change document root in ``/etc/lighttpd/lighttpd.conf``,
 
@@ -209,12 +216,14 @@ Perhaps We can run both ap and client at the same time? Or a reset switch to sel
 * <https://pifi.imti.co/>.
 * <https://en.wikipedia.org/wiki/Captive_portal>.
 
-Check an [implementation](#idea1-impl).
+Check an [implementation](#idea1-impl). I haven't tested this yet. 
 
 ### Idea 2: Configure via bluetooth
 make pi a bluetooth device, connect your phone to it with an app the should display user interface and send the info to the device to get it configured.
 
 > is it possible that device will send a html page while the bt connections act as network connection? probably not a whole lot different from idea 1 if we do that.
+
+I haven't tested this idea yet.
 
 ### Idea 3: Configure via USB
 Connect the device with a usb cable to a computer of phone, again the same concept a user interface shows up to configure.
@@ -225,11 +234,15 @@ Connect the device with a usb cable to a computer of phone, again the same conce
 
 The problem is phone has a usb otg connector, and so is pi zero. Both will be in gadget mode. But it can be made to work if pi zero is connected to a laptop or PC where, PC will be the host and pi zero will be a gadget. To connect to a phone we will need a special cable (not desired but possible).
 
-Let's explore the idea of Pi as a device connected to PC or laptop host.  
+However, let's explore the idea of Pi as a device connected to PC or laptop host.  
 Pi has usb otg, means that it can be either a host or it can be a device.
-We can connect them with a cable and setup Pi as a Ethernet gadget. Then the configuration webpage will be visible from PC browser.
+We can connect them with a cable and setup Pi as a Ethernet gadget. Then the configuration webpage will be visible from PC browser. This seems to
+be most straight forward way. At this point our Pi is already setup for
+USB networking.
 
-> Todo.
+Make sure that the **power cable is removed from the Pi**. Simply plug in the Pi USB OTG port to a PC or laptop. PC will power and recognize the
+Pi device. At this point you can open a browser and browse to 
+``http://raspberrypi.local`` and the web page will be displayed.
 
 ## <a name="idea1-impl">Raspberry pi as Access Point and Wifi client
 
