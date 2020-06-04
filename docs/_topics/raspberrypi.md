@@ -232,12 +232,12 @@ Connect the device with a usb cable to a computer of phone, again the same conce
 * [Go Go Gadget Pi Zero](https://learn.adafruit.com/turning-your-raspberry-pi-zero-into-a-usb-gadget).
 * [RASPBERRY PI ZERO USB/ETHERNET GADGET TUTORIAL](https://www.circuitbasics.com/raspberry-pi-zero-ethernet-gadget/#:~:text=The%20Raspberry%20Pi%20Zero's%20small,is%20shared%20over%20USB%20too.).
 
-The problem is phone has a usb otg connector, and so is pi zero. Both will be in gadget mode. But it can be made to work if pi zero is connected to a laptop or PC where, PC will be the host and pi zero will be a gadget. To connect to a phone we will need a special cable (not desired but possible).
+Note that, phone has a usb otg connector, and so is pi zero. Both will be in gadget mode. To connect to a phone we will need a special cable which is not desired but possible.
 
-However, let's explore the idea of Pi as a device connected to PC or laptop host.  
+However, let's explore the idea of Pi as a device connected to PC or laptop host.
 Pi has usb otg, means that it can be either a host or it can be a device.
 We can connect them with a cable and setup Pi as a Ethernet gadget. Then the configuration webpage will be visible from PC browser. This seems to
-be most straight forward way. At this point our Pi is already setup for
+be most straight forward way since our Pi is already setup for
 USB networking.
 
 Make sure that the **power cable is removed from the Pi**. Simply plug in the Pi USB OTG port to a PC or laptop. PC will power and recognize the
