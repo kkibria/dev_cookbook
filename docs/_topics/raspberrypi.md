@@ -44,6 +44,22 @@ The ``ssh`` file should be empty. This will enable incoming ssh connections into
 
 These two files will setup the config during boot and then will be deleted during boot.
 
+Use a text editor to edit ``config.txt`` in the same directory.
+Go to the bottom and add,
+
+```auto
+dtoverlay=dwc2
+```
+Save the ``config.txt``.
+
+Now edit ``cmdline.txt`` file and insert after ``rootwait`` (the last word on the first line) add a space and then ``modules-load=dwc2,g_serial``. Note that this line is a very long line. 
+
+```auto
+... rootwait modules-load=dwc2,g_ether ...
+```
+
+Save the ``cmdline.txt``
+
 Insert the SD in pi and turn power on. After the boot completed,  
 we can connect to headless pi thru ssh from the computer on the wifi network for development.
 
@@ -104,7 +120,7 @@ The basic strategy si to setup up a web page that collects the configuration dat
 Once done, we can scan wifi networks from pi to get all the available access points. Fot instance we can following shell command to scan and return the result.  
 
 ```bash
- sudo iwlist wlan0 scan
+ sudo iw wlan0 scan
 ```
 
 We can use returned info in the configuration webpage 
@@ -167,6 +183,21 @@ service lighttpd restart
 
 Now we can put static contents in ``httpd/html`` directory and all the handlers
 in ``httpd/cgi-bin`` directory. Go ahead, test the server from a web browser with some static content and cgi.
+
+### Using privileged commands in CGI
+The web server cgi scripts may need to scan the wifi networks with root permission. This can be allowed by
+updating sudo permission for the server. You can edit the permission by running,
+
+```bash
+sudo visudo
+```        
+This will bring up ``nano`` with the permission file. Add following line at the end of file,
+
+```auto
+%www-data  ALL=NOPASSWD: /sbin/iw
+```
+
+Now save the file. You can add other comma separated command paths as well.
 
 ### Idea 1: Configure via wifi
 Set it up initially as a wifi access point on power up. 
