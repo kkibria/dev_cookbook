@@ -438,4 +438,5 @@ We will put minimal code on the sdio, the boot image should be downloaded and pr
 ## Wifi related links
 * <https://www.raspberrypi.org/forums/viewtopic.php?t=179387>
 * <https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md>
-* 
+* <https://www.tecmint.com/set-system-locales-in-linux/>
+* <https://www.debian.org/doc/manuals/debian-reference/ch08.en.html>
