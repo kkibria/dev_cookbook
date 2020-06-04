@@ -192,8 +192,9 @@ Now we can put static contents in ``httpd/html`` directory and all the handlers
 in ``httpd/cgi-bin`` directory. Go ahead, test the server from a web browser with some static content and cgi.
 
 ### Using privileged commands in CGI
-The web server cgi scripts may need to scan the wifi networks with root permission. This can be allowed by
-updating sudo permission for the server. You can edit the permission by running,
+The web server cgi scripts may need to run commands with root permission. This can be allowed by
+updating sudo permission for the server for specific commands. For instance, we can scan the wifi networks using ``/sbin/iw`` command
+running with root permission. You can edit the permission by running,
 
 ```bash
 sudo visudo
@@ -203,8 +204,7 @@ This will bring up ``nano`` with the permission file. Add following line at the 
 ```auto
 %www-data  ALL=NOPASSWD: /sbin/iw
 ```
-
-Now save the file. You can add other comma separated command paths as well.
+Now save the file. You can add more than one commands in comma separated paths if needed. Check documentation for ``visudo``.
 
 ### Idea 1: Configure via wifi
 Set it up initially as a wifi access point on power up. 
