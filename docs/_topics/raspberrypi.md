@@ -67,7 +67,8 @@ USB networking to ssh into pi for development. First make sure that there is
 **no power cable is connected to the Pi**. Simply plug in the Pi USB OTG port to a PC or laptop with a cable. PC will recognize the
 Pi device power it thru the cable. After the boot completed, you can ssh into ``pi@raspberrypi.local``. 
 
-You can also ssh thru wifi. Detach the cable from computer. Plug in the power cable to the power port  
+You can also ssh thru wifi. Detach the cable from computer.
+Plug in the power cable to the power port 
 and turn power on. After the boot completed, 
 we can connect to headless pi thru ssh from the computer on the wifi network.
 
@@ -440,3 +441,13 @@ We will put minimal code on the sdio, the boot image should be downloaded and pr
 * <https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md>
 * <https://www.tecmint.com/set-system-locales-in-linux/>
 * <https://www.debian.org/doc/manuals/debian-reference/ch08.en.html>
+
+
+## Some random setup stuff
+* ``timedatectl list-timezones`` provides list of all timezones
+* <https://github.com/eggert/tz> all timezones
+* raspi-config <https://github.com/RPi-Distro/raspi-config>
+* list of 2 letter country codes <https://www.iso.org/obp/ui/#search>
+* list of flags <https://github.com/lipis/flag-icon-css>
+* language codes <https://www.loc.gov/standards/iso639-2/php/code_list.php>
+* select from a list <https://svelte.dev/tutorial/select-bindings>
