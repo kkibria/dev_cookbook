@@ -65,12 +65,50 @@ Save the ``cmdline.txt``
 Insert the SD in pi. Now we can use 
 USB networking to ssh into pi for development. First make sure that there is
 **no power cable is connected to the Pi**. Simply plug in the Pi USB OTG port to a PC or laptop with a cable. PC will recognize the
-Pi device power it thru the cable. After the boot completed, you can ssh into ``pi@raspberrypi.local``. 
+Pi device power it thru the cable. After the boot completed, you can ssh into ``pi@raspberrypi.local`` using the default password ``raspberry``.
 
 You can also ssh thru wifi. Detach the cable from computer.
 Plug in the power cable to the power port 
 and turn power on. After the boot completed, 
 we can connect to headless pi thru ssh from the computer on the wifi network.
+
+You should change the default password on this first boot to something else. 
+
+### Secure the ssh
+Now that you are connected to pi via ssh, 
+it is best to setup key-based authentication instead of using password for ssh at this point to make it more secure. 
+Key pairs are two cryptographically secure keys and extremely difficult to break. One is private, and one is public. These keys are stored by default in the ``.ssh`` folder in your home directory on the PC. The private key will be called ``id_rsa`` and the associated public key will be called ``id_rsa.pub``. If you don't have those files already, simply use ``ssh-keygen`` command to generate them.
+
+We will need to copy the public key to Raspberry Pi.
+Run the following commands on Pi over ssh,
+
+```bash
+mkdir -p ~/.ssh
+echo >> ~/.ssh/authorized_keys
+```
+
+Next, we will put the key in ``~/.ssh/authorized_keys`` using nano,
+```bash
+nano ~/.ssh/authorized_keys
+```
+
+``id_rsa.pub`` is just a text file, open it on your PC and copy the entire
+content and paste it in nano at the end of the ``~/.ssh/authorized_keys`` and save.  
+Now log in again using ssh using another terminal. If it didn't ask for password then
+we have successfully set up the keys. Now we can safely disable password logins, so that all authentication is done by only the key pairs without locking us out.
+
+On pi we will change ``/etc/ssh/sshd_config``,
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+There are three lines that need to be changed to ``no``, if they are not set that way already,
+
+```auto
+ChallengeResponseAuthentication no
+PasswordAuthentication no
+UsePAM no
+```
+Save the file and either restart the ssh system with ``sudo service ssh reload`` or reboot.
 
 ### Create a Samba share
 We will use code editor on the PC to edit files directly on the pi. We will 
@@ -106,6 +144,8 @@ valid users = pi
 public=no
 ```
 
+It is also best to comment out anything that you don't need to use such ``printers`` or ``home`` sections.
+
 Before we start the server, you’ll want to set a Samba password - this is not the same as your standard default password (raspberry), but there’s no harm in reusing this if you want to, as this is a low-security, local network project.
 
 ```
@@ -117,7 +157,8 @@ Finally, let’s restart Samba:
 ```
 sudo /etc/init.d/smbd restart
 ```
-From now on, Samba will start automatically whenever you power on your Pi. 
+From now on, Samba will start automatically whenever you power on your Pi. From you windows PC file explorer you can connect to ``\\raspberrypi`` and map ``devcode``
+to a drive letter. You can do rest of your development using popular ``vscode`` or any other editor from your PC on the newly created drive.
 
 ## Configure IOT setup mechanism by user
 If we build IOT device, it needs to be configured. For example the user needs to setup the wifi connection information so that it can be connected to internet.
@@ -429,12 +470,23 @@ sudo /usr/local/bin/wifistart
 from the terminal after commenting out the ``wifistart`` script line in ``rc.local``.
 
 ## Preparing for distribution.
-We will put minimal code on the sdio, the boot image should be downloaded and prepared by the user during configuration. TODO...
+
+Back up the sdio image from dev SD card first.
+
+Now we have to make sure the image has disabled ssh, and samba and any other services not needed on the deployed device by running some kind of shell script.
+now the has become the production SD and ready for imaging.
+
+Save the sdio image from dev SD card first. This will be the boot image to be downloaded.
+
+We will put minimal code on the SD, something similar to ``noobs`` (New Out of Box Software), the boot image should be downloaded and prepared after initial boot by the user during configuration.
+> Check noobs source code.
+
+For application where production SD image is small, there will be no benefit using **NOOBS** strategy. In those case, fully loaded SD should be fine. 
 
 * Imaging sdio source code <https://github.com/raspberrypi/rpi-imager>
+* <https://github.com/raspberrypi/noobs>
 
 > todo: check how to use docker container in pi
-
 
 ## Wifi related links
 * <https://www.raspberrypi.org/forums/viewtopic.php?t=179387>
