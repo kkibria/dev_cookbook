@@ -503,3 +503,7 @@ For application where production SD image is small, there will be no benefit usi
 * list of flags <https://github.com/lipis/flag-icon-css>
 * language codes <https://www.loc.gov/standards/iso639-2/php/code_list.php>
 * select from a list <https://svelte.dev/tutorial/select-bindings>
+
+## Samba WINS doesnt make is discoverable in windows 10
+WSD is missing from samba. samba only supports netbios. This WSD server written in python will, make the device discoverable.  
+* <https://github.com/christgau/wsdd>
