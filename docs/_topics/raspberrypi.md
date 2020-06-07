@@ -206,7 +206,7 @@ sudo nano /etc/lighttpd/lighttpd.conf
 We will change document root in ``/etc/lighttpd/lighttpd.conf``,
 
 ```auto
-server.document-root        = "/home/pi/devcode/httpd/html"
+server.document-root        = "/home/pi/devcode/httpd/public"
 ```
 
 We will Append following to the end of ``/etc/lighttpd/lighttpd.conf`` to enable cgi,
@@ -227,7 +227,7 @@ $HTTP["url"] =~ "^/cgi-bin/" {
 
 Restart the server
 ```bash
-service lighttpd restart
+sudo service lighttpd restart
 ```
 
 Now we can put static contents in ``httpd/html`` directory and all the handlers
