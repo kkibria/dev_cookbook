@@ -507,3 +507,9 @@ For application where production SD image is small, there will be no benefit usi
 ## Samba WINS doesnt make is discoverable in windows 10
 WSD is missing from samba. samba only supports netbios. This WSD server written in python will, make the device discoverable.  
 * <https://github.com/christgau/wsdd>
+
+
+## Daemon with shell script
+* making service daemon with shell script <http://manpages.ubuntu.com/manpages/focal/en/man8/start-stop-daemon.8.html>
+* <https://gist.github.com/shawnrice/11076762> This seems to have recusrion, we need to fix it if want to use it.
+* <https://bash.cyberciti.biz/guide/Daemons>
