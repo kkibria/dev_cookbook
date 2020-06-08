@@ -19,12 +19,16 @@ a building block of css style.
 ## CSS Articles
 * [A Complete Guide to CSS Functions](https://css-tricks.com/complete-guide-to-css-functions/).
 
-## Javascript, SVG and CSS to create graphical widgets and animations
+## D3.js: Javascript, SVG and CSS to create graphical widgets and animations
 * [Amelia Wattenberger](https://wattenberger.com/)'s site has lot of interesting articles about frontend visuals. 
 * [Creating a Gauge in React](https://wattenberger.com/blog/gauge) by Amelia.
 * [Data-Driven Documents](https://d3js.org/) d3js javascript library, Github [source](https://github.com/d3/d3).
 Really awesome visual effects can be built using this library. 
 d3 has bunch of cool features like force simulation, goe projections etc.
+* [D3 is svelte](https://svelte.dev/repl/8722c32f4e1a44a98e3a3fc8a095b2d7?version=3.5.3). I have forked it my svelte REPL.
+* [Refer to an external SVG via D3 and/or javascript](https://stackoverflow.com/questions/21209549/embed-and-refer-to-an-external-svg-via-d3-and-or-javascript).
+* [How to use svg file for image source in D3](https://stackoverflow.com/questions/12975929/how-to-use-svg-file-for-image-source-in-d3).
+* [Web application that parses SVG files and returns d3.js code](https://github.com/billautomata/svg2d3/).
 
 ## Common Javascript DOM recipes
 * [How to manage HTML DOM](https://htmldom.dev/).
