@@ -162,7 +162,7 @@ Check [Passing parameters to components](https://svelte.dev/repl/aac50a4f24fd485
 
 ## Binding
 Binding is exactly same as passing individual parameters, except you have to attach the 
-``bind`` keyword. There is no spread style binding syntax supported.
+``bind`` keyword in the association. 
 
 ```auto
   <Comp1 bind:param1={data} />
@@ -170,7 +170,9 @@ Binding is exactly same as passing individual parameters, except you have to att
 Binding will keep component parameter ``param1`` and parent variable
 ``data`` always in sync. When components updates ``param1`` it will be
 immediately reflected in ``data``. Parent can bind ``data`` with multiple
-components and they all will be in sync as well.   
+components and they all will be in sync as well.
+
+There is no spread style binding syntax supported.
 
 There is a short hand syntax available for binding in the case when parameter name and variable name are the same.
 ```auto
@@ -185,17 +187,17 @@ Check [component bindings](https://svelte.dev/tutorial/component-bindings).
 ``Parent.svelte`` source,
 ```auto
 <script>
-	import Component from './Component.svelte';
+	import Comp1 from './Comp1.svelte';
 
 	function handleMessage(event) {
 		alert(event.detail.text);
 	}
 </script>
 
-<Component on:event_name={handleMessage}/>
+<Comp1 on:event_name={handleMessage}/>
 ```
 
-``Component.svelte`` source,
+``Comp1.svelte`` source,
 ```auto
 <script>
 	import { createEventDispatcher } from 'svelte';
