@@ -19,9 +19,12 @@ npm run dev
 * <https://github.com/collardeau/svelte-fluid-header>
 * <https://flaviocopes.com/svelte-state-management/>
 
+## Generating web components with svelte
+* [How to Create a Web Component in Svelte](https://dev.to/silvio/how-to-create-a-web-components-in-svelte-2g4j).
+
 ## Styling
 * <https://css-tricks.com/what-i-like-about-writing-styles-with-svelte/>
-* with tailwind we can import external css file into a component, <https://mattferderer.com/add-postcss-imports-to-tailwind-css>
+* With tailwind we can import external css file into a component, Although it is not specific for svelte, still is a good read: [Add Imports to Tailwind CSS with PostCSS](https://mattferderer.com/add-postcss-imports-to-tailwind-css).
 * css in js for svelte, <https://svelte.dev/blog/svelte-css-in-js>
 
 ## Generated content and global styling in production build
