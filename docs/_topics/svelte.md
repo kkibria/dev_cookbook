@@ -140,6 +140,11 @@ Components,
    Parent uses event handlers.
 1. are destroyed by parents when they are no longer needed.
 
+> A parent can get component state both via binding and events.
+Bindings provide easy reactive update in parents. Events
+provides an easy way when algorithmic action is required by parent.
+Using both as appropriate is the best approach.
+
 Check [Managing state in Svelte](https://dev.to/joshnuss/managing-state-in-svelte-29o7).
 
 ## Passing parameter to sub-component
@@ -156,8 +161,8 @@ Using spread operator is preferred for large number of parameters.
 Check [Passing parameters to components](https://svelte.dev/repl/aac50a4f24fd4858b1c6fffc0a75e418?version=3.23.1).
 
 ## Binding
-Binding is exactly same as passing individual parameters, except attaching
-bind keyword. There is no spread style binding syntax supported.
+Binding is exactly same as passing individual parameters, except attaching the 
+``bind`` keyword. There is no spread style binding syntax supported.
 
 ```auto
   <Comp1 bind:param1={data} />
