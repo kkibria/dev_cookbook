@@ -124,17 +124,86 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
 > [REPL](https://svelte.dev/repl) sandbox ``JS output`` window to 
 > check the exact use case.   
 
+## Component lifecycle 
+
+Components,
+1. are instantiated and composed inside parents.
+1. are initialized by parents via parameters.
+   Parameters are passed by value.
+1. display information and interact with user.
+1. manage user interaction via state transitions.
+1. make the user entered information accessible to parents via bindings.
+   Binding keeps parent's variable in sync with components variable.
+   Binding makes the parameter behave like as if they were passed
+   by pointers. 
+1. send events to parent so that parent can take actions.
+   Parent uses event handlers.
+1. are destroyed by parents when they are no longer needed.
+
+Check [Managing state in Svelte](https://dev.to/joshnuss/managing-state-in-svelte-29o7).
+
 ## Passing parameter to sub-component
 Sub-components act like functions javascript function with parameters, pass parameters individually or 
 all the parameters as a dictionary using a spread operator.
-Do **not** initialize the parameters inside the sub-component.
-If you do they will override the parameters passed.
+You can have [default values](https://svelte.dev/tutorial/default-values) inside the sub-component.
 
 ```auto
   <Comp1 param1={data} />
   <Comp2 {...selprops} />
 ```
-Using spread operator is preferred for large number of parameters or if you want to pass a complex data structure containing arrays and/or dictionaries. 
+Using spread operator is preferred for large number of parameters. 
+
+Check [Passing parameters to components](https://svelte.dev/repl/aac50a4f24fd4858b1c6fffc0a75e418?version=3.23.1).
+
+## Binding
+Binding is exactly same as passing individual parameters, except attaching
+bind keyword. There is no spread style binding syntax supported.
+
+```auto
+  <Comp1 bind:param1={data} />
+
+  <Comp1 bind:same_name={same_name} />
+  <!-- short hand for same variable name in parent and component -->
+  <Comp1 bind:same_name />
+```
+Check [component bindings](https://svelte.dev/tutorial/component-bindings).
+
+## Events
+
+``Parent.svelte`` source,
+```auto
+<script>
+	import Component from './Component.svelte';
+
+	function handleMessage(event) {
+		alert(event.detail.text);
+	}
+</script>
+
+<Component on:event_name={handleMessage}/>
+```
+
+``Component.svelte`` source,
+```auto
+<script>
+	import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher();
+
+	function sayHello() {
+		dispatch('event_name', {
+			text: 'Hello!'
+		});
+	}
+</script>
+
+<button on:click={sayHello}>
+	Click to say hello
+</button>
+```
+
+To bubble up component message parent can forward it further up,
+see [event forwarding](https://svelte.dev/tutorial/event-forwarding).
 
 ## Login data passing with context API
 
