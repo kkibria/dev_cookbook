@@ -161,14 +161,21 @@ Using spread operator is preferred for large number of parameters.
 Check [Passing parameters to components](https://svelte.dev/repl/aac50a4f24fd4858b1c6fffc0a75e418?version=3.23.1).
 
 ## Binding
-Binding is exactly same as passing individual parameters, except attaching the 
+Binding is exactly same as passing individual parameters, except you have to attach the 
 ``bind`` keyword. There is no spread style binding syntax supported.
 
 ```auto
   <Comp1 bind:param1={data} />
+```
+Binding will keep component parameter ``param1`` and parent variable
+``data`` always in sync. When components updates ``param1`` it will be
+immediately reflected in ``data``. Parent can bind ``data`` with multiple
+components and they all will be in sync as well.   
 
+There is a short hand syntax available for binding in the case when parameter name and variable name are the same.
+```auto
   <Comp1 bind:same_name={same_name} />
-  <!-- short hand for same variable name in parent and component -->
+  <!-- short hand syntax for above -->
   <Comp1 bind:same_name />
 ```
 Check [component bindings](https://svelte.dev/tutorial/component-bindings).
