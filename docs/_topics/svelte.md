@@ -124,6 +124,18 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
 > [REPL](https://svelte.dev/repl) sandbox ``JS output`` window to 
 > check the exact use case.   
 
+## Passing parameter to sub-component
+Sub-components act like functions javascript function with parameters, pass parameters individually or 
+all the parameters as a dictionary using a spread operator.
+Do **not** initialize the parameters inside the sub-component.
+If you do they will override the parameters passed.
+
+```auto
+  <Comp1 param1={data} />
+  <Comp2 {...selprops} />
+```
+Using spread operator is preferred for large number of parameters or if you want to pass a complex data structure containing arrays and/or dictionaries. 
+
 ## Login data passing with context API
 
 Firebase can have has it own login subscription via rxfire. However following articles are good read to understand svelte support data sharing across the app.
