@@ -40,3 +40,6 @@ d3 has bunch of cool features like force simulation, goe projections etc.
 * [SPAs, PWAs and SSR](https://simplabs.com/blog/2019/04/05/spas-pwas-and-ssr/)
 * [LinkedIn Lite: A Server-Side Rendered PWA](https://engineering.linkedin.com/blog/2018/07/linkedin-lite--a-server-side-rendered-pwa)
 * [Building a hybrid-rendered PWA](https://medium.com/dev-channel/building-a-hybrid-rendered-pwa-c9d645baf158)
+
+## designing CSS
+* [Designing in the Browser](https://www.youtube.com/playlist?list=PLNYkxOF6rcIDI0QtJvW6vKonTxn6azCsD)
