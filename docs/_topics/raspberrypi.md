@@ -110,8 +110,8 @@ ChallengeResponseAuthentication no
 PasswordAuthentication no
 UsePAM no
 ```
-Save the file and either restart the ssh system with ``sudo service ssh reload`` or reboot. Now you should be able to do ssh  
-into ``pi@raspberrypi.local`` from the authorized PC only, since the password login capability is disabled.
+Save the file and either restart the ssh system with ``sudo service ssh reload`` or reboot. Now you should be able to do ssh
+into ``pi@raspberrypi.local`` from the authorized PC only and you will not need to enter any password. 
 
 ### Create a Samba share
 We will use code editor on the PC to edit files directly on the pi. We will 
@@ -511,8 +511,28 @@ For application where production SD image is small, there will be no benefit usi
 WSD is missing from samba. samba only supports netbios. This WSD server written in python will, make the device discoverable.  
 * <https://github.com/christgau/wsdd>
 
-
 ## Daemon with shell script
 * Making service daemon with shell script <http://manpages.ubuntu.com/manpages/focal/en/man8/start-stop-daemon.8.html>
 * A shell Daemon [template](https://gist.github.com/shawnrice/11076762). This seems to have recusrion, we need to fix it if want to use it.
 * [Daemons](https://bash.cyberciti.biz/guide/Daemons).
+
+
+## Debugging python cgi scripts
+
+Following will send the error message and traceback to the browser for debugging
+```auto
+import sys
+import traceback
+print "Content-Type: text/html"
+print
+sys.stderr = sys.stdout
+try:
+    ...your code here...
+except:
+    print "\n\n<PRE>"
+    traceback.print_exc()
+```
+
+> Remove the code after debugging is complete. Otherwise it may expose information
+leading into security risk for your application. ``post`` requests can not be redirected,
+broweser turns it into a ``get`` request and then the request fails. 
