@@ -95,8 +95,10 @@ nano ~/.ssh/authorized_keys
 ``id_rsa.pub`` is just a text file, open it on your PC and copy the entire
 content and paste it in nano at the end of the ``~/.ssh/authorized_keys`` and save.  
 Now log in again using ssh using another terminal. If it didn't ask for password then
-we have successfully set up the keys. Now we can safely disable password logins, so that all authentication is done by only the key pairs without locking us out.
+we have successfully set up the keys.
 
+We can safely disable password logins now,
+so that all authentication is done by only the key pairs without locking us out.
 On pi we will change ``/etc/ssh/sshd_config``,
 ```bash
 sudo nano /etc/ssh/sshd_config
@@ -108,7 +110,8 @@ ChallengeResponseAuthentication no
 PasswordAuthentication no
 UsePAM no
 ```
-Save the file and either restart the ssh system with ``sudo service ssh reload`` or reboot.
+Save the file and either restart the ssh system with ``sudo service ssh reload`` or reboot. Now you should be able to do ssh  
+into ``pi@raspberrypi.local`` from the authorized PC only, since the password login capability is disabled.
 
 ### Create a Samba share
 We will use code editor on the PC to edit files directly on the pi. We will 
