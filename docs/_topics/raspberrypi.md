@@ -515,6 +515,7 @@ WSD is missing from samba. samba only supports netbios. This WSD server written 
 * Making service daemon with shell script <http://manpages.ubuntu.com/manpages/focal/en/man8/start-stop-daemon.8.html>
 * A shell Daemon [template](https://gist.github.com/shawnrice/11076762). This seems to have recusrion, we need to fix it if want to use it.
 * [Daemons](https://bash.cyberciti.biz/guide/Daemons).
+* [Using start-stop-daemon](https://gist.github.com/alobato/1968852)
 
 
 ## Debugging python cgi scripts
@@ -523,16 +524,92 @@ Following will send the error message and traceback to the browser for debugging
 ```auto
 import sys
 import traceback
-print "Content-Type: text/html"
+print ("Content-Type: text/html")
 print
 sys.stderr = sys.stdout
 try:
     ...your code here...
 except:
-    print "\n\n<PRE>"
+    print ("\n\n<PRE>")
     traceback.print_exc()
 ```
 
 > Remove the code after debugging is complete. Otherwise it may expose information
 leading into security risk for your application. ``post`` requests can not be redirected,
-broweser turns it into a ``get`` request and then the request fails. 
+broweser turns it into a ``get`` request and then the request fails.
+
+## Using cython
+install cython first.
+```bash
+sudo apt-get update
+
+# for python2
+sudo apt-get install python-dev --fix-missing 
+sudo apt-get install python-pip
+sudo apt-get install python-distutils
+sudo pip install cython
+
+# for python3
+sudo apt-get install python3-dev --fix-missing 
+sudo apt-get install python3-pip
+sudo apt-get install python3-distutils
+sudo pip3 install cython
+```
+
+cython is really designed building modules to be used within python for speed up,
+packaging as standalone executable
+is tedious because of the dependency chain as all the dependencies
+have to be manually compiled.
+
+### Simple way, lets say our python version is 3.7m
+
+compile ``test.pyx`` to executable
+```bash
+cython --embed -3 test.pyx
+gcc -c test.c `python3-config --cflags`
+gcc -o test test.o `python3-config -ldflags`
+```
+check <https://github.com/cython/cython/tree/master/Demos/embed>
+
+gcc to create binary python module that can be imported
+```bash
+cython -3 test.pyx
+gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong \
+    -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC \
+    -I/usr/include/python3.7m -c test.c -o test.o
+gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-z,relro -g \
+    -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 \
+	test.o -o test.so
+```
+
+gcc options to create executable in one step picking up include options from ``pkg-config``
+```bash
+cython --embed -3 test.pyx
+gcc -v -Os -lpthread -lm -lutil -ldl -lpython3.7m \
+	`pkg-config --cflags python-3.7m` \
+	-o test test.c  
+```
+
+### Using distutils buld system
+
+This creates a ``.so`` library, a binaty python module
+```
+import distutils.core
+import Cython.Build
+distutils.core.setup(
+    ext_modules = Cython.Build.cythonize("test.pyx"))
+```
+
+> todo: I have yet to figure out how I can generate executablie using cython build api.  
+
+* [Boosting Python Scripts With Cython](https://blog.paperspace.com/boosting-python-scripts-cython/)
+* [Creating an executable file using Cython](http://masnun.rocks/2016/10/01/creating-an-executable-file-using-cython/)
+* [Making an executable in Cython](https://stackoverflow.com/questions/22507592/making-an-executable-in-cython)
+* [Protecting Python Sources With Cython](https://medium.com/@xpl/protecting-python-sources-using-cython-dcd940bb188e)
+* <http://okigiveup.net/an-introduction-to-cython/>
+* <https://tryexceptpass.org/article/package-python-as-executable/>
+
+## setting time zone from terminal
+```auto
+sudo timedatectl set-timezone Europe/Brussels
+```
