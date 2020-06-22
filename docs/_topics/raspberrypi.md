@@ -492,8 +492,10 @@ For application where production SD image is small, there will be no benefit usi
 > todo: check how to use docker container in pi
 
 ## Wifi related links
-* <https://www.raspberrypi.org/forums/viewtopic.php?t=179387>
-* <https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md>
+* [Changing Wifi networks](https://www.raspberrypi.org/forums/viewtopic.php?t=179387)
+* [Setting up a wifi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md)
+* [Switching between known Wifi networks](https://www.raspberrypi.org/forums/viewtopic.php?t=160620)
+* [Which WiFi network I am connected to?](https://raspberrypi.stackexchange.com/questions/41020/how-do-i-use-the-command-line-to-check-which-wifi-network-i-am-connected-to)
 * <https://www.tecmint.com/set-system-locales-in-linux/>
 * <https://www.debian.org/doc/manuals/debian-reference/ch08.en.html>
 
