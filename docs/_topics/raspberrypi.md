@@ -615,3 +615,7 @@ distutils.core.setup(
 ```auto
 sudo timedatectl set-timezone Europe/Brussels
 ```
+
+## setup SSL using lets encrypt
+* <https://pimylifeup.com/raspberry-pi-ssl-lets-encrypt/>
+
