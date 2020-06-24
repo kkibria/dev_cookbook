@@ -29,3 +29,19 @@ Visual Studio Code has been installed on your Ubuntu desktop and you can start u
 ```bash
 git config --global credential.helper store
 ```
+
+## cpp setup
+https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/MinGW.md
+
+
+To get include path
+gcc -v -E -x c++ -
+
+
+Debugging
+g++ -ggdb <files>
+
+To strip debugging symbol use -s option at release build.
+g++ -ggdb -s <files>
+
+Vscode requires xterm, so install, sudo apt install xterm

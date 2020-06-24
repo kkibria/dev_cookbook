@@ -43,3 +43,6 @@ d3 has bunch of cool features like force simulation, goe projections etc.
 
 ## designing CSS
 * [Designing in the Browser](https://www.youtube.com/playlist?list=PLNYkxOF6rcIDI0QtJvW6vKonTxn6azCsD)
+
+## SVG
+* [How to Scale SVG](https://css-tricks.com/scale-svg/)
