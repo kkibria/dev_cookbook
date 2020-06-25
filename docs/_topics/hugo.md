@@ -4,6 +4,9 @@ title: Hugo stuff
 
 # {{ page.title }}
 
+## tutorial
+* [Hugo - Static Site Generator | Tutorial](https://www.youtube.com/playlist?list=PLLAZ4kZ9dFpOnyRlyS-liKL5ReHDcj4G3).
+
 ## How to build Hugo Theme
 * [Develop a Theme for Hugo](https://www.zeolearn.com/magazine/develop-a-theme-for-hugo)
 
