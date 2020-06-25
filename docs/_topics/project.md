@@ -5,7 +5,7 @@ title: How to create a new project in gitlab or github
 # {{ page.title }}
 
 ## gitlab
-Create a local project directory. In this example we will use **prj\_dir** as the directory name. Now populate the **prj\_dir** with all the files and folders that will be used for initial commit.
+Create a local project directory. In this example we will use ``prj_dir` as the directory name. Now populate the ``prj_dir`` with all the files and folders that will be used for initial commit.
 
 ```bash
 cd prj_dir
@@ -20,18 +20,19 @@ git pull
 I created a convenience npm module that will execute the above commands without typing them individually. You can clone from [https://gitlab.com/kkibria/gitlab.git](https://gitlab.com/kkibria/gitlab.git), build the npm module and install.
 
 ## github
+Create a new repository.
 
-Create a new repository,
+Create a new folder ``prj_dir`` and ``README.md`` file,
 ```bash
-echo "# io-2012-slides" >> README.md
+cd prj_dir
 git init
-git add README.md
+git add .
 git commit -m "first commit"
 git remote add origin https://github.com/USERNAME/REPOSITORY.git
 git push -u origin master
 ```
 
-Push an existing repository,
+Push an existing folder maintained with git,
 ```bash
 git remote add origin https://github.com/USERNAME/REPOSITORY.git
 git push -u origin master
