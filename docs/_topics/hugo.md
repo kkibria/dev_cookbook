@@ -9,3 +9,55 @@ title: Hugo stuff
 
 ## Adding tailwind
 * [How to setup Tailwind with PurgeCSS and PostCSS](https://flaviocopes.com/tailwind-setup/)
+
+## Install Hugo
+First install google golang from their [website](https://golang.org/dl/) appropriate to your computer.
+
+Then build ``hugo`` from source code using their github repo. 
+```bash
+mkdir $HOME/src
+cd $HOME/src
+git clone https://github.com/gohugoio/hugo.git
+cd hugo
+go install --tags extended
+```
+
+>If you are a Windows user, substitute the ``$HOME`` environment variable above with ``%USERPROFILE%``.
+
+## Create a site for github pages
+Go to github and create a repo. Get the git https clone URL.
+
+Now create a hugo directory, 
+
+```bash
+mkdir <repo_name>
+cd my repo
+hugo new site .
+git remote add origin <repo_clone_url>
+git pull origin master
+```
+
+This will create the scaffolding for hugo. Now we will get a theme. Go to the themes github page and get the clone url. 
+
+```bash
+cd themes
+git clone <theme_clone_url>
+cd ..
+```
+This wll create a directory with same name as the theme. Now copy the theme config to the our config.
+
+```bash
+cp themes/<theme_name>/exampleSite/config.toml .
+```
+
+Now edit the config.toml file and delete the ``themesdir`` as appropriate.
+
+
+
+
+
+
+
+
+
+

@@ -249,3 +249,10 @@ const { these, are, stores } = getContext(...);
 * icons <https://ionicons.com/>
 * <https://capacitorjs.com/>
 * <https://stackoverflow.com/questions/58611710/how-to-setup-svelte-js-with-ionic>
+
+## styling
+* [What I Like About Writing Styles with Svelte](https://css-tricks.com/what-i-like-about-writing-styles-with-svelte/)
+* [The zen of Just Writing CSS](https://svelte.dev/blog/the-zen-of-just-writing-css)
+
+## develop reusable components using REPL, Github and npm
+> todo: write up

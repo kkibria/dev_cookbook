@@ -31,3 +31,23 @@ $ git remote -v
 > origin  https://github.com/USERNAME/REPOSITORY2.git (fetch)
 > origin  https://github.com/USERNAME/REPOSITORY2.git (push)
 ```
+
+## github
+
+Create the repo first
+
+Create a new repository,
+```bash
+echo "# io-2012-slides" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/USERNAME/REPOSITORY2.git
+git push -u origin master
+```
+
+Push an existing repository,
+```bash
+git remote add origin https://github.com/USERNAME/REPOSITORY2.git
+git push -u origin master
+```

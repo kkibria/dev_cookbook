@@ -46,3 +46,4 @@ d3 has bunch of cool features like force simulation, goe projections etc.
 
 ## SVG
 * [How to Scale SVG](https://css-tricks.com/scale-svg/)
+* [Scale SVG to a fixed height](https://stackoverflow.com/questions/45524875/scale-svg-to-a-fixed-height)
