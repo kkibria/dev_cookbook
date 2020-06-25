@@ -57,3 +57,10 @@ At this point you can add content, and do your own theme.
 
 # Render Math
 [KaTex in Hugo](https://eankeen.github.io/blog/posts/render-latex-with-katex-in-hugo-blog/)
+
+# Integrate slides capability
+* [io-2012-slides](https://github.com/kkibria/io-2012-slides)
+* [html5slides](https://github.com/kkibria/html5slides)
+
+# Integrate PDF generation
+* [using pandoc](https://github.com/tanakh/pandoc-html5slide)
