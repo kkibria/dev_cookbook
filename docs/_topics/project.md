@@ -12,8 +12,8 @@ cd prj_dir
 git init
 git add .
 git commit -m "initial commit"
-git push --set-upstream https://gitlab.com/kkibria/prj_dir.git master
-git remote add origin https://gitlab.com/kkibria/prj_dir.git
+git push --set-upstream https://gitlab.com/USERNAME/REPOSITORY.git master
+git remote add origin https://gitlab.com/USERNAME/REPOSITORY.git
 git pull
 ```
 
@@ -21,21 +21,19 @@ I created a convenience npm module that will execute the above commands without 
 
 ## github
 
-Create the repo first
-
 Create a new repository,
 ```bash
 echo "# io-2012-slides" >> README.md
 git init
 git add README.md
 git commit -m "first commit"
-git remote add origin https://github.com/USERNAME/REPOSITORY2.git
+git remote add origin https://github.com/USERNAME/REPOSITORY.git
 git push -u origin master
 ```
 
 Push an existing repository,
 ```bash
-git remote add origin https://github.com/USERNAME/REPOSITORY2.git
+git remote add origin https://github.com/USERNAME/REPOSITORY.git
 git push -u origin master
 ```
 
