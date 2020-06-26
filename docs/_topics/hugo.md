@@ -66,4 +66,6 @@ At this point you can add content, and do your own theme.
 * [html5slides](https://github.com/kkibria/html5slides)
 
 # Integrate PDF generation
-* [using pandoc](https://github.com/tanakh/pandoc-html5slide)
+* [Using pandoc](https://github.com/tanakh/pandoc-html5slide)
+* [wkhtmltopdf, Convert HTML to PDF using Qt Webkit engine](https://github.com/wkhtmltopdf)
+* [Weasyprint a python tool](https://weasyprint.readthedocs.io)

@@ -519,7 +519,6 @@ WSD is missing from samba. samba only supports netbios. This WSD server written 
 * [Daemons](https://bash.cyberciti.biz/guide/Daemons).
 * [Using start-stop-daemon](https://gist.github.com/alobato/1968852)
 
-
 ## Debugging python cgi scripts
 
 Following will send the error message and traceback to the browser for debugging
@@ -619,3 +618,6 @@ sudo timedatectl set-timezone Europe/Brussels
 ## setup SSL using lets encrypt
 * <https://pimylifeup.com/raspberry-pi-ssl-lets-encrypt/>
 
+
+## Using Rust
+See [Using rust in Raspberry pi](rust#using-rust-in-raspberry-pi).
