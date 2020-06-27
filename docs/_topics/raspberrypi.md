@@ -163,6 +163,10 @@ sudo /etc/init.d/smbd restart
 From now on, Samba will start automatically whenever you power on your Pi. From you windows PC file explorer you can connect to ``\\raspberrypi`` and map ``devcode``
 to a drive letter. You can do rest of your development using popular ``vscode`` or any other editor from your PC on the newly created drive.
 
+
+## vscode for development
+It is quite easy to setup. Read [Visual Studio Code Remote Development over SSH to a Raspberry Pi is butter](https://www.hanselman.com/blog/VisualStudioCodeRemoteDevelopmentOverSSHToARaspberryPiIsButter.aspx). Unfortunately, pi zero does not work because the microsoft's vscode remote server is not compiled for armv6 only supports armv7. I am not sure if the source code is available for one to re-compile for armv6.   
+
 ## Configure IOT setup mechanism by user
 If we build IOT device, it needs to be configured. For example the user needs to setup the wifi connection information so that it can be connected to internet.
 The question is, how do we set it up with a PC or cell phone and input those
@@ -629,3 +633,7 @@ See [Using rust in Raspberry pi](rust#using-rust-in-raspberry-pi).
 
 
 ## fastcgi
+
+
+
+## vscode for development
