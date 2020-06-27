@@ -236,6 +236,11 @@ sudo service lighttpd restart
 Now we can put static contents in ``httpd/html`` directory and all the handlers
 in ``httpd/cgi-bin`` directory. Go ahead, test the server from a web browser with some static content and cgi.
 
+## custom fastcgi for lighttpd
+* <https://github.com/jerryvig/lighttpd-fastcgi-c>
+* <https://docs.rs/fastcgi/1.0.0/fastcgi/>
+* <https://dafyddcrosby.com/rust-dreamhost-fastcgi/>
+
 ### Using privileged commands in CGI
 The web server cgi scripts may need to run commands with root permission. This can be allowed by
 updating sudo permission for the server for specific commands. For instance, we can scan the wifi networks using ``/sbin/iw`` command
@@ -621,3 +626,6 @@ sudo timedatectl set-timezone Europe/Brussels
 
 ## Using Rust
 See [Using rust in Raspberry pi](rust#using-rust-in-raspberry-pi).
+
+
+## fastcgi
