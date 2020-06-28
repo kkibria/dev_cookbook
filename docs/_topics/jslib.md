@@ -79,7 +79,7 @@ I have built this as an npm project in [github](https://github.com/kkibria/svelt
 
 ## Use rollup
 
-If you have installed ``rollup`` this can also be done with added benefit of tree shaking. ``rollup.config.js`` can be configured as, 
+If you have installed ``rollup`` this can also be done with added benefit of [tree shaking](#tree-shaking-with-rollup). ``rollup.config.js`` can be configured as, 
 
 ```javascript
 import resolve from '@rollup/plugin-node-resolve';
@@ -147,12 +147,12 @@ Next we need to understand how to configure babel, read [Babel configuration doc
 * [Saving / Loading files with Javascript (from the browser)](http://simey.me/saving-loading-files-with-javascript/)
 
 
-## More on tree shaking and rollup
+## Tree shaking with rollup
 * [Optimizing JavaScript packages for tree shaking](https://madewithlove.com/optimizing-javascript-packages-for-tree-shaking/).
 * [How to bundle a npm package with TypeScript and Rollup](https://medium.com/@paleo.said/how-to-bundle-an-npm-package-with-typescript-and-rollup-f80e0f196189).
 
 
-## typescript
+## TypeScript
 We can automatically compile typescript files by running typescript compiler in watch mode,
 ```bash
 tsc *.ts --watch

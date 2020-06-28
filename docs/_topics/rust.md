@@ -1,8 +1,10 @@
 ---
 title: Rust language
 ---
-
 # {{ page.title }}
+
+## Learning rust
+* [The rust book](https://doc.rust-lang.org/book/). Expand the TOC by pressing the menu icon on the top left of the page.
 
 ## Using rust in Raspberry pi
 * [How to Get Started With Rust on Raspberry Pi](https://www.makeuseof.com/tag/getting-started-rust-raspberry-pi/)
