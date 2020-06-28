@@ -636,4 +636,6 @@ See [Using rust in Raspberry pi](rust#using-rust-in-raspberry-pi).
 
 
 
-## vscode for development
+
+## wpa_cli in daemon mode
+* <https://unix.stackexchange.com/questions/511444/wpa-action-script-how-to-run-wpa-cli-in-daemon-mode> 
