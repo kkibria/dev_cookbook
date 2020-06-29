@@ -501,6 +501,7 @@ For application where production SD image is small, there will be no benefit usi
 > todo: check how to use docker container in pi
 
 ## Wifi related links
+* [wpa_supplicant developers doc](http://w1.fi/wpa_supplicant/devel/)
 * [Changing Wifi networks](https://www.raspberrypi.org/forums/viewtopic.php?t=179387)
 * [Setting up a wifi](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md)
 * [Switching between known Wifi networks](https://www.raspberrypi.org/forums/viewtopic.php?t=160620)
