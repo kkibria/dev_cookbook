@@ -219,18 +219,22 @@ server.document-root        = "/home/pi/devcode/httpd/public"
 We will Append following to the end of ``/etc/lighttpd/lighttpd.conf`` to enable cgi,
 
 ```auto
-server.modules += ( "mod_cgi" )
-static-file.exclude-extensions += ( ".py", ".py3", ".sh", )
+server.modules += ( "mod_cgi", "mod_setenv" )
+static-file.exclude-extensions += ( ".py", ".sh", )
 $HTTP["url"] =~ "^/cgi-bin/" {
-	alias.url += ( "/cgi-bin/" => "/home/pi/devcode/httpd/cgi-bin/" )
-	cgi.assign = (
-		".py"  => "/usr/bin/python",
-		".py3" => "/usr/bin/python3",
-		".pl"  => "/usr/bin/perl",
-		".sh"  => "/bin/sh",
-	)
+        alias.url = ( "/cgi-bin/" => "/home/pi/devcode/httpd/cgi-bin/" )
+        cgi.assign = (
+                ".py" => "/usr/bin/python3",
+                ".pl"  => "/usr/bin/perl",
+                ".sh"  => "/bin/sh",
+        )
+        setenv.set-environment = ( "PYTHONPATH" => "/home/pi/devcode/httpd/lib" )
 }
+
+server.modules += ("mod_rewrite")
+url.rewrite-once = ( "^/json-api/(.*)\.json" => "/cgi-bin/$1.py" )
 ```
+This example also will setup search path for any python custom module and any url rewrite you may need.
 
 Restart the server
 ```bash
