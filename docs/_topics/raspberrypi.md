@@ -638,9 +638,11 @@ See [Using rust in Raspberry pi](rust#using-rust-in-raspberry-pi).
 
 
 ## fastcgi
-
-
-
+todo
 
 ## wpa_cli in daemon mode
-* <https://unix.stackexchange.com/questions/511444/wpa-action-script-how-to-run-wpa-cli-in-daemon-mode> 
+* <https://unix.stackexchange.com/questions/511444/wpa-action-script-how-to-run-wpa-cli-in-daemon-mode>
+
+
+## setup raspberry pi with live reload
+* [pi-live-reload](https://github.com/kkibria/pi-live-reload)
