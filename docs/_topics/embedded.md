@@ -17,4 +17,5 @@ The official raspbian o/s is built with Buildroot, but there is also Yocto based
 * [Building 32-bit Raspberry Pi Systems with Yocto](https://jumpnowtek.com/rpi/Raspberry-Pi-Systems-with-Yocto.html).
 * [Building 64-bit Systems for Raspberry Pi 4 with Yocto](https://jumpnowtek.com/rpi/Raspberry-Pi-4-64bit-Systems-with-Yocto.html)
 
+If you want to switch init system, you can check existing init system by using ``sudo stat /sbin/init``.
 
