@@ -45,11 +45,12 @@ sudo git clone https://github.com/raspberrypi/tools /opt/rpi_tools
 We need to add our build target to ``~/.cargo/config`` by adding the following lines, so that rust knows which linker to use.
 ```auto
 [target.arm-unknown-linux-gnueabihf]
-linker = "/rpi_tools/arm-bcm2708/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc"
+linker = "/opt/rpi_tools/arm-bcm2708/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc"
 ```
 
 ### Creating our project
 Installing Rust will have installed cargo, the Rust package manager. We can use it to create a new project.
+The ``--bin`` option will create the template necessary for building application.
 
 ```bash
 $ cargo new hello --bin

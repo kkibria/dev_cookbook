@@ -490,9 +490,9 @@ from the terminal after commenting out the ``wifistart`` script line in ``rc.loc
 Back up the sdio image from dev SD card first.
 
 Now we have to make sure the image has disabled ssh, and samba and any other services not needed on the deployed device by running some kind of shell script.
-now the has become the production SD and ready for imaging.
+Now the SD contains the production image and ready for distribution.
 
-Save the sdio image from dev SD card first. This will be the boot image to be downloaded.
+Save the sdio image from dev SD card. This will be the boot image to be downloaded.
 
 We will put minimal code on the SD, something similar to ``noobs`` (New Out of Box Software), the boot image should be downloaded and prepared after initial boot by the user during configuration.
 > Check noobs source code.
