@@ -492,12 +492,21 @@ Back up the sdio image from dev SD card first.
 Now we have to make sure the image has disabled ssh, and samba and any other services not needed on the deployed device by running some kind of shell script.
 Now the SD contains the production image and ready for distribution.
 
+```bash
+# list installed services
+ls -la /etc/rc2.d/
+# disable
+sudo update-rc.d ssh disable
+# enable
+sudo update-rc.d ssh enable
+```
+
 Save the sdio image from dev SD card. This will be the boot image to be downloaded.
 
-We will put minimal code on the SD, something similar to ``noobs`` (New Out of Box Software), the boot image should be downloaded and prepared after initial boot by the user during configuration.
-> Check noobs source code.
+Alternatively, we can use a [image build](embedded#raspberry-pi) strategy to an optimized image with only necessary components, which will reduce image size.
 
-For application where production SD image is small, there will be no benefit using **NOOBS** strategy. In those case, fully loaded SD should be fine. 
+If the image is too large, we can put minimal code on the SD, something similar to ``noobs`` (New Out of Box Software), the boot image should be downloaded and prepared after initial boot by the user during configuration.
+For application where production SD image is small, there will be no benefit using **NOOBS** strategy. 
 
 * Imaging sdio source code <https://github.com/raspberrypi/rpi-imager>
 * <https://github.com/raspberrypi/noobs>
@@ -646,3 +655,9 @@ todo
 
 ## setup raspberry pi with live reload
 * [pi-live-reload](https://github.com/kkibria/pi-live-reload)
+
+
+## back up pi
+* [Backup and recovery solution I use (recovery image)](https://www.raspberrypi.org/forums/viewtopic.php?t=230618)
+* [Script to backup a Raspberry Pi disk image](https://github.com/lzkelley/bkup_rpimage)
+* [Encrypted backup of linux (Raspbian) configuration data and Dropbox upload](https://github.com/ephestione/bazidrop)
