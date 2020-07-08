@@ -14,6 +14,17 @@ npm install
 npm run dev
 ```
 
+### vscode setting
+Command Palette (⇧⌘P) then: Preferences: Configure Language Specific Settings,
+```json
+{
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode",
+    "editor.tabSize": 2
+  }
+}
+```
+
 ## Svelte components
 * <https://github.com/hperrin/svelte-material-ui>
 * <https://github.com/collardeau/svelte-fluid-header>
