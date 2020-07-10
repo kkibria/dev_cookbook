@@ -283,6 +283,9 @@ make pi a bluetooth device, connect your phone to it with an app the should disp
 
 I haven't tested this idea yet.
 
+* <https://hacks.mozilla.org/2017/02/headless-raspberry-pi-configuration-over-bluetooth/>
+* <https://youtu.be/sEmjcgbmoRM>
+
 ### Idea 3: Configure via USB
 Connect the device with a usb cable to a computer of phone, again the same concept a user interface shows up to configure.
 * [HEADLESS PI ZERO SSH ACCESS OVER USB (WINDOWS)](https://desertbot.io/blog/headless-pi-zero-ssh-access-over-usb-windows).
