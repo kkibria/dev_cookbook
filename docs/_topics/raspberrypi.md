@@ -664,3 +664,27 @@ todo
 * [Backup and recovery solution I use (recovery image)](https://www.raspberrypi.org/forums/viewtopic.php?t=230618)
 * [Script to backup a Raspberry Pi disk image](https://github.com/lzkelley/bkup_rpimage)
 * [Encrypted backup of linux (Raspbian) configuration data and Dropbox upload](https://github.com/ephestione/bazidrop)
+
+
+
+## C library for controlling GPIO
+* [Wiring Pi](http://wiringpi.com/download-and-install/)
+
+To update or install on a Raspbian-Lite system:
+```bash
+sudo apt-get install wiringpi
+```
+
+the author has stopped developing. the code is available in github,
+* <https://github.com/WiringPi/WiringPi>
+
+
+an example of how to use the library
+* <https://medium.com/@simon_prickett/gpio-access-in-c-with-raspberry-pi-traffic-lights-6b982e197d45>
+
+A great resource
+* <https://elinux.org/RPi_GPIO_Code_Samples>
+
+## rust GPIO for pi
+* ??? 
+* may a kernel module with rust??

@@ -108,3 +108,6 @@ For release, build with --release option
 cargo build --release --target=arm-unknown-linux-gnueabihf
 ```
 All the debug symbols will be stripped from the executable.
+
+## Linux kernel module with rust
+* <https://github.com/fishinabarrel/linux-kernel-module-rust>
