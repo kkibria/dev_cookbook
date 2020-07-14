@@ -678,7 +678,6 @@ sudo apt-get install wiringpi
 the author has stopped developing. the code is available in github,
 * <https://github.com/WiringPi/WiringPi>
 
-
 an example of how to use the library
 * <https://medium.com/@simon_prickett/gpio-access-in-c-with-raspberry-pi-traffic-lights-6b982e197d45>
 
@@ -687,4 +686,13 @@ A great resource
 
 ## rust GPIO for pi
 * ??? 
-* may a kernel module with rust??
+* May be a kernel module with rust?? Some [work](rust#Linux-kernel-module-with-rust) is ongoing.
+* [RPPAL](https://github.com/golemparts/rppal).
+* <https://github.com/rust-embedded/rust-sysfs-gpio>.
+
+Most promising seems to be [RPPAL](https://github.com/golemparts/rppal) option.
+> I will try this option and do the write up on this.
+
+## python GPIO
+* <https://gpiozero.readthedocs.io/en/stable/index.html>
+

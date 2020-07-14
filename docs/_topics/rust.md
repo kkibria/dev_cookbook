@@ -19,6 +19,7 @@ title: Rust language
 * [Vagrant, Virtual machine for cross development](https://www.vagrantup.com/). I really like this setup, easy to use. Plays well with virtualbox.
 * <https://github.com/kunerd/clerk/wiki/How-to-use-HD44780-LCD-from-Rust#setting-up-the-cross-toolchain>
 * <https://opensource.com/article/19/3/physical-computing-rust-raspberry-pi>
+* <https://github.com/japaric/rust-cross>
 
 ## Cross compiling rust on ubuntu
 
