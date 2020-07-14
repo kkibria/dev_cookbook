@@ -51,3 +51,7 @@ $ git remote -v
 > origin  https://github.com/USERNAME/REPOSITORY2.git (fetch)
 > origin  https://github.com/USERNAME/REPOSITORY2.git (push)
 ```
+
+## Setting up your own git server
+* <https://medium.com/@kevalpatel2106/create-your-own-git-server-using-raspberry-pi-and-gitlab-f64475901a66>
+* [Install self-managed GitLab](https://about.gitlab.com/install/#raspberry-pi-os). They have a version for raspberry pi.
