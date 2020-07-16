@@ -112,3 +112,9 @@ All the debug symbols will be stripped from the executable.
 
 ## Linux kernel module with rust
 * <https://github.com/fishinabarrel/linux-kernel-module-rust>
+
+
+## rust-wasm
+* <https://rustwasm.github.io/>
+* [book](https://rustwasm.github.io/docs/book/)
+* [Rust in the Browser for JavaScripters: New Frontiers, New Possibilities](https://youtu.be/ohuTy8MmbLc)
