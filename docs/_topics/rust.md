@@ -118,3 +118,13 @@ All the debug symbols will be stripped from the executable.
 * <https://rustwasm.github.io/>
 * [book](https://rustwasm.github.io/docs/book/)
 * [Rust in the Browser for JavaScripters: New Frontiers, New Possibilities](https://youtu.be/ohuTy8MmbLc)
+
+
+## java to rust
+* [java to rust](https://github.com/aschoerk/converter-page)
+* [online converter](https://jrconverter.appspot.com/index.jsp)
+
+## python to rust
+* [Converting a Python library to Rust](https://alantrick.ca/writings/programming/python_to_rust). [Python](https://gitlab.com/alantrick/august-python-old/) and [Rust](https://gitlab.com/alantrick/august/).
+* [Transpiling Python to Rust](https://medium.com/@konchunas/transpiling-python-to-rust-766459b6ab8f), [github](https://github.com/konchunas/pyrs).
+
