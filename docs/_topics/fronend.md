@@ -44,6 +44,7 @@ d3 has bunch of cool features like force simulation, goe projections etc.
 ## designing CSS
 * [Designing in the Browser](https://www.youtube.com/playlist?list=PLNYkxOF6rcIDI0QtJvW6vKonTxn6azCsD)
 * [javascript color library for css manipulation](https://github.com/gka/chroma.js)
+* [1-Line Layouts](https://1linelayouts.glitch.me/), youtube [10 modern layouts in 1 line of CSS](https://youtu.be/qm0IfG1GyZU).
 
 ## SVG
 * [How to Scale SVG](https://css-tricks.com/scale-svg/)
