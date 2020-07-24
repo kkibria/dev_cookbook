@@ -18,6 +18,7 @@ a building block of css style.
 
 ## CSS Articles
 * [A Complete Guide to CSS Functions](https://css-tricks.com/complete-guide-to-css-functions/).
+* [The Beauty of CSS](https://dev.to/ziizium/the-beauty-of-css-3fle).
 
 ## D3.js: Javascript, SVG and CSS to create graphical widgets and animations
 * [Amelia Wattenberger](https://wattenberger.com/)'s site has lot of interesting articles about frontend visuals. 
@@ -53,3 +54,15 @@ d3 has bunch of cool features like force simulation, goe projections etc.
 ## Canvas arts
 * <http://www.malinc.se/>
 * <https://www.openprocessing.org/>
+
+
+## polyfills
+* [Polyfills: everything you ever wanted to know, or maybe a bit less](
+https://medium.com/hackernoon/polyfills-everything-you-ever-wanted-to-know-or-maybe-a-bit-less-7c8de164e423)
+* [Loading Polyfills Only When Needed](https://philipwalton.com/articles/loading-polyfills-only-when-needed/).
+
+## async/await
+* [The Async Await Episode I Promised](https://youtu.be/vn3tm0quoqE).
+
+## user authentication
+* [Why Using Tokens and Cookies Together is Better for Web App Security](https://blog.bitsrc.io/why-using-tokens-and-cookies-together-is-better-for-web-apps-9d205b7c1961).
