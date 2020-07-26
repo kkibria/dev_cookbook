@@ -5,6 +5,8 @@ title: Rust language
 
 ## Learning rust
 * [The rust book](https://doc.rust-lang.org/book/). Expand the TOC by pressing the menu icon on the top left of the page.
+* [Rust: A Language for the Next 40 Years - Carol Nichols](https://youtu.be/A3AdN7U24iU).
+* [Rust Out Your C by Carol (Nichols || Goulding) - Erie Day of Code](https://youtu.be/SKGVItFlK3w). [Slides](https://github.com/carols10cents/rust-out-your-c-talk).
 
 ## Using rust in Raspberry pi
 * [How to Get Started With Rust on Raspberry Pi](https://www.makeuseof.com/tag/getting-started-rust-raspberry-pi/)
@@ -70,7 +72,7 @@ $ cd hello
 We can build and run our project locally on ubuntu, by running,
 ```bash
 $ cargo run
-``` 
+```
  
 To build our project for the Pi we use,
 
@@ -137,4 +139,3 @@ All the debug symbols will be stripped from the executable.
 ## python to rust
 * [Converting a Python library to Rust](https://alantrick.ca/writings/programming/python_to_rust). [Python](https://gitlab.com/alantrick/august-python-old/) and [Rust](https://gitlab.com/alantrick/august/).
 * [Transpiling Python to Rust](https://medium.com/@konchunas/transpiling-python-to-rust-766459b6ab8f), [github](https://github.com/konchunas/pyrs).
-
