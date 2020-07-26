@@ -37,10 +37,20 @@ Using this strategy we will go ahead and setup linux,
 ```bash
 # install rust
 curl https://sh.rustup.rs -sSf | sh
-# Add the toolchain for Rust:
-rustup target add arm-unknown-linux-gnueabihf
 # get the right cross compiler-linker
 sudo git clone https://github.com/raspberrypi/tools /opt/rpi_tools
+```
+
+setup path variable by editing ``~/.bashrc``,
+```
+source $HOME/.cargo/env
+PATH=$PATH:/opt/rpi_tools/arm-bcm2708/arm-linux-gnueabihf/bin
+```
+
+Add the Rust toolchain for pi zero target,
+```bash
+source ~/.bashrc
+rustup target add arm-unknown-linux-gnueabihf
 ```
 
 We need to add our build target to ``~/.cargo/config`` by adding the following lines, so that rust knows which linker to use.

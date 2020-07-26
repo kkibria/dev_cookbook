@@ -11,7 +11,6 @@ There are two build systems that can be used to build images embedded systems us
 Tool to help the build
 * [Using Devtool to Streamline Your Yocto Project Workflow - Tim Orling, Intel](https://youtu.be/CiD7rB35CRE)
 
-
 ## Raspberry pi
 The official raspbian o/s is built with Buildroot, but there is also Yocto based builds available,
 * [Building 32-bit Raspberry Pi Systems with Yocto](https://jumpnowtek.com/rpi/Raspberry-Pi-Systems-with-Yocto.html).
@@ -80,3 +79,12 @@ now we can use wsl command to install it,
 ```
 wsl --import my_distro my_distro install.tar.gz
 ```
+
+# yocto devtool
+* [Yocto Project® devtool Overviewand Hands-On](https://youtu.be/YE2YjP6Fwlo), [slides](https://wiki.yoctoproject.org/wiki/images/f/f3/DD9_Devtool_NA20.pdf).
+* [Using Devtool to Streamline Your Yocto Project Workflow - Tim Orling, Intel](https://youtu.be/CiD7rB35CRE).
+* [Yocto Project Extensible SDK: Simplifying the Workflow for Application Developers](https://youtu.be/d3xanDJuXRA).
+* [Working with the Linux Kernel in the Yocto Project](https://youtu.be/tZACGS5nQxw).
+
+# yocto tutorials
+* [Live Coding with Yocto Project](https://www.youtube.com/playlist?list=PLD4M5FoHz-TxMfBFrDKfIS_GLY25Qsfyj).
