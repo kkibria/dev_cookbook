@@ -139,3 +139,27 @@ All the debug symbols will be stripped from the executable.
 ## python to rust
 * [Converting a Python library to Rust](https://alantrick.ca/writings/programming/python_to_rust). [Python](https://gitlab.com/alantrick/august-python-old/) and [Rust](https://gitlab.com/alantrick/august/).
 * [Transpiling Python to Rust](https://medium.com/@konchunas/transpiling-python-to-rust-766459b6ab8f), [github](https://github.com/konchunas/pyrs).
+
+# using dbus in rust
+* <https://github.com/diwic/dbus-rs> dbus crate.
+* <https://github.com/diwic/dbus-rs/issues/214> Simple dbus-codegen example.
+* <https://github.com/deifactor/ninomiya>
+* <https://github.com/diwic/dbus-rs/blob/master/dbus-codegen/examples/adv_server_codegen.rs> server example.
+* <https://github.com/diwic/dbus-rs/blob/master/dbus/examples/match_signal.rs> client example using dbus-codegen-rust.
+
+## install dbus-codegen-rust
+following will install dbus-codegen-rust CLI.
+```bash
+cargo install dbus-codegen
+```
+
+There are two possibilities
+* Write server and client.
+* Write client for an exiting installed server.
+
+## Client for an exiting server
+example of generated code,
+```
+dbus-codegen-rust -s -d org.freedesktop.timedate1 -p /org/freedesktop/timedate1 -o src/timedate.rs -i org.freedesktop
+```
+which will put the code in ``src`` folder.
