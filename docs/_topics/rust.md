@@ -163,3 +163,7 @@ example of generated code,
 dbus-codegen-rust -s -d org.freedesktop.timedate1 -p /org/freedesktop/timedate1 -o src/timedate.rs -i org.freedesktop
 ```
 which will put the code in ``src`` folder.
+
+## cross compile dbus
+* <https://github.com/diwic/dbus-rs/blob/master/libdbus-sys/cross_compile.md>
+* <https://serverfault.com/questions/892465/starting-systemd-services-sharing-a-session-d-bus-on-headless-system> headless dbus.
