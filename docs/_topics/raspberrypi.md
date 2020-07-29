@@ -696,3 +696,5 @@ Most promising seems to be [RPPAL](https://github.com/golemparts/rppal) option.
 ## python GPIO
 * <https://gpiozero.readthedocs.io/en/stable/index.html>
 
+## rpikernelhack
+* <https://www.thegeekpub.com/235652/what-is-rpikernelhack/>
