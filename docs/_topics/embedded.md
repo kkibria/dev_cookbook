@@ -72,7 +72,7 @@ Now we have distro on D drive.
 > We can create a VHDX file using windows 10 Computer Management tool. The we can detach it. We have to figure out a way to initialize the file as ext4 and mount
 > to a wsl2 linux distro.
 
-# Manually download wsl2 distro
+## Manually download wsl2 distro
 Use [download](https://docs.microsoft.com/en-us/windows/wsl/install-manual) page to get distro. It downloads a .appx file which can be opened by 7zip and extract
 ``install.tar.gz``.
 now we can use wsl command to install it,
@@ -80,11 +80,94 @@ now we can use wsl command to install it,
 wsl --import my_distro my_distro install.tar.gz
 ```
 
-# yocto devtool
+## yocto devtool
 * [Yocto Project® devtool Overviewand Hands-On](https://youtu.be/YE2YjP6Fwlo), [slides](https://wiki.yoctoproject.org/wiki/images/f/f3/DD9_Devtool_NA20.pdf).
 * [Using Devtool to Streamline Your Yocto Project Workflow - Tim Orling, Intel](https://youtu.be/CiD7rB35CRE).
 * [Yocto Project Extensible SDK: Simplifying the Workflow for Application Developers](https://youtu.be/d3xanDJuXRA).
 * [Working with the Linux Kernel in the Yocto Project](https://youtu.be/tZACGS5nQxw).
 
-# yocto tutorials
+## yocto tutorials
 * [Live Coding with Yocto Project](https://www.youtube.com/playlist?list=PLD4M5FoHz-TxMfBFrDKfIS_GLY25Qsfyj).
+
+
+## Working with dbus
+
+### How do I get properties using dbus
+
+I have listed the properties that I am interested in using ``timedatectl`` which uses ``systemd`` dbus,
+```
+$ timedatectl
+               Local time: Tue 2020-07-28 19:37:00 PDT
+           Universal time: Wed 2020-07-29 02:37:00 UTC
+                 RTC time: n/a
+                Time zone: America/Los_Angeles (PDT, -0700)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no
+```
+
+Next, I checked ``timedatectl.c`` in ``systemd`` [source code](https://github.com/systemd/systemd) to get bus endpoint and method using which I went ahead and introspected,
+  
+```
+$ dbus-send --system --dest=org.freedesktop.timedate1 --type=method_call --print-reply /org/freedesktop/timedate1 org.freedesktop.DBus.Introspectable.Introspect
+
+method return time=1595997538.869702 sender=:1.30 -> destination=:1.29 serial=3 reply_serial=2
+   string "<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+ ...
+ <interface name="org.freedesktop.DBus.Properties">
+  ...
+  <method name="GetAll">
+   <arg name="interface" direction="in" type="s"/>
+   <arg name="properties" direction="out" type="a{sv}"/>
+  </method>
+  ... 
+ </interface>
+ <interface name="org.freedesktop.timedate1">
+  <property name="Timezone" type="s" access="read">
+  </property>
+  <property name="LocalRTC" type="b" access="read">
+  </property>
+  ...
+ </interface>
+</node>
+"
+```
+Next I tried to use the method ``GetAll``,
+```
+$ dbus-send --system --dest=org.freedesktop.timedate1 --type=method_call --print-reply /org/freedesktop/timedate1 org.freedesktop.DBus.Properties.GetAll string:org.freedesktop.timedate1
+
+method return time=1595997688.111555 sender=:1.33 -> destination=:1.32 serial=4 reply_serial=2
+   array [
+      dict entry(
+         string "Timezone"
+         variant             string "America/Los_Angeles"
+      )
+      dict entry(
+         string "LocalRTC"
+         variant             boolean false
+      )
+      dict entry(
+         string "CanNTP"
+         variant             boolean true
+      )
+      dict entry(
+         string "NTP"
+         variant             boolean true
+      )
+      dict entry(
+         string "NTPSynchronized"
+         variant             boolean true
+      )
+      dict entry(
+         string "TimeUSec"
+         variant             uint64 1595997688110070
+      )
+      dict entry(
+         string "RTCTimeUSec"
+         variant             uint64 0
+      )
+   ]
+```
+and we get our desired result same as ``timedatectl``.
