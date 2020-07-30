@@ -154,6 +154,9 @@ ls -la /home/pi/pi-sd-2
 Now you can copy appropriate libraries to 
 ``/opt/rpi_tools/arm-bcm2708/arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot``.
 
+### QEMU for library dependencies
+* <https://headmelted.com/using-qemu-to-produce-debian-filesystems-for-multiple-architectures-280df41d28eb>
+
 ## Linux kernel module with rust
 * <https://github.com/fishinabarrel/linux-kernel-module-rust>
 
