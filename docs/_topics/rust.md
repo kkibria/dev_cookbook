@@ -159,6 +159,8 @@ Now you can copy appropriate libraries to
 * [Kernel Recipes 2015 - Speed up your kernel development cycle with QEMU - Stefan Hajnoczi](https://youtu.be/PBY9l97-lto).
 * [Debootstrap #1 Creating a Filesystem for Debian install Linux tutorial](https://youtu.be/L_r3z3402do).
 * [Creating Ubuntu and Debian container base images, the old and simple way](https://youtu.be/OLFH4Ov6bJQ).
+* [Raspberry Pi Emulator for Windows 10 Full Setup Tutorial and Speed Optimization](https://youtu.be/xiQX0YXYuqU).
+* [RASPBERRY PI ON QEMU](https://azeria-labs.com/emulate-raspberry-pi-with-qemu/).
 
 ## Linux kernel module with rust
 * <https://github.com/fishinabarrel/linux-kernel-module-rust>
