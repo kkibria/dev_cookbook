@@ -155,8 +155,10 @@ Now you can copy appropriate libraries to
 ``/opt/rpi_tools/arm-bcm2708/arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot``.
 
 ### QEMU for library dependencies
-* <https://headmelted.com/using-qemu-to-produce-debian-filesystems-for-multiple-architectures-280df41d28eb>
-* [Kernel Recipes 2015 - Speed up your kernel development cycle with QEMU - Stefan Hajnoczi](https://youtu.be/PBY9l97-lto)
+* <https://headmelted.com/using-qemu-to-produce-debian-filesystems-for-multiple-architectures-280df41d28eb>.
+* [Kernel Recipes 2015 - Speed up your kernel development cycle with QEMU - Stefan Hajnoczi](https://youtu.be/PBY9l97-lto).
+* [Debootstrap #1 Creating a Filesystem for Debian install Linux tutorial](https://youtu.be/L_r3z3402do).
+* [Creating Ubuntu and Debian container base images, the old and simple way](https://youtu.be/OLFH4Ov6bJQ).
 
 ## Linux kernel module with rust
 * <https://github.com/fishinabarrel/linux-kernel-module-rust>
