@@ -122,9 +122,40 @@ cargo build --release --target=arm-unknown-linux-gnueabihf
 ```
 All the debug symbols will be stripped from the executable.
 
+### installed libraries
+If there is a dependency on additional libraries, we should install those
+in the raspberry pi sd. Then we can save an image of the sd using ``Win32DiskImage``
+in a ``.img`` file. Now we can mount the image and copy the
+necessary libraries to the toolchain sysroot we installed earlier.
+
+```bash
+$ fdisk -lu /mnt/d/pi_images/pi-sd.img
+Disk /mnt/d/pi_images/pi-sd.img: 28.97 GiB, 31086084096 bytes, 60715008 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x288695f5
+
+Device                      Boot  Start      End  Sectors  Size Id Type
+/mnt/d/pi_images/pi-sd.img1        8192   532479   524288  256M  c W95 FAT32 (LBA)
+/mnt/d/pi_images/pi-sd.img2      532480 60715007 60182528 28.7G 83 Linux
+```
+
+The ``ext4`` partition is the second one and the byte offset will be 512*532480 = 272629760
+
+Now mount,
+```bash
+mkdir /home/pi/pi-sd-2
+mount -o loop,offset=272629760 /mnt/d/pi_images/pi-sd.img /home/pi/pi-sd-2
+ls -la /home/pi/pi-sd-2
+```
+
+Now you can copy appropriate libraries to 
+``/opt/rpi_tools/arm-bcm2708/arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot``.
+
 ## Linux kernel module with rust
 * <https://github.com/fishinabarrel/linux-kernel-module-rust>
-
 
 ## rust-wasm
 * <https://rustwasm.github.io/>
@@ -167,3 +198,4 @@ which will put the code in ``src`` folder.
 ## cross compile dbus
 * <https://github.com/diwic/dbus-rs/blob/master/libdbus-sys/cross_compile.md>
 * <https://serverfault.com/questions/892465/starting-systemd-services-sharing-a-session-d-bus-on-headless-system> headless dbus.
+* <https://raspberrypi.stackexchange.com/questions/114739/how-to-install-pi-libraries-to-cross-compile-for-pi-zero-in-wsl2>.
