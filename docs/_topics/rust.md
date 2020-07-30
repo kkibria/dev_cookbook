@@ -156,6 +156,7 @@ Now you can copy appropriate libraries to
 
 ### QEMU for library dependencies
 * <https://headmelted.com/using-qemu-to-produce-debian-filesystems-for-multiple-architectures-280df41d28eb>
+* [Kernel Recipes 2015 - Speed up your kernel development cycle with QEMU - Stefan Hajnoczi](https://youtu.be/PBY9l97-lto)
 
 ## Linux kernel module with rust
 * <https://github.com/fishinabarrel/linux-kernel-module-rust>
