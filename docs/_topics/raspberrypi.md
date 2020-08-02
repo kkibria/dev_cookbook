@@ -698,3 +698,9 @@ Most promising seems to be [RPPAL](https://github.com/golemparts/rppal) option.
 
 ## rpikernelhack
 * <https://www.thegeekpub.com/235652/what-is-rpikernelhack/>
+
+## apt-get
+* [Raspberry Pi sudo apt-get update not working](https://raspberrypi.stackexchange.com/questions/93604/raspberry-pi-sudo-apt-get-update-not-working)
+
+## armv6 toolchain
+* <https://github.com/Pro/raspi-toolchain> 

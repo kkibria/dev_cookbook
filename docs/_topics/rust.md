@@ -6,7 +6,7 @@ title: Rust language
 ## Learning rust
 * [The rust book](https://doc.rust-lang.org/book/). Expand the TOC by pressing the menu icon on the top left of the page.
 * [Rust: A Language for the Next 40 Years - Carol Nichols](https://youtu.be/A3AdN7U24iU).
-* [Rust Out Your C by Carol (Nichols || Goulding) - Erie Day of Code](https://youtu.be/SKGVItFlK3w). [Slides](https://github.com/carols10cents/rust-out-your-c-talk).
+* [Rust Out Your C by Carol](https://youtu.be/SKGVItFlK3w). The [Slides](https://github.com/carols10cents/rust-out-your-c-talk).
 
 ## Using rust in Raspberry pi
 * [How to Get Started With Rust on Raspberry Pi](https://www.makeuseof.com/tag/getting-started-rust-raspberry-pi/)
@@ -155,6 +155,8 @@ Now you can copy appropriate libraries to
 ``/opt/rpi_tools/arm-bcm2708/arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot``.
 
 ### QEMU for library dependencies
+* [Debootstrap](http://linux-sunxi.org/Debootstrap)
+* [Introduction to qemu-debootstrap](http://logan.tw/posts/2017/01/21/introduction-to-qemu-debootstrap/).
 * <https://headmelted.com/using-qemu-to-produce-debian-filesystems-for-multiple-architectures-280df41d28eb>.
 * [Kernel Recipes 2015 - Speed up your kernel development cycle with QEMU - Stefan Hajnoczi](https://youtu.be/PBY9l97-lto).
 * [Debootstrap #1 Creating a Filesystem for Debian install Linux tutorial](https://youtu.be/L_r3z3402do).
