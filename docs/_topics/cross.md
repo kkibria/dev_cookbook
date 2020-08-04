@@ -151,10 +151,10 @@ Device                      Boot  Start      End  Sectors  Size Id Type
 /mnt/d/pi_images/pi-sd.img2      532480 60715007 60182528 28.7G 83 Linux
 ```
 
-The ``fat32`` partition is the first one. The offset is 8192*512=4194304 and
-size is 524288*512=268435456 in bytes.
+The ``fat32`` partition is the first one. The offset is 8192\*512=4194304 and
+size is 524288\*512=268435456 in bytes.
 
-The ``ext4`` partition is the second one. The offset is 512*532480=272629760 and size is 512*60182528=30813454336 in bytes.
+The ``ext4`` partition is the second one. The offset is 512\*532480=272629760 and size is 512\*60182528=30813454336 in bytes.
 
 Now you can mount them,
 ```bash
