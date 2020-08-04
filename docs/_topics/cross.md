@@ -186,3 +186,7 @@ Now you can copy appropriate libraries to
 ## disk images
 * [Create blank disk image for file storage](https://askubuntu.com/questions/667291/create-blank-disk-image-for-file-storage)
 * [Can I expand the size of a file based disk image?](https://superuser.com/questions/693158/can-i-expand-the-size-of-a-file-based-disk-image/693162)
+
+## utilities
+* [Raspberry-Pi Utilities](https://github.com/johnlane/rpi-utils).
+A very nice place to learn how to chroot and get emulation going.
