@@ -30,18 +30,16 @@ title: Cross Compilation
 
 
 ## building qemu from raspberri pi zero in wsl2 ubuntu
-It is best if you make a directory somewhere in windows for the sources. Using powershell,
+It is best if you make a directory somewhere in windows for the sources. Using powershell to keep wsl2 VHD files small,
 ```bash
 cd c:\Users\<user_name>\Documents
-mkdir linux
+mkdir qemu-build
 ```
 Start ubuntu wsl2 instance. Now using shell, 
 ```bash
 cd ~/<some_dir>
-mkdir linux
-sudo mount --bind "/mnt/c/Users/<user_name>/Documents/linux" linux
-cd linux
 mkdir qemu-build
+sudo mount --bind "/mnt/c/Users/<user_name>/Documents/qemu-build" qemu-build
 cd qemu-build
 ```
 This is where we will build qemu for raspberry pi zero.
@@ -69,7 +67,7 @@ mkdir build
 cd build
 ```
 
-configure qemu to build all qemu binaries,
+Configure qemu to build all qemu binaries,
 ```bash
 ../qemu/configure
 ```
@@ -87,6 +85,14 @@ make
 sudo make install
 ```
 
+Now we can remove the mount,
+```bash
+cd ../..
+sudo umount qemu-build
+``` 
+
+You can remove the build directory ``qemu-build\build`` if you like, or keep it for later development. 
+
 Run qemu for raspi0,
 ```bash
 qemu-system-arm -machine raspi0 -serial stdio  -dtb bcm2708-rpi-zero-w.dtb -kernel kernel.img -append 'printk.time=0 earlycon=pl011,0x20201000 console=ttyAMA0'
@@ -94,8 +100,89 @@ qemu-system-arm -machine raspi0 -serial stdio  -dtb bcm2708-rpi-zero-w.dtb -kern
 
 qemu-kvm has problems in wsl2, currently it does not work properly.
 
+## Raspbian apt sources
+``/etc/apt/sources.list``,
+```
+deb http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi
+# Uncomment line below then 'apt-get update' to enable 'apt-get source'
+#deb-src http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi
+```
+
+``/etc/apt/sources.list.d/raspi.list``,
+```
+deb http://archive.raspberrypi.org/debian/ buster main
+# Uncomment line below then 'apt-get update' to enable 'apt-get source'
+#deb-src http://archive.raspberrypi.org/debian/ buster main
+```
+
+## raspbian filesystem
+
+``/etc/fstab``,
+```
+proc            /proc           proc    defaults          0       0
+PARTUUID=288695f5-01  /boot           vfat    defaults          0       2
+PARTUUID=288695f5-02  /               ext4    defaults,noatime  0       1
+# a swapfile is not a swap partition, no line here
+#   use  dphys-swapfile swap[on|off]  for that
+```
+
+``pi-sd-2/etc/ld.so.preload``,
+```
+/usr/lib/arm-linux-gnueabihf/libarmmem-${PLATFORM}.so
+```
+
+### Installing library dependencies in a image
+If there is a dependency on additional libraries, we should install those
+in the raspberry pi SD. Then we can save an image of the SD using ``Win32DiskImage``
+in a ``.img`` file. Now we can mount the image and copy the
+necessary libraries to the toolchain sysroot we installed earlier.
+
+```bash
+$ fdisk -lu /mnt/d/pi_images/pi-sd.img
+Disk /mnt/d/pi_images/pi-sd.img: 28.97 GiB, 31086084096 bytes, 60715008 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x288695f5
+
+Device                      Boot  Start      End  Sectors  Size Id Type
+/mnt/d/pi_images/pi-sd.img1        8192   532479   524288  256M  c W95 FAT32 (LBA)
+/mnt/d/pi_images/pi-sd.img2      532480 60715007 60182528 28.7G 83 Linux
+```
+
+The ``fat32`` partition is the first one. The offset is 8192*512=4194304 and
+size is 524288*512=268435456 in bytes.
+
+The ``ext4`` partition is the second one. The offset is 512*532480=272629760 and size is 512*60182528=30813454336 in bytes.
+
+Now you can mount them,
+```bash
+mkdir /home/pi/pi-sd-1
+mkdir /home/pi/pi-sd-2
+
+mount -o loop,offset=4194304,sizelimit=268435456 /mnt/d/pi-images/pi-sd.img /home/pi/pi-sd-1
+mount -o loop,offset=272629760 /mnt/d/pi_images/pi-sd.img /home/pi/pi-sd-2
+
+ls -la /home/pi/pi-sd-1
+ls -la /home/pi/pi-sd-2
+```
+There is no need to specify size for the last partition.
+At this point we can edit the image to get it ready for emulation. 
+
+(TODO)
+Now you can copy appropriate libraries to 
+``/opt/rpi_tools/arm-bcm2708/arm-linux-gnueabihf/arm-linux-gnueabihf/sysroot``.
+
 ## cross compile dbus
 * <https://github.com/diwic/dbus-rs/blob/master/libdbus-sys/cross_compile.md>
 * <https://serverfault.com/questions/892465/starting-systemd-services-sharing-a-session-d-bus-on-headless-system> headless dbus.
 * <https://raspberrypi.stackexchange.com/questions/114739/how-to-install-pi-libraries-to-cross-compile-for-pi-zero-in-wsl2>.
 
+## qemu rpi kernel (TODO)
+
+* <https://github.com/dhruvvyas90/qemu-rpi-kernel> this claims some adjustment on rpi kernel for qemu need to investigate what this adjustment is and is it  relevant any more.
+
+## disk images
+* [Create blank disk image for file storage](https://askubuntu.com/questions/667291/create-blank-disk-image-for-file-storage)
+* [Can I expand the size of a file based disk image?](https://superuser.com/questions/693158/can-i-expand-the-size-of-a-file-based-disk-image/693162)
