@@ -1,6 +1,7 @@
 ---
 title: Linux from scratch
 ---
+
 # {{ page.title }}
 
 ## LFS with wsl2
