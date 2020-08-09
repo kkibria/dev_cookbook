@@ -78,6 +78,7 @@ md5sum -c md5sums
 popd
 ``` 
 Note that if a download fails you have to find an alternate source by googling and then adjust ``wget-list``.
+At the time of this writing mpfr url had to be changed to ``https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.2.tar.xz``.
 > Writing a makefile using ``packages.sh`` and ``patches.sh`` could be an alternative.
 
 We are ready to go with chapter 4. Follow chapter 4 instructions from the book.
