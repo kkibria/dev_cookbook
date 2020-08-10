@@ -81,7 +81,42 @@ Note that if a download fails you have to find an alternate source by googling a
 At the time of this writing mpfr url had to be changed to ``https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.2.tar.xz``.
 > Writing a makefile using ``packages.sh`` and ``patches.sh`` could be an alternative.
 
-We are ready to go with chapter 4. Follow chapter 4 instructions from the book.
+We are ready to go with chapter 4.
+
+create user ``lfs`` and set permissions,
+```bash
+sudo mkdir -v $LFS/tools
+sudo ln -sv $LFS/tools /
+sudo groupadd lfs
+sudo useradd -s /bin/bash -g lfs -m -k /dev/null lfs
+sudo passwd lfs
+sudo chown -v lfs $LFS/tools
+sudo chown -v lfs $LFS/sources
+```
+
+Login as ``lfs``,
+```bash
+su - lfs
+```
+
+Setup ``lfs``'s environment,
+```bash
+cat > ~/.bash_profile << "EOF"
+exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash
+EOF
+
+cat > ~/.bashrc << "EOF"
+set +h
+umask 022
+LFS=/mnt/lfs
+LC_ALL=POSIX
+LFS_TGT=$(uname -m)-lfs-linux-gnu
+PATH=/tools/bin:/bin:/usr/bin
+export LFS LC_ALL LFS_TGT PATH
+EOF
+
+source ~/.bash_profile
+```
 
 In chapter 5, prepare ``lib`` folders and go to ``sources`` folder, 
 ```bash
@@ -91,7 +126,7 @@ esac
 cd $LFS/sources
 ```
 
-### Build pass 1 binutils,
+### Build pass 1 binutils
 ```bash
 tar -xvf binutils-2.34.tar.xz
 pushd binutils-2.34
@@ -115,7 +150,7 @@ popd
 rm -rf binutils-2.34
 ```
 
-### build pass 1 gcc,
+### build pass 1 gcc
 ```bash
 tar -xvf gcc-9.2.0.tar.xz
 pushd gcc-9.2.0
@@ -254,7 +289,7 @@ popd
 rm -rf gcc-9.2.0
 ```
 
-### Build pass 2 binutils,
+### Build pass 2 binutils
 ```bash
 tar -xvf binutils-2.34.tar.xz
 pushd binutils-2.34
@@ -283,6 +318,135 @@ popd
 rm -rf binutils-2.34
 ```
 
+### Build pass 2 gcc
+```bash
+tar -xvf gcc-9.2.0.tar.xz
+pushd gcc-9.2.0
+
+tar -xf ../mpfr-4.0.2.tar.xz
+mv -v mpfr-4.0.2 mpfr
+tar -xf ../gmp-6.2.0.tar.xz
+mv -v gmp-6.2.0 gmp
+tar -xf ../mpc-1.1.0.tar.gz
+mv -v mpc-1.1.0 mpc
+
+cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
+ `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include-fixed/limits.h
+
+for file in gcc/config/{linux,i386/linux{,64}}.h
+do
+ cp -uv $file{,.orig}
+ sed -e 's@/lib\(64\)\?\(32\)\?/ld@/tools&@g' \
+ -e 's@/usr@/tools@g' $file.orig > $file
+ echo '
+#undef STANDARD_STARTFILE_PREFIX_1
+#undef STANDARD_STARTFILE_PREFIX_2
+#define STANDARD_STARTFILE_PREFIX_1 "/tools/lib/"
+#define STANDARD_STARTFILE_PREFIX_2 ""' >> $file
+ touch $file.orig
+done
+
+case $(uname -m) in
+ x86_64)
+ sed -e '/m64=/s/lib64/lib/' \
+ -i.orig gcc/config/i386/t-linux64
+ ;;
+esac
+
+sed -e '1161 s|^|//|' \
+ -i libsanitizer/sanitizer_common/sanitizer_platform_limits_posix.cc
+
+# take a cup of coffee and relax
+make
+make install
+
+ln -sv gcc /tools/bin/cc
+
+popd
+rm -rf gcc-9.2.0
+```
+
+Test the build,
+```bash
+mkdir test
+pushd test
+echo 'int main(){}' > dummy.c
+cc dummy.c
+readelf -l a.out | grep ': /tools'
+popd
+rm -rf test
+```
+This should produce output,
+```text
+[Requesting program interpreter: /tools/lib64/ld-linux-x86-64.so.2]
+```
+Note that for 32-bit machines, the interpreter name will be /tools/lib/ld-linux.so.2.
+
+### Build Tcl
+```bash
+tar -xvf tcl8.6.10-src.tar.gz
+pushd tcl8.6.10
+
+cd unix
+./configure --prefix=/tools
+
+make
+TZ=UTC make test
+make install
+
+chmod -v u+w /tools/lib/libtcl8.6.so
+make install-private-headers
+ln -sv tclsh8.6 /tools/bin/tclsh
+
+popd
+rm -rf tcl8.6.10
+```
+
+### Build expect
+```bash
+tar -xvf expect5.45.4.tar.gz
+pushd expect5.45.4
+
+cp -v configure{,.orig}
+sed 's:/usr/local/bin:/bin:' configure.orig > configure
+
+make
+make test
+make SCRIPTS="" install
+
+popd
+rm -rf expect5.45.4
+```
+
+### build DejaGNU
+```bash
+tar -xvf dejagnu-1.6.2.tar.gz
+pushd dejagnu-1.6.2
+
+./configure --prefix=/tools
+make install
+make check
+
+popd
+rm -rf dejagnu-1.6.2
+```
+
+### build M4
+```bash
+tar -xvf m4-1.4.18.tar.xz
+pushd m4-1.4.18
+
+sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c
+echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h
+
+./configure --prefix=/tools
+make
+make check
+make install
+
+popd
+rm -rf m4-1.4.18
+```
 
 
 
