@@ -7,7 +7,9 @@ title: Linux from scratch (Part 1)
 ## Projects using LFS
 * [Linux From scratch build scripts](https://github.com/jfdelnero/LinuxFromScratch)
 * [Use dpkg (.deb) package management on LFS 6.3](http://www.linuxfromscratch.org/hints/downloads/files/dpkg.txt)
-*[Fakeroot approach for package installation](http://www.linuxfromscratch.org/hints/downloads/files/fakeroot.txt)
+* [Fakeroot approach for package installation](http://www.linuxfromscratch.org/hints/downloads/files/fakeroot.txt)
+* [LFS cross compile for arm](https://clfs.org/view/clfs-embedded/arm/cross-tools/variables.html)
+* [Making your own Linux distribution for the Raspberry Pi](https://pixelspark.nl/2019/making-your-own-linux-distribution-for-the-raspberry-pi-for-fun-and-profit-part-1)
 
 ## LFS with wsl2
 Get the [LFS book](http://www.linuxfromscratch.org/lfs/download.html). This book provides step by step guide to build an LFS system. Following will provide steps for chapter 1 & 2.

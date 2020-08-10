@@ -23,6 +23,14 @@ title: Rust language
 * <https://opensource.com/article/19/3/physical-computing-rust-raspberry-pi>
 * <https://github.com/japaric/rust-cross>
 
+## rust GPIO for pi
+* May be a kernel module with rust?? Some [work](rust#Linux-kernel-module-with-rust) is ongoing.
+* [RPPAL](https://github.com/golemparts/rppal).
+* <https://github.com/rust-embedded/rust-sysfs-gpio>.
+
+Most promising seems to be [RPPAL](https://github.com/golemparts/rppal) option.
+> I will try this option and do the write up on this.
+
 ## Cross compiling rust on ubuntu
 
 Compiling rust on pi will take for ever, cross compiling will save development time. We will use ubuntu for cross compile.

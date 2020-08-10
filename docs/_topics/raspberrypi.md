@@ -703,4 +703,19 @@ Most promising seems to be [RPPAL](https://github.com/golemparts/rppal) option.
 * [Raspberry Pi sudo apt-get update not working](https://raspberrypi.stackexchange.com/questions/93604/raspberry-pi-sudo-apt-get-update-not-working)
 
 ## armv6 toolchain
-* <https://github.com/Pro/raspi-toolchain> 
+* <https://github.com/Pro/raspi-toolchain>
+
+## Booting Raspbian
+
+1. GPU ROM firmware boots reads first FAT partition.
+2. ``start.elf`` from FAT partition is the bootlader which is loaded and executed by GPU.
+3. Bootlader loads ``config.txt`` from the FAT partition to memory.
+4. In ``config.txt`` file, ``kernel`` setting provides the kernel and
+``command line`` provides command line script.
+5. Bootloader loads kernel and command line to arm memory.
+6. Bootloader passes control to kernel. 
+7. kernle mounts ext4 partition from Command line setting ``root=PARTUUID=6c586e13-02`` using the UUID.
+8. Finally, the kernel looks for a file called ``/init`` specified
+in command line and executes it.
+
+> todo: got this from an [article](https://pixelspark.nl/2019/making-your-own-linux-distribution-for-the-raspberry-pi-for-fun-and-profit-part-2), need to verify.
