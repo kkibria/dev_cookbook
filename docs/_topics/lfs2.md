@@ -645,7 +645,8 @@ popd
 rm -rf xz-5.2.4
 ```
 
-### wrap up
+### Wrap up
+
 Free 3gb space,
 ```bash
 strip --strip-debug /tools/lib/*
@@ -658,6 +659,12 @@ find /tools/{lib,libexec} -name \*.la -delete
 # go back to original login
 exit
 ```
+
+Back up the toolchain,
+```bash
+sh bkuptc.sh
+```
+It will create ``tools.tar.gz`` in the ``backup`` folder in ``/mnt/c/Users/<user>/Documents/linux/LFS``.
 
 Change ownership to root,
 ```bash
