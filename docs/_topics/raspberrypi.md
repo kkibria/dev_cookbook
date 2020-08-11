@@ -665,8 +665,6 @@ todo
 * [Script to backup a Raspberry Pi disk image](https://github.com/lzkelley/bkup_rpimage)
 * [Encrypted backup of linux (Raspbian) configuration data and Dropbox upload](https://github.com/ephestione/bazidrop)
 
-
-
 ## C library for controlling GPIO
 * [Wiring Pi](http://wiringpi.com/download-and-install/)
 
