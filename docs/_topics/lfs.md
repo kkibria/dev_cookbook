@@ -11,6 +11,7 @@ title: Linux from scratch (Part 1)
 * [LFS cross compile for arm](https://clfs.org/view/clfs-embedded/arm/)
 * [Making your own Linux distribution for the Raspberry Pi](https://pixelspark.nl/2019/making-your-own-linux-distribution-for-the-raspberry-pi-for-fun-and-profit-part-1)
 * [The Linux Documentation Project](http://www.tldp.org/)
+* [https://www.tldp.org/HOWTO/Program-Library-HOWTO/index.html](https://www.tldp.org/HOWTO/Program-Library-HOWTO/index.html)
 
 ## LFS with wsl2
 Get the [LFS book](http://www.linuxfromscratch.org/lfs/download.html). This book provides step by step guide to build an LFS system. Following will provide steps for chapter 1 & 2.
