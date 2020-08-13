@@ -7,6 +7,7 @@ title: Rust language
 * [The rust book](https://doc.rust-lang.org/book/). Expand the TOC by pressing the menu icon on the top left of the page.
 * [Rust: A Language for the Next 40 Years - Carol Nichols](https://youtu.be/A3AdN7U24iU).
 * [Rust Out Your C by Carol](https://youtu.be/SKGVItFlK3w). The [Slides](https://github.com/carols10cents/rust-out-your-c-talk).
+* [Stanford Seminar The Rust Programming Language - The Best Documentary Ever](https://youtu.be/SZvs15hC81U)
 
 ## Using rust in Raspberry pi
 * [How to Get Started With Rust on Raspberry Pi](https://www.makeuseof.com/tag/getting-started-rust-raspberry-pi/)
@@ -196,6 +197,14 @@ Now you can copy appropriate libraries to
 * <https://github.com/diwic/dbus-rs/blob/master/dbus-codegen/examples/adv_server_codegen.rs> server example.
 * <https://github.com/diwic/dbus-rs/blob/master/dbus/examples/match_signal.rs> client example using dbus-codegen-rust.
 
+pi dbus
+$ dpkg -l | grep dbus
+ii  dbus                              1.12.16-1                           armhf        simple interprocess messaging system (daemon and utilities)
+ii  libdbus-1-3:armhf                 1.12.16-1                           armhf        simple interprocess messaging system (library)
+ii  libdbus-1-dev:armhf               1.12.16-1                           armhf        simple interprocess messaging system (development headers)
+ii  python-dbus                       1.2.8-3                             armhf        simple interprocess messaging system (Python interface)
+ii  python3-dbus                      1.2.8-3                             armhf        simple interprocess messaging system (Python 3 interface)
+
 ## install dbus-codegen-rust
 following will install dbus-codegen-rust CLI.
 ```bash
@@ -217,3 +226,101 @@ which will put the code in ``src`` folder.
 * <https://github.com/diwic/dbus-rs/blob/master/libdbus-sys/cross_compile.md>
 * <https://serverfault.com/questions/892465/starting-systemd-services-sharing-a-session-d-bus-on-headless-system> headless dbus.
 * <https://raspberrypi.stackexchange.com/questions/114739/how-to-install-pi-libraries-to-cross-compile-for-pi-zero-in-wsl2>.
+
+
+The following script downloads and cross-compiles D-Bus and Expat for Raspberry Pi zero: 
+```sh
+#!/usr/bin/env bash
+
+set -ex
+
+# Clone the D-bus and Expat libraries
+[ -d dbus ] || \
+    git clone --branch dbus-1.13.18 --single-branch --depth=1 \
+        https://gitlab.freedesktop.org/dbus/dbus.git
+
+[ -d libexpat ] || \
+    git clone --branch R_2_2_9 --single-branch --depth=1 \
+    https://github.com/libexpat/libexpat.git
+
+# Script for building these libraries:
+cat << 'EOF' > build-script-docker.sh
+#!/usr/bin/env bash
+
+set -ex
+cd "$(dirname "${BASH_SOURCE[0]}")"
+
+# Point pkg-config to the sysroot:
+. cross-pkg-config
+
+# Directory to install the packages to:
+export RPI_STAGING="$PWD/staging"
+rm -rf "${RPI_STAGING}"
+
+# libexpat
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+pushd libexpat/expat
+./buildconf.sh
+mkdir -p build
+pushd build
+../configure \
+    --prefix="/usr/local" \
+    --host="${HOST_TRIPLE}" \
+    --with-sysroot="${RPI_SYSROOT}"
+make -j$(nproc)
+make install DESTDIR="${RPI_SYSROOT}"
+make install DESTDIR="${RPI_STAGING}"
+popd
+popd
+
+# dbus
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+pushd dbus
+mkdir -p build
+pushd build
+cmake .. \
+    -DCMAKE_TOOLCHAIN_FILE="$HOME/${HOST_TRIPLE}.cmake" \
+    -DCMAKE_BUILD_TYPE="Release" \
+    -DCMAKE_INSTALL_PREFIX="/usr/local"
+make -j$(nproc)
+make install DESTDIR="${RPI_SYSROOT}"
+make install DESTDIR="${RPI_STAGING}"
+popd
+popd
+EOF
+
+# Start the Docker container with the toolchain and run the build script:
+image="tttapa/rpi-cross:armv6-rpi-linux-gnueabihf-dev"
+docker run --rm -it -v "$PWD:/tmp/workdir" $image \
+    bash "/tmp/workdir/build-script-docker.sh"
+
+```
+You'll need to have Docker installed. When finished, the libraries will be in the `staging` folder in the working directory.
+
+The Docker container with the toolchain is one I maintain (https://github.com/tttapa/RPi-Cpp-Toolchain), but the installation process should be similar with the toolchain you're using, you'll just have to install some extra dependencies such as make, autotools, and maybe cross-compile some other dependencies of Expat and D-Bus as well.  
+I also maintain some notes with instructions of the toolchains and cross-compilation processes, which you might find useful: https://tttapa.github.io/Pages/Raspberry-Pi/C++-Development/index.html
+
+You might want to add some extra options to the configure and cmake steps, but that's outside of the scope of this answer, see the relevant D-Bus documentation.  
+Also note that installs both libraries to both the sysroot and the staging area, it'll depend on what you want to do with it. You have to install at least `libexpat` to the `${RPI_SYSROOT}` folder, because that's the folder used as the sysroot for compiling `dbus` which depends on `libexpat`. The sysroot folder for the compilation of `dbus` is selected in the CMake Toolchain file, `~/${HOST_TRIPLE}.cmake`, it's included with the Docker container. Its contents are:
+```cmake
+SET(CMAKE_SYSTEM_NAME Linux)
+SET(CMAKE_C_COMPILER armv6-rpi-linux-gnueabihf-gcc)
+SET(CMAKE_CXX_COMPILER armv6-rpi-linux-gnueabihf-g++)
+SET(CMAKE_SYSTEM_PROCESSOR armv6)
+
+set(CMAKE_SYSROOT $ENV{RPI_SYSROOT})
+SET(CMAKE_FIND_ROOT_PATH ${CMAKE_SYSROOT}) 
+
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
+```
+You might also have to point `pkg-config` to the right sysroot folder. This is handled by the `cross-pkg-config` script:
+```sh
+export PKG_CONFIG_LIBDIR="${RPI_SYSROOT}/usr/local/lib:${RPI_SYSROOT}/opt/vc/lib"
+export PKG_CONFIG_PATH="${RPI_SYSROOT}/usr/local/lib/pkgconfig:${RPI_SYSROOT}/usr/local/share/pkgconfig:${RPI_SYSROOT}/opt/vc/lib/pkgconfig"
+export PKG_CONFIG_SYSROOT_DIR="${RPI_SYSROOT}"
+```
