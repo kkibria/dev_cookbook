@@ -8,6 +8,7 @@ title: Rust language
 * [Rust: A Language for the Next 40 Years - Carol Nichols](https://youtu.be/A3AdN7U24iU).
 * [Rust Out Your C by Carol](https://youtu.be/SKGVItFlK3w). The [Slides](https://github.com/carols10cents/rust-out-your-c-talk).
 * [Stanford Seminar The Rust Programming Language - The Best Documentary Ever](https://youtu.be/SZvs15hC81U)
+* [Traits and You: A Deep Dive — Nell Shamrell-Harrington](https://youtu.be/grU-4u0Okto).
 
 ## Using rust in Raspberry pi
 * [How to Get Started With Rust on Raspberry Pi](https://www.makeuseof.com/tag/getting-started-rust-raspberry-pi/)
