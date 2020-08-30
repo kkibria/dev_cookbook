@@ -179,6 +179,7 @@ Now you can copy appropriate libraries to
 * <https://serverfault.com/questions/892465/starting-systemd-services-sharing-a-session-d-bus-on-headless-system> headless dbus.
 * <https://raspberrypi.stackexchange.com/questions/114739/how-to-install-pi-libraries-to-cross-compile-for-pi-zero-in-wsl2>.
 * <https://airtower.wordpress.com/2010/07/20/using-gvariant-tuples/>
+* <https://fosdem.org/2020/schedule/event/rust_dbus_library/>
 
 ## qemu rpi kernel (TODO)
 
