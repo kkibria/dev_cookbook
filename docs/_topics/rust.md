@@ -331,4 +331,4 @@ export PKG_CONFIG_SYSROOT_DIR="${RPI_SYSROOT}"
 
 
 ## Rust Qt binding
-* <https://youtu.be/McgwDB13igo>
+* <https://youtu.be/McgwDB13igo>, github <https://github.com/KDE/rust-qt-binding-generator>
