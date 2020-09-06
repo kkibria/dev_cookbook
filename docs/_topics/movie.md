@@ -24,3 +24,6 @@ build the app in rust using qt-rust binding.
 how do we incorporate,
 - gegl ?? 
 - brush engine ??
+
+## sfx
+* <https://youtu.be/RxD6H3ri8RI>
