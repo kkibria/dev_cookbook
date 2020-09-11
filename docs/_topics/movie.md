@@ -27,3 +27,9 @@ how do we incorporate,
 
 ## sfx
 * <https://youtu.be/RxD6H3ri8RI>
+
+## pdf
+* <https://github.com/foliojs/pdfkit>
+
+## fountain tools
+* <https://github.com/ifrost/afterwriting-labs>
