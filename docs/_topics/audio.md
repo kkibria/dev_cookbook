@@ -14,3 +14,7 @@ title: Audio Processing
 * <https://forum.juce.com/t/is-vst3-sdk-compatible-with-mingw/12385>
 * <http://kxstudio.sourceforge.net/Paste/repo/GMOVw>
 * <https://github.com/steinbergmedia/vst3sdk/issues/8>
+
+## open source synths
+* <https://github.com/TheWaveWarden/odin2>
+* <https://github.com/zynaddsubfx/zynaddsubfx>
