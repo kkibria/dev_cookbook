@@ -18,3 +18,6 @@ title: Audio Processing
 ## open source synths
 * <https://github.com/TheWaveWarden/odin2>
 * <https://github.com/zynaddsubfx/zynaddsubfx>
+
+## reason livestreams
+* <https://www.reasonstudios.com/blog/reason-livestream>
