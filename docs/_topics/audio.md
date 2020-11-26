@@ -21,3 +21,11 @@ title: Audio Processing
 
 ## reason livestreams
 * <https://www.reasonstudios.com/blog/reason-livestream>
+
+## physical synthesis libraries/ papers
+* <https://github.com/thestk/stk> Perry R. Cook and Gary P. Scavone.
+* <https://ccrma.stanford.edu/~jos/jnmr/jnmr.pdf>
+* <https://ccrma.stanford.edu/~jos/wgj/wgj.pdf>
+* <https://www.osar.fr/notes/waveguides/>
+* <https://ccrma.stanford.edu/~jos/wg.html>
+* <https://ccrma.stanford.edu/~jos/pasp/pasp.html>
