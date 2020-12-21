@@ -31,3 +31,4 @@ title: Audio Processing
 * <https://ccrma.stanford.edu/~jos/pasp/pasp.html>
 * <https://github.com/mi-creative/mi-gen>
 * [Martin Shuppius - Physical modelling of guitar strings (ADC'17)](https://youtu.be/sxt5rxF_PdI)
+* [Some pdf papers](https://drive.google.com/drive/folders/1URgFdMjBttXfwUdbf_C2p-XacsSe6hEQ?usp=sharing)
