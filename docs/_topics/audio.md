@@ -29,3 +29,5 @@ title: Audio Processing
 * <https://www.osar.fr/notes/waveguides/>
 * <https://ccrma.stanford.edu/~jos/wg.html>
 * <https://ccrma.stanford.edu/~jos/pasp/pasp.html>
+* <https://github.com/mi-creative/mi-gen>
+* [Martin Shuppius - Physical modelling of guitar strings (ADC'17)](https://youtu.be/sxt5rxF_PdI)
