@@ -13,6 +13,8 @@ title: Cloth Simulation
 * <http://jrc313.com/projects/processing/cloth/index.html>
 * <https://www.processing.org/>
 * <https://github.com/schteppe/p2.js/>
+* <https://youtu.be/gqdXsw_Q_as> playlist <https://www.youtube.com/playlist?list=PL9_jI1bdZmz2emSh0UQ5iOdT2xRHFHL7E>
+
 
 ``processing`` source code for cloth sim,
 ```cpp
