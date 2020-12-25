@@ -14,6 +14,7 @@ title: Cloth Simulation
 * <https://www.processing.org/>
 * <https://github.com/schteppe/p2.js/>
 * <https://youtu.be/gqdXsw_Q_as> playlist <https://www.youtube.com/playlist?list=PL9_jI1bdZmz2emSh0UQ5iOdT2xRHFHL7E>
+* <http://web.archive.org/web/20070609220647/http://www.cs.cmu.edu/~baraff/sigcourse/index.html> or <https://www.cs.cmu.edu/~baraff/sigcourse/>
 
 
 ``processing`` source code for cloth sim,
