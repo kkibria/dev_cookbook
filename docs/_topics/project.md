@@ -55,3 +55,9 @@ $ git remote -v
 ## Setting up your own git server
 * <https://medium.com/@kevalpatel2106/create-your-own-git-server-using-raspberry-pi-and-gitlab-f64475901a66>
 * [Install self-managed GitLab](https://about.gitlab.com/install/#raspberry-pi-os). They have a version for raspberry pi.
+
+
+## Git Workflow
+* <https://musescore.org/en/handbook/developers-handbook/finding-your-way-around/git-workflow>.
+Describes git workflow for their project,
+but a great page to consider for any project using git.
