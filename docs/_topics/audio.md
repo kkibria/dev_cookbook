@@ -32,3 +32,9 @@ title: Audio Processing
 * <https://github.com/mi-creative/mi-gen>
 * [Martin Shuppius - Physical modelling of guitar strings (ADC'17)](https://youtu.be/sxt5rxF_PdI)
 * [Some pdf papers](https://drive.google.com/drive/folders/1URgFdMjBttXfwUdbf_C2p-XacsSe6hEQ?usp=sharing)
+
+
+## audio/midi interface libraries
+
+* <https://wiki.linuxaudio.org/wiki/programming_libraries>
+* <http://www.portaudio.com/>. Audacity uses this.
