@@ -267,3 +267,7 @@ const { these, are, stores } = getContext(...);
 
 ## develop reusable components using REPL, Github and npm
 > todo: write up
+
+
+## using processing p5.js in svelte
+* [p5-Svelte: a quick and easy way to use p5 in Svelte!](https://dev.to/tonyketcham/p5-svelte-a-quick-and-easy-way-to-use-p5-in-svelte-3j8f), [Github](https://github.com/tonyketcham/p5-svelte)
