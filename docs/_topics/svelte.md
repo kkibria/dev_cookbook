@@ -271,3 +271,4 @@ const { these, are, stores } = getContext(...);
 
 ## using processing p5.js in svelte
 * [p5-Svelte: a quick and easy way to use p5 in Svelte!](https://dev.to/tonyketcham/p5-svelte-a-quick-and-easy-way-to-use-p5-in-svelte-3j8f), [Github](https://github.com/tonyketcham/p5-svelte)
+* [Q&A #6: p5.js Sketch as Background](https://www.youtube.com/watch?v=OIfEHD3KqCg)
