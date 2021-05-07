@@ -257,7 +257,7 @@ const { these, are, stores } = getContext(...);
 * <https://svelte.dev/repl/f4386ec88df34e3b9a6b513e19374824?version=3.4.4> for moving selected item to a position.
 
 ## Svelete and capacitor will allow web apps to become mobile apps
-* icons <https://ionicons.com/>
+* <https://ionicframework.com>
 * <https://capacitorjs.com/>
 * <https://stackoverflow.com/questions/58611710/how-to-setup-svelte-js-with-ionic>
 

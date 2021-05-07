@@ -66,3 +66,6 @@ https://medium.com/hackernoon/polyfills-everything-you-ever-wanted-to-know-or-ma
 
 ## user authentication
 * [Why Using Tokens and Cookies Together is Better for Web App Security](https://blog.bitsrc.io/why-using-tokens-and-cookies-together-is-better-for-web-apps-9d205b7c1961).
+
+## Icons
+* icons <https://ionicons.com/>
