@@ -6,5 +6,5 @@ title: Music
 
 
 ## Drum patterns
-* https://cecm.indiana.edu/361/drumpatterns.html
+* <https://cecm.indiana.edu/361/drumpatterns.html>
 
