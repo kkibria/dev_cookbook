@@ -256,11 +256,6 @@ const { these, are, stores } = getContext(...);
 * <https://stackoverflow.com/questions/56453366/cant-use-svelte-animate-to-make-a-list-item-fly-into-a-header>
 * <https://svelte.dev/repl/f4386ec88df34e3b9a6b513e19374824?version=3.4.4> for moving selected item to a position.
 
-## Svelete and capacitor will allow web apps to become mobile apps
-* <https://ionicframework.com>
-* <https://capacitorjs.com/>
-* <https://stackoverflow.com/questions/58611710/how-to-setup-svelte-js-with-ionic>
-
 ## styling
 * [What I Like About Writing Styles with Svelte](https://css-tricks.com/what-i-like-about-writing-styles-with-svelte/)
 * [The zen of Just Writing CSS](https://svelte.dev/blog/the-zen-of-just-writing-css)
@@ -268,10 +263,17 @@ const { these, are, stores } = getContext(...);
 ## develop reusable components using REPL, Github and npm
 > todo: write up
 
-
 ## using processing p5.js in svelte
 * [p5-Svelte: a quick and easy way to use p5 in Svelte!](https://dev.to/tonyketcham/p5-svelte-a-quick-and-easy-way-to-use-p5-in-svelte-3j8f), [Github](https://github.com/tonyketcham/p5-svelte)
 * [Q&A #6: p5.js Sketch as Background](https://www.youtube.com/watch?v=OIfEHD3KqCg)
+* <https://p5js.org/reference/#/p5/loadImage>
+
+## Svelete and capacitor will allow web apps to become mobile apps
+* <https://ionicframework.com>
+* <https://capacitorjs.com/>
+* <https://stackoverflow.com/questions/58611710/how-to-setup-svelte-js-with-ionic>
+* <https://www.joshmorony.com/using-the-capacitor-filesystem-api-to-store-photos/>
+* <https://gist.github.com/dalezak/a6b1de39091f4ace220695d72717ac71>
 
 ## svelte for desktop app
 * [Build a desktop app with Electron and Svelte](https://dev.to/khangnd/build-a-desktop-app-with-electron-and-svelte-44dp), [github](https://github.com/khang-nd/electron-app-svelte)
