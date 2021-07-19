@@ -61,3 +61,22 @@ $ git remote -v
 * <https://musescore.org/en/handbook/developers-handbook/finding-your-way-around/git-workflow>.
 Describes git workflow for their project,
 but a great page to consider for any project using git.
+
+
+## Remove tags
+little python script will create a powershell command,
+```python
+import subprocess
+import re
+
+proc = subprocess.Popen('git tag', stdout=subprocess.PIPE)
+tags = proc.stdout.read().decode("utf-8").split()
+
+file1 = open("tagremove.ps1","w")
+for tag in tags:
+    found = re.match(r"^v\d+", tag)
+    if found:
+        continue
+    file1.write("git tag -d {tag}\ngit push --delete origin {tag}\n".format(tag=tag))
+file1.close()
+```
