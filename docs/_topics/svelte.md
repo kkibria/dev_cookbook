@@ -240,7 +240,7 @@ Firebase can have has it own login subscription via rxfire. However following ar
 ### Contexts vs. stores
 Contexts and stores seem similar. They differ in that stores are available to any part of an app, while a context is only available to a component and its descendants. This can be helpful if you want to use several instances of a component without the state of one interfering with the state of the others.
 
-In fact, you might use the two together. Since context is not **reactive**, values that change over time should be represented as stores:
+In fact, you might use the two together. Since context is not **reactive** and not mutable, values that change over time should be represented as stores:
 
 ```auto
 const { these, are, stores } = getContext(...);
