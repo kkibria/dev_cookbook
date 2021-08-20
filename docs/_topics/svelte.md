@@ -278,3 +278,12 @@ const { these, are, stores } = getContext(...);
 ## svelte for desktop app
 * [Build a desktop app with Electron and Svelte](https://dev.to/khangnd/build-a-desktop-app-with-electron-and-svelte-44dp), [github](https://github.com/khang-nd/electron-app-svelte)
 * [Getting started with Electron and Svelte](https://dev.to/o_a_e/getting-started-with-electron-and-svelte-2gn8), read the discussion in this article for problems and solutions.
+* <https://dev.to/ruppysuppy/turn-your-website-into-a-cross-platform-desktop-app-with-less-than-15-lines-of-code-with-electron-44m3>
+* <https://www.webtips.dev/how-to-make-your-very-first-desktop-app-with-electron-and-svelte>
+* <https://dev.to/khangnd/build-a-desktop-app-with-electron-and-svelte-44dp>
+* <https://fireship.io/snippets/svelte-electron-setup/>
+
+
+## Note on electron
+there are two choices,
+1) server backend, chromium frontend communicating over tcpip port using standard   
