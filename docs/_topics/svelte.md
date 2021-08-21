@@ -298,7 +298,7 @@ const { these, are, stores } = getContext(...);
 
 ## electron and local file issue
 * [Electron should be able to load local resources with enabled webSecurity](https://github.com/electron/electron/issues/23393)
-* [Error while importing electron in react | import { ipcRenderer } from 'electron'](https://github.com/electron/electron/issues/9920)
+* [Error while importing electron in browser, import { ipcRenderer } from 'electron'](https://github.com/electron/electron/issues/9920)
 
 ## note on imageviwer app
 
