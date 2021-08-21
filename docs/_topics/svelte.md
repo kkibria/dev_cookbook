@@ -310,6 +310,8 @@ apis can be made available to renderer process via contextBridge.
 also see <https://stackoverflow.com/questions/44391448/electron-require-is-not-defined/59888788#59888788>.
 <https://www.electronjs.org/docs/tutorial/context-isolation>
 
+building secure electron app,
+<https://github.com/reZach/secure-electron-template/blob/master/docs/secureapps.md>
 ## Note on electron
 there are two choices,
 1) server backend, chromium frontend communicating over tcpip port using standard web technique
