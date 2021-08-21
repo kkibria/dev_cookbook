@@ -279,7 +279,6 @@ const { these, are, stores } = getContext(...);
 * [Build a desktop app with Electron and Svelte](https://dev.to/khangnd/build-a-desktop-app-with-electron-and-svelte-44dp), [github](https://github.com/khang-nd/electron-app-svelte)
 * [Getting started with Electron and Svelte](https://dev.to/o_a_e/getting-started-with-electron-and-svelte-2gn8), read the discussion in this article for problems and solutions.
 
-<<<<<<< HEAD
 =======
 ## web apps & mobile apps
 * <https://dev.to/ruppysuppy/turn-your-website-into-a-cross-platform-desktop-app-with-less-than-15-lines-of-code-with-electron-44m3>
@@ -287,7 +286,6 @@ const { these, are, stores } = getContext(...);
 * <https://dev.to/khangnd/build-a-desktop-app-with-electron-and-svelte-44dp>
 * <https://fireship.io/snippets/svelte-electron-setup/>
 
->>>>>>> 4d05f6b3ceaf3f8046ff42e9aa0db875826a980b
 ## state management
 * <https://stackoverflow.com/questions/65092054/how-to-use-svelte-store-with-tree-like-nested-object>
 * <https://www.newline.co/@kchan/state-management-with-svelte-props-part-1--73a26f45>
@@ -299,14 +297,14 @@ const { these, are, stores } = getContext(...);
 
 
 ## electron and local file issue
-* <https://github.com/electron/electron/issues/23393>
-
+* [Electron should be able to load local resources with enabled webSecurity](https://github.com/electron/electron/issues/23393)
+* [Error while importing electron in react | import { ipcRenderer } from 'electron'](https://github.com/electron/electron/issues/9920)
 
 ## note on imageviwer app
 
-getting error doing electron dialog
-* <https://github.com/electron/electron/issues/9920>
+Getting error doing electron dialog because fs and ipcRender can not be used in browser thread securely.
 
 ## Note on electron
 there are two choices,
-1) server backend, chromium frontend communicating over tcpip port using standard   
+1) server backend, chromium frontend communicating over tcpip port using standard web technique
+2) browser-node interaction via IPC.
