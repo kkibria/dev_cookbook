@@ -304,6 +304,11 @@ const { these, are, stores } = getContext(...);
 
 Getting error doing electron dialog because fs and ipcRender can not be used in browser thread securely.
 
+read <https://www.electronjs.org/docs/latest/tutorial/process-model> to see how selected node environment
+apis can be made available to renderer process via contextBridge.
+
+also see <https://stackoverflow.com/questions/44391448/electron-require-is-not-defined/59888788#59888788>.
+
 ## Note on electron
 there are two choices,
 1) server backend, chromium frontend communicating over tcpip port using standard web technique
