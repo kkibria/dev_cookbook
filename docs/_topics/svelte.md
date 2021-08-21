@@ -308,6 +308,7 @@ read <https://www.electronjs.org/docs/latest/tutorial/process-model> to see how 
 apis can be made available to renderer process via contextBridge.
 
 also see <https://stackoverflow.com/questions/44391448/electron-require-is-not-defined/59888788#59888788>.
+<https://www.electronjs.org/docs/tutorial/context-isolation>
 
 ## Note on electron
 there are two choices,
