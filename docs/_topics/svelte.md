@@ -240,7 +240,7 @@ Firebase can have has it own login subscription via rxfire. However following ar
 ### Contexts vs. stores
 Contexts and stores seem similar. They differ in that stores are available to any part of an app, while a context is only available to a component and its descendants. This can be helpful if you want to use several instances of a component without the state of one interfering with the state of the others.
 
-In fact, you might use the two together. Since context is not **reactive**, values that change over time should be represented as stores:
+In fact, you might use the two together. Since context is not **reactive** and not mutable, values that change over time should be represented as stores:
 
 ```auto
 const { these, are, stores } = getContext(...);
@@ -279,6 +279,15 @@ const { these, are, stores } = getContext(...);
 * [Build a desktop app with Electron and Svelte](https://dev.to/khangnd/build-a-desktop-app-with-electron-and-svelte-44dp), [github](https://github.com/khang-nd/electron-app-svelte)
 * [Getting started with Electron and Svelte](https://dev.to/o_a_e/getting-started-with-electron-and-svelte-2gn8), read the discussion in this article for problems and solutions.
 
+<<<<<<< HEAD
+=======
+## web apps & mobile apps
+* <https://dev.to/ruppysuppy/turn-your-website-into-a-cross-platform-desktop-app-with-less-than-15-lines-of-code-with-electron-44m3>
+* <https://www.webtips.dev/how-to-make-your-very-first-desktop-app-with-electron-and-svelte>
+* <https://dev.to/khangnd/build-a-desktop-app-with-electron-and-svelte-44dp>
+* <https://fireship.io/snippets/svelte-electron-setup/>
+
+>>>>>>> 4d05f6b3ceaf3f8046ff42e9aa0db875826a980b
 ## state management
 * <https://stackoverflow.com/questions/65092054/how-to-use-svelte-store-with-tree-like-nested-object>
 * <https://www.newline.co/@kchan/state-management-with-svelte-props-part-1--73a26f45>
@@ -287,11 +296,6 @@ const { these, are, stores } = getContext(...);
 * <https://mobx.js.org/getting-started>
 * <https://blog.logrocket.com/application-state-management-with-svelte/>
 
-## web apps & mobile apps
-* <https://dev.to/ruppysuppy/turn-your-website-into-a-cross-platform-desktop-app-with-less-than-15-lines-of-code-with-electron-44m3>
-* <https://www.webtips.dev/how-to-make-your-very-first-desktop-app-with-electron-and-svelte>
-* <https://dev.to/khangnd/build-a-desktop-app-with-electron-and-svelte-44dp>
-* <https://fireship.io/snippets/svelte-electron-setup/>
 
 
 ## electron and local file issue
@@ -303,3 +307,6 @@ const { these, are, stores } = getContext(...);
 getting error doing electron dialog
 * <https://github.com/electron/electron/issues/9920>
 
+## Note on electron
+there are two choices,
+1) server backend, chromium frontend communicating over tcpip port using standard   
