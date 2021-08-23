@@ -294,23 +294,23 @@ const { these, are, stores } = getContext(...);
 * <https://mobx.js.org/getting-started>
 * <https://blog.logrocket.com/application-state-management-with-svelte/>
 
-
-
 ## electron and local file issue
 * [Electron should be able to load local resources with enabled webSecurity](https://github.com/electron/electron/issues/23393)
-* [Error while importing electron in browser, import { ipcRenderer } from 'electron'](https://github.com/electron/electron/issues/9920)
+* <https://www.electronjs.org/docs/api/protocol#protocolregisterfileprotocolscheme-handler-completion>
 
-## note on imageviwer app
+## note on electron app, security issue
 
 Getting error doing electron dialog because fs and ipcRender can not be used in browser thread securely.
 
-read <https://www.electronjs.org/docs/latest/tutorial/process-model> to see how selected node environment
+* [Error while importing electron in browser, import { ipcRenderer } from 'electron'](https://github.com/electron/electron/issues/9920)
+
+* read <https://www.electronjs.org/docs/latest/tutorial/process-model> to see how selected node environment
 apis can be made available to renderer process via contextBridge.
 
-also see <https://stackoverflow.com/questions/44391448/electron-require-is-not-defined/59888788#59888788>.
-<https://www.electronjs.org/docs/tutorial/context-isolation>
+* also see <https://stackoverflow.com/questions/44391448/electron-require-is-not-defined/59888788#59888788>.
+* <https://www.electronjs.org/docs/tutorial/context-isolation>
 
-building secure electron app,
+* building secure electron app,
 <https://github.com/reZach/secure-electron-template/blob/master/docs/secureapps.md>
 ## Note on electron
 there are two choices,
