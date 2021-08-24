@@ -166,17 +166,18 @@ APIs without states can be exported as functions.
 Traditionally, we would access the results of asynchronous code through the use of callbacks.
 
 ```javascript
-let returnValue = someDatabaseThing(maybeAnID, function(error, result)) {
-   //...Once we get back the thing from the database...
-   if(error) {
+let myfunc = (maybeAnID) => {
+  someDatabaseThing(maybeAnID, function(error, result)) {
+    if(error) {
       // build an error object and return
       // or just process the error and log and return nothing
       return doSomethingWithTheError(error);
-   } else {
+    } else {
       // process the result, build a return object and return
       // or just process result and return nothing
       return doSomethingWithResult(result);
-   }
+    }
+  }
 }
 ```
 
@@ -187,7 +188,7 @@ A promise is simply an object that we create like the later example. We instanti
 
 ```javascript
 
-return new Promise((resolve, reject) => {
+let myfunc = (maybeAnID) => new Promise((resolve, reject) => {
   someDatabaseThing(maybeAnID, function(error, result)) {
     //...Once we get back the thing from the database...
     if(error) {
@@ -203,8 +204,10 @@ The call to asynchronous function is simply wrapped in a promise that is returne
 chaining with ``.then()`` which is much more readable then the *callback hell* style coding.
 
 Or we can have our own function that returns a promise without wrapping a callback API.
+
+```javascript
 let myfunc = (param) => new Promise((resolve, reject) => {
-  // Do stuff that takes time
+  // Do stuff that takes time using param
   ...
   if(error) {
       reject(doSomethingWithTheError(error));
@@ -212,7 +215,10 @@ let myfunc = (param) => new Promise((resolve, reject) => {
       resolve(doSomethingWithResult(result));
   }
 }
+```
 
+The functions that consume a function returning a promise can use ``.then()``
+chaining. However there is yet another cleaner alternative.
 In a function we can use ``await`` to invoke a function that returns a promise.
 This will make the execution wait till the promise is resolved or rejected.
 We don't need to use ``.then()`` chaining, which improves readability further more.
