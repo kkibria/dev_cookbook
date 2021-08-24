@@ -162,7 +162,7 @@ Check out more details on [``tsconfig.json``](https://www.typescriptlang.org/doc
 ## Best way to provide module API
 I like using Javascript class to provide prototypical APIs that uses states.
 APIs without states can be exported as functions.
-## js asynchronous programming
+## js asynchronous programming: Promise(), async/await explained
 Traditionally, we would access the results of asynchronous code through the use of callbacks.
 
 ```javascript
@@ -198,8 +198,9 @@ return new Promise((resolve, reject) => {
   }
 }
 ```
+
 The call to asynchronous function is simply wrapped in a promise that is returned which allows
-chaining with ``.then`` which is much more readable then the *callback hell* style coding.
+chaining with ``.then()`` which is much more readable then the *callback hell* style coding.
 
 Or we can have our own function that returns a promise without wrapping a callback API.
 let myfunc = (param) => new Promise((resolve, reject) => {
@@ -212,14 +213,15 @@ let myfunc = (param) => new Promise((resolve, reject) => {
   }
 }
 
-## async/await
 In a function we can use ``await`` to invoke a function that returns a promise.
 This will make the execution wait till the promise is resolved or rejected.
-We don't need to use ``.then`` chaining, which improves readability further more.
+We don't need to use ``.then()`` chaining, which improves readability further more.
 A function that wants to use ``await`` must be declared with ``async`` keyword.
+
 More details here,
 * <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function>
-
+* <https://www.freecodecamp.org/news/how-to-write-a-javascript-promise-4ed8d44292b8/>
+* <https://medium.com/@sebelga/simplify-your-code-adding-hooks-to-your-promises-9e1483662dfa>
 
 
 
