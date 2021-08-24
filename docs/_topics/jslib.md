@@ -158,3 +158,68 @@ We can automatically compile typescript files by running typescript compiler in 
 tsc *.ts --watch
 ```
 Check out more details on [``tsconfig.json``](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) usage.
+
+## Best way to provide module API
+I like using Javascript class to provide prototypical APIs that uses states.
+APIs without states can be exported as functions.
+## js asynchronous programming
+Traditionally, we would access the results of asynchronous code through the use of callbacks.
+
+```javascript
+let returnValue = someDatabaseThing(maybeAnID, function(error, result)) {
+   //...Once we get back the thing from the database...
+   if(error) {
+      // build an error object and return
+      // or just process the error and log and return nothing
+      return doSomethingWithTheError(error);
+   } else {
+      // process the result, build a return object and return
+      // or just process result and return nothing
+      return doSomethingWithResult(result);
+   }
+}
+```
+
+The use of callbacks is ok until they become overly nested. In other words, you have to run more asynchronous code with each new result. This pattern of callbacks within callbacks can lead to something known as *callback hell*.
+
+To solve this we can use promise.
+A promise is simply an object that we create like the later example. We instantiate it with the ``new`` keyword. Instead of the three parameters we passed in to make our car (color, type, and doors), we pass in a function that takes two arguments: ``resolve`` and ``reject``.
+
+```javascript
+
+return new Promise((resolve, reject) => {
+  someDatabaseThing(maybeAnID, function(error, result)) {
+    //...Once we get back the thing from the database...
+    if(error) {
+        reject(doSomethingWithTheError(error));
+    } else {
+        resolve(doSomethingWithResult(result));
+    }
+  }
+}
+```
+The call to asynchronous function is simply wrapped in a promise that is returned which allows
+chaining with ``.then`` which is much more readable then the *callback hell* style coding.
+
+Or we can have our own function that returns a promise without wrapping a callback API.
+let myfunc = (param) => new Promise((resolve, reject) => {
+  // Do stuff that takes time
+  ...
+  if(error) {
+      reject(doSomethingWithTheError(error));
+  } else {
+      resolve(doSomethingWithResult(result));
+  }
+}
+
+## async/await
+In a function we can use ``await`` to invoke a function that returns a promise.
+This will make the execution wait till the promise is resolved or rejected.
+We don't need to use ``.then`` chaining, which improves readability further more.
+A function that wants to use ``await`` must be declared with ``async`` keyword.
+More details here,
+* <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function>
+
+
+
+
