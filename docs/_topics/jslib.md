@@ -253,10 +253,16 @@ async function pqr() {
     console.log(p);
 }
 
-pqr(); // unused return value which is a promise 
-let p = abc().then(() => {});
-console.log(p)
+// unused return value which is a promise
+// This is perfectly acceptable if
+// there was no result to return
+pqr(); 
 
+// this is how we retrieve return value from 
+// an async function from a regular function
+// or top level as we can't use await
+// however module top level can be made async
+abc().then(val => console.log(val));
 
 ```
 
