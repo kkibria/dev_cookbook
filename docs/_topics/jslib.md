@@ -252,7 +252,10 @@ async function pqr() {
     console.log(p);
 }
 
-// pqr();
-pqr().then( () => {});
+pqr(); // unused return value which is a promise 
+let p = abc().then(() => {});
+console.log(p)
+
+
 ```
 
