@@ -241,6 +241,7 @@ let v = new Promise((resolve, reject) => {
 
 async function abc() {
     // test rejected promise
+    // r will be undefined in case there is an error
     let r = await v.catch(() => {});
     console.log(r);
     return 35;
