@@ -229,5 +229,30 @@ More details here,
 * <https://www.freecodecamp.org/news/how-to-write-a-javascript-promise-4ed8d44292b8/>
 * <https://medium.com/@sebelga/simplify-your-code-adding-hooks-to-your-promises-9e1483662dfa>
 
+``async`` function always returns a promise.
 
+from a regular function they can be called with ``.then()``
+
+```javascript
+let v = new Promise((resolve, reject) => {
+    // throw Error("Returning error");
+    resolve(20);
+});
+
+async function abc() {
+    // test rejected promise
+    let r = await v.catch(() => {});
+    console.log(r);
+    return 35;
+}
+
+async function pqr() {
+    console.log("running abc");
+    let p = await abc();
+    console.log(p);
+}
+
+// pqr();
+pqr().then( () => {});
+```
 
