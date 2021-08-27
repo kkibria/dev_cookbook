@@ -69,6 +69,7 @@ https://medium.com/hackernoon/polyfills-everything-you-ever-wanted-to-know-or-ma
 
 ## Icons
 * icons <https://ionicons.com/>
+* <https://www.svgrepo.com/>
 
 ## dimensions
 * <https://docs.microsoft.com/en-us/previous-versions//hh781509(v=vs.85)#understanding-properties-that-measure-element-dimension-and-location>
