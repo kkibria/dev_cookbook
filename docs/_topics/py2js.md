@@ -74,33 +74,38 @@ Now we can convert them to javascript
 ```bash
 python -m transcrypt -b -n ..\test-trans.py
 ```
-this will produce a directory called ``__target__`` with all the javascript files in it.
+This will produce a directory called ``__target__`` with all the javascript files in it.
 
 ## converting to a node bundle
 
-now initialize node environment and install rollup
+Now initialize node environment and install rollup
 
 ```bash
 npm init // accept defaults
 npm i rollup
 ```
-next we need to use rollup to bundle them for node
+
+Next we need to use rollup to bundle them for node,
 ```bash
 node_modules\.bin\rollup .\__target__\test-trans.js --o bundle.js --f cjs
 ```
 
-now test it with node
+Now test it with node
 ```
 node bundle.js
 ```
-we get the same result.
+We get the same result.
 
 deactivate python local environment
 ```bash
 deactivate
 ```
 
+## venv to generate requirements.txt
 
+```bash
+pip freeze > requirements.txt
+```
 
 
 
