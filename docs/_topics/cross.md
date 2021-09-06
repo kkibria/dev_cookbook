@@ -192,3 +192,8 @@ Now you can copy appropriate libraries to
 ## utilities
 * [Raspberry-Pi Utilities](https://github.com/johnlane/rpi-utils).
 A very nice place to learn how to chroot and get emulation going.
+
+
+## compiling for windows in linux
+* <https://swarminglogic.com/article/2014_11_crosscompile>
+* <https://mxe.cc/>
