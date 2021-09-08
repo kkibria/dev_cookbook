@@ -315,4 +315,136 @@ apis can be made available to renderer process via contextBridge.
 ## Note on electron
 there are two choices,
 1) server backend, chromium frontend communicating over tcpip port using standard web technique
-2) browser-node interaction via IPC.
+2) browser-node interaction via IPC. We can promisify this. Following is the suggested code from this [gist](https://gist.github.com/Johnz86/33425246eddc36b26c6af2d5c8e2b1a7).
+
+
+``main-ipc.ts``
+```typescript
+import { ipcMain, BrowserWindow, Event } from 'electron'
+
+const getResponseChannels = (channel:string) => ({
+    sendChannel: `%app-send-channel-${channel}`,
+    dataChannel: `%app-response-data-channel-${channel}`,
+    errorChannel: `%app-response-error-channel-${channel}`
+})
+
+const getRendererResponseChannels = (windowId: number, channel: string) => ({
+    sendChannel: `%app-send-channel-${windowId}-${channel}`,
+    dataChannel: `%app-response-data-channel-${windowId}-${channel}`,
+    errorChannel: `%app-response-error-channel-${windowId}-${channel}`
+})
+
+export default class ipc {
+    static callRenderer(window: BrowserWindow, channel: string, data: object) {
+        return new Promise((resolve, reject) => {
+            const { sendChannel, dataChannel, errorChannel } = getRendererResponseChannels(window.id, channel)
+
+            const cleanup = () => {
+                ipcMain.removeAllListeners(dataChannel)
+                ipcMain.removeAllListeners(errorChannel)
+            }
+
+            ipcMain.on(dataChannel, (_: Event, result: object) => {
+                cleanup()
+                resolve(result)
+            })
+
+            ipcMain.on(errorChannel, (_: Event, error: object) => {
+                cleanup()
+                reject(error)
+            })
+
+            if (window.webContents) {
+                window.webContents.send(sendChannel, data)
+            }
+        })
+    }
+
+    static answerRenderer(channel: string, callback: Function) {
+        const { sendChannel, dataChannel, errorChannel } = getResponseChannels(channel)
+
+        ipcMain.on(sendChannel, async (event: Event, data: object) => {
+            const window = BrowserWindow.fromWebContents(event.sender)
+
+            const send = (channel: string, data: object) => {
+                if (!(window && window.isDestroyed())) {
+                    event.sender.send(channel, data)
+                }
+            }
+
+            try {
+                send(dataChannel, await callback(data, window))
+            } catch (error) {
+                send(errorChannel, error)
+            }
+        })
+    }
+
+    static sendToRenderers(channel: string, data: object) {
+        for (const window of BrowserWindow.getAllWindows()) {
+            if (window.webContents) {
+                window.webContents.send(channel, data)
+            }
+        }
+    }
+}
+```
+
+``renderer-ipc.ts``
+```typescript
+import { ipcRenderer, remote, Event } from 'electron';
+
+const getResponseChannels = (channel: string) => ({
+    sendChannel: `%app-send-channel-${channel}`,
+    dataChannel: `%app-response-data-channel-${channel}`,
+    errorChannel: `%app-response-error-channel-${channel}`
+})
+
+const getRendererResponseChannels = (windowId: number, channel: string) => ({
+    sendChannel: `%app-send-channel-${windowId}-${channel}`,
+    dataChannel: `%app-response-data-channel-${windowId}-${channel}`,
+    errorChannel: `%app-response-error-channel-${windowId}-${channel}`
+})
+
+export default class ipc {
+    static callMain(channel: string, data: object) {
+        return new Promise((resolve, reject) => {
+            const { sendChannel, dataChannel, errorChannel } = getResponseChannels(channel)
+
+            const cleanup = () => {
+                ipcRenderer.removeAllListeners(dataChannel)
+                ipcRenderer.removeAllListeners(errorChannel)
+            }
+
+            ipcRenderer.on(dataChannel, (_: Event, result: object) => {
+                cleanup()
+                resolve(result)
+            })
+
+            ipcRenderer.on(errorChannel, (_: Event, error: object) => {
+                cleanup()
+                reject(error)
+            })
+
+            ipcRenderer.send(sendChannel, data)
+        })
+    }
+
+    static answerMain(channel: string, callback: Function) {
+        const window = remote.getCurrentWindow()
+        const { sendChannel, dataChannel, errorChannel } = getRendererResponseChannels(window.id, channel)
+
+        ipcRenderer.on(sendChannel, async (_: Event, data: object) => {
+            try {
+                ipcRenderer.send(dataChannel, await callback(data))
+            } catch (err) {
+                ipcRenderer.send(errorChannel, err)
+            }
+        })
+    }
+}
+```
+
+
+
+

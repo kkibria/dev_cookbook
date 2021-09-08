@@ -226,6 +226,7 @@ A function that wants to use ``await`` must be declared with ``async`` keyword.
 
 More details here,
 * <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function>
+* <https://levelup.gitconnected.com/async-await-vs-promises-4fe98d11038f>
 * <https://www.freecodecamp.org/news/how-to-write-a-javascript-promise-4ed8d44292b8/>
 * <https://medium.com/@sebelga/simplify-your-code-adding-hooks-to-your-promises-9e1483662dfa>
 
