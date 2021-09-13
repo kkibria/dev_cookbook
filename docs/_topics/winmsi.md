@@ -13,3 +13,4 @@ title: Windows MSI installer
 The wix tutorial explains lot of core concepts about msi. A good reading material.
 
 * <https://www.firegiant.com/wix/tutorial/>
+* <https://weblogs.sqlteam.com/mladenp/tags/wix-windows-installer-xml-toolset/>
