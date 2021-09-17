@@ -107,7 +107,31 @@ deactivate
 pip freeze > requirements.txt
 ```
 
+## some python request module issues with SSL 
 
+* <https://stackoverflow.com/questions/51925384/unable-to-get-local-issuer-certificate-when-using-requests-in-python>
+
+Sometimes, when you are behind a company proxy, it replaces the certificate chain with the ones of Proxy. Adding the certificates in cacert.pem used by certifi should solve the issue.
+
+  1. Find the path where cacert.pem is located -
+
+> Install certifi, if you don't have. Command: `pip install certifi`
+
+    import certifi
+    certifi.where()
+    C:\\Users\\[UserID]\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\site-packages\\certifi\\cacert.pem
+
+
+  2. Open the URL (or base URL) on a browser. Browser will download the certificates of chain of trust from the URL.
+ The chain looks like,
+
+    Root Authority (you probably already have this) 
+    +-- Local Authority (might be missing)
+        +-- Site certificate (you don't need this)
+
+  3. You can save the whole chain as ``.p7b`` file, which can be opened in windows explorer. Or you can just save the Local Authority as Base64 encoded ``.cer`` files.
+
+  4. Now open the cacert.pem in a notepad and just add every downloaded certificate contents (`---Begin Certificate--- *** ---End Certificate---`) at the end.
 
 
 
