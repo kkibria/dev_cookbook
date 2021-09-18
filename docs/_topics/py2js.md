@@ -133,5 +133,30 @@ Sometimes, when you are behind a company proxy, it replaces the certificate chai
 
   4. Now open the cacert.pem in a notepad and just add every downloaded certificate contents (`---Begin Certificate--- *** ---End Certificate---`) at the end.
 
+ 
+## python image manipulation as they are downloaded
 
+```python
+import os
+import io
+import requests
+from PIL import Image
+import tempfile
+
+buffer = tempfile.SpooledTemporaryFile(max_size=1e9)
+r = requests.get(img_url, stream=True)
+if r.status_code == 200:
+    downloaded = 0
+    filesize = int(r.headers['content-length'])
+    for chunk in r.iter_content(chunk_size=1024):
+        downloaded += len(chunk)
+        buffer.write(chunk)
+        print(downloaded/filesize)
+    buffer.seek(0)
+    i = Image.open(io.BytesIO(buffer.read()))
+    i.save(os.path.join(out_dir, 'image.jpg'), quality=85)
+buffer.close()
+```
+
+* <https://stackoverflow.com/questions/37751877/downloading-image-with-pil-and-requests>
 
