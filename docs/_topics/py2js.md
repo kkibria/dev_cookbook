@@ -159,4 +159,4 @@ buffer.close()
 ```
 
 * <https://stackoverflow.com/questions/37751877/downloading-image-with-pil-and-requests>
-
+* <https://www.kite.com/python/answers/how-to-read-an-image-data-from-a-url-in-python>
