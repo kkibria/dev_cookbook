@@ -75,3 +75,9 @@ https://medium.com/hackernoon/polyfills-everything-you-ever-wanted-to-know-or-ma
 * <https://docs.microsoft.com/en-us/previous-versions//hh781509(v=vs.85)#understanding-properties-that-measure-element-dimension-and-location>
 
 
+## User interface look and feel
+* <https://developer.apple.com/design/human-interface-guidelines/>
+* <https://material.io/>
+* COlor pallet for designers <https://colorhunt.co/>
+* <https://youtu.be/tClRHOnHveY>
+
