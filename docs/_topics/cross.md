@@ -197,3 +197,10 @@ A very nice place to learn how to chroot and get emulation going.
 ## compiling for windows in linux
 * <https://swarminglogic.com/article/2014_11_crosscompile>
 * <https://mxe.cc/>
+
+
+some ideas.....
+
+build LFS using the scheme in <https://github.com/LeeKyuHyuk/PiCLFS> but change the compiler using scheme in <https://github.com/Pro/raspi-toolchain> 
+
+build missing libraries
