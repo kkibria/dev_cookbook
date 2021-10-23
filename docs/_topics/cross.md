@@ -15,6 +15,8 @@ title: Cross Compilation
 * <https://github.com/kunerd/clerk/wiki/How-to-use-HD44780-LCD-from-Rust#setting-up-the-cross-toolchain>
 * <https://opensource.com/article/19/3/physical-computing-rust-raspberry-pi>
 * <https://github.com/japaric/rust-cross>
+* [RPi-GCC-cross-compiler](https://gist.github.com/sol-prog/94b2ba84559975c76111afe6a0499814)
+
 
 ### QEMU for library dependencies
 * [Debootstrap](http://linux-sunxi.org/Debootstrap)
