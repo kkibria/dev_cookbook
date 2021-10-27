@@ -13,6 +13,7 @@ title: Linux from scratch (Part 1)
 * [The Linux Documentation Project](http://www.tldp.org/)
 * [https://www.tldp.org/HOWTO/Program-Library-HOWTO/index.html](https://www.tldp.org/HOWTO/Program-Library-HOWTO/index.html)
 * [Cross Linux From Scratch (CLFS) on the Raspberry Pi](https://github.com/LeeKyuHyuk/PiCLFS)
+* [someones journal of building LFS](https://github.com/hisham-maged10/Building-Linux-From-Scratch)
 
 ## LFS with wsl2
 Get the [LFS book](http://www.linuxfromscratch.org/lfs/download.html). This book provides step by step guide to build an LFS system. Following will provide steps for chapter 1 & 2.
