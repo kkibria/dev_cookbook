@@ -117,6 +117,15 @@ deb http://archive.raspberrypi.org/debian/ buster main
 #deb-src http://archive.raspberrypi.org/debian/ buster main
 ```
 
+## install the cross compiler
+check <https://github.com/Pro/raspi-toolchain> to use their prebuilt toolchain in wsl2
+```
+# Download the toolchain:
+wget https://github.com/Pro/raspi-toolchain/releases/latest/download/raspi-toolchain.tar.gz
+# The toolchain has to be in /opt/cross-pi-gcc since it's not location independent.
+sudo tar xfz raspi-toolchain.tar.gz --strip-components=1 -C /opt
+```
+
 ## raspbian filesystem
 
 ``/etc/fstab``,
@@ -171,6 +180,11 @@ ls -la /home/pi/pi-sd-2
 ```
 There is no need to specify size for the last partition.
 At this point we can edit the image to get it ready for emulation. 
+
+to cross compile copy all libraries
+```
+rsync -vR --progress -rl --delete-after --safe-links /home/pi/pi-sd-2/{lib,usr,etc/ld.so.conf.d,opt/vc/lib} $HOME/rpi/rootfs
+```
 
 (TODO)
 Now you can copy appropriate libraries to 
