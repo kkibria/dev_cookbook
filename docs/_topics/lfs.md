@@ -15,6 +15,8 @@ title: Linux from scratch (Part 1)
 * [Cross Linux From Scratch (CLFS) on the Raspberry Pi](https://github.com/LeeKyuHyuk/PiCLFS)
 * [someones journal of building LFS](https://github.com/hisham-maged10/Building-Linux-From-Scratch)
 * [Building GCC as a cross compiler for Raspberry Pi](https://solarianprogrammer.com/2018/05/06/building-gcc-cross-compiler-raspberry-pi/)
+* [Docker configuration for building Linux From Scratch system](https://github.com/reinterpretcat/lfs)
+
 ## LFS with wsl2
 Get the [LFS book](http://www.linuxfromscratch.org/lfs/download.html). This book provides step by step guide to build an LFS system. Following will provide steps for chapter 1 & 2.
 
