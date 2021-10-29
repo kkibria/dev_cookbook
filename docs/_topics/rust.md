@@ -204,11 +204,11 @@ Now you can copy appropriate libraries to
 ```
 pi dbus
 $ dpkg -l | grep dbus
-ii  dbus                              1.12.16-1                           armhf        simple interprocess messaging system (daemon and utilities)
-ii  libdbus-1-3:armhf                 1.12.16-1                           armhf        simple interprocess messaging system (library)
-ii  libdbus-1-dev:armhf               1.12.16-1                           armhf        simple interprocess messaging system (development headers)
-ii  python-dbus                       1.2.8-3                             armhf        simple interprocess messaging system (Python interface)
-ii  python3-dbus                      1.2.8-3                             armhf        simple interprocess messaging system (Python 3 interface)
+ii  dbus                 1.12.16-1   armhf  simple interprocess messaging syand utilities)
+ii  libdbus-1-3:armhf    1.12.16-1   armhf  simple interprocess messaging sy)
+ii  libdbus-1-dev:armhf  1.12.16-1   armhf  simple interprocess messaging syment headers)
+ii  python-dbus          1.2.8-3     armhf  simple interprocess messaging syinterface)
+ii  python3-dbus         1.2.8-3     armhf  simple interprocess messaging system (Python 3 interface)
 ```
 ## install dbus-codegen-rust
 following will install dbus-codegen-rust CLI.
