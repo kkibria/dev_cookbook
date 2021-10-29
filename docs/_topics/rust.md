@@ -47,30 +47,26 @@ Primary problem with cross compiling rust for pi zero is that zero is armv6 but 
 * <https://github.com/japaric/rust-cross/issues/42>
 * <https://hub.docker.com/r/mdirkse/rust_armv6>
 
-Using this strategy we will go ahead and setup linux,
-```bash
-# install rust
-curl https://sh.rustup.rs -sSf | sh
-# get the right cross compiler-linker
-sudo git clone https://github.com/raspberrypi/tools /opt/rpi_tools
+Using this strategy we will go ahead and setup wsl2 linux,
+
+## setup wsl2 for cross compile with rust
+first install cross compile toolchain from <https://github.com/kkibria/raspi-toolchain> in wsl2
+check ~/.bashrc to see if it has PATH set or add it,
+```
+PATH=/opt/cross-pi-gcc/bin:/opt/cross-pi-gcc/libexec/gcc/arm-linux-gnueabihf/8.3.0:$PATH
 ```
 
-setup path variable by editing ``~/.bashrc``,
+now install rust and setup rust
 ```
-source $HOME/.cargo/env
-PATH=$PATH:/opt/rpi_tools/arm-bcm2708/arm-linux-gnueabihf/bin
-```
-
-Add the Rust toolchain for pi zero target,
-```bash
-source ~/.bashrc
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+. ~/.bashrc
+rustc --version
 rustup target add arm-unknown-linux-gnueabihf
 ```
-
 We need to add our build target to ``~/.cargo/config`` by adding the following lines, so that rust knows which linker to use.
 ```auto
 [target.arm-unknown-linux-gnueabihf]
-linker = "/opt/rpi_tools/arm-bcm2708/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc"
+linker = "/opt/cross-pi-gcc/bin/arm-linux-gnueabihf-gcc"
 ```
 
 ### Creating our project
