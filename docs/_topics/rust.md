@@ -130,7 +130,7 @@ cargo build --release --target=arm-unknown-linux-gnueabihf
 ```
 All the debug symbols will be stripped from the executable.
 
-### Installing library dependencies
+### Installing library dependencies (this already is done in our toolchain install script)
 If there is a dependency on additional libraries, we should install those
 in the raspberry pi SD. Then we can save an image of the SD using ``Win32DiskImage``
 in a ``.img`` file. Now we can mount the image and copy the
