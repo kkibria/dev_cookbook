@@ -91,15 +91,18 @@ rustc-link-lib = [
 
 for dbus, we will create links
 ```
-cd /lib/arm-linux-gnueabihf
-ln -s libdbus-1.so.3 libdbus-1.so
-ln -s libgcrypt.so.20 libgcrypt.so
-ln -s libgpg-error.so.0 libgpg-error.so
-ln -s liblz4.so.1 liblz4.so
-ln -s libpcre.so.3 libpcre.so
-ln -s liblzma.so.5 liblzma.so
-ln -s libpthread.so.0 libpthread.so
-ln -s libdl.so.2 libdl.so
+pushd /lib/arm-linux-gnueabihf
+ln -sf libdbus-1.so.3 libdbus-1.so
+ln -sf libgcrypt.so.20 libgcrypt.so
+ln -sf libgpg-error.so.0 libgpg-error.so
+ln -sf liblz4.so.1 liblz4.so
+ln -sf libpcre.so.3 libpcre.so
+ln -sf liblzma.so.5 liblzma.so
+ln -sf libpthread.so.0 libpthread.so
+ln -sf libdl.so.2 libdl.so
+ln -sf libselinux.so.1 libselinux.so
+ln -sf libsystemd.so.0 libsystemd.so
+popd
 ```
 ### Creating our project
 Installing Rust will have installed cargo, the Rust package manager. We can use it to create a new project.
