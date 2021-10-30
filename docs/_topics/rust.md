@@ -51,10 +51,6 @@ Using this strategy we will go ahead and setup wsl2 linux,
 
 ## setup wsl2 for cross compile with rust
 first install cross compile toolchain from <https://github.com/kkibria/raspi-toolchain> in wsl2
-check ~/.bashrc to see if it has PATH set or add it,
-```
-PATH=/opt/cross-pi-gcc/bin:/opt/cross-pi-gcc/libexec/gcc/arm-linux-gnueabihf/8.3.0:$PATH
-```
 
 now install rust and setup rust
 ```
@@ -64,11 +60,47 @@ rustc --version
 rustup target add arm-unknown-linux-gnueabihf
 ```
 We need to add our build target to ``~/.cargo/config`` by adding the following lines, so that rust knows which linker to use.
-```auto
+```
+[build]
+# Specifies that the default target is ARM.
+target = "arm-unknown-linux-gnueabihf"
+rustflags = ["-L", "/lib/arm-linux-gnueabihf"]
+
 [target.arm-unknown-linux-gnueabihf]
-linker = "/opt/cross-pi-gcc/bin/arm-linux-gnueabihf-gcc"
+linker = "arm-linux-gnueabihf-gcc"
+
+[target.arm-unknown-linux-gnueabihf.dbus]
+# Specifies the library search paths. Since they cannot be relative paths,
+# we use a build script to provide them.
+rustc-link-search = [
+    # Provided by the build script.
+]
+
+# Specifies the names of the native libraries that are required to build DBus.
+rustc-link-lib = [
+    "dbus-1",
+    "gcrypt",
+    "gpg-error",
+    "lz4",
+    "lzma",
+    "pcre",
+    "selinux",
+    "systemd",
+]
 ```
 
+for dbus, we will create links
+```
+cd /lib/arm-linux-gnueabihf
+ln -s libdbus-1.so.3 libdbus-1.so
+ln -s libgcrypt.so.20 libgcrypt.so
+ln -s libgpg-error.so.0 libgpg-error.so
+ln -s liblz4.so.1 liblz4.so
+ln -s libpcre.so.3 libpcre.so
+ln -s liblzma.so.5 liblzma.so
+ln -s libpthread.so.0 libpthread.so
+ln -s libdl.so.2 libdl.so
+```
 ### Creating our project
 Installing Rust will have installed cargo, the Rust package manager. We can use it to create a new project.
 The ``--bin`` option will create the template necessary for building application.
@@ -79,13 +111,13 @@ $ cd hello
 ```
 We can build and run our project locally on ubuntu, by running,
 ```bash
-$ cargo run
+$ cargo run --target=x86_64-unknown-linux-gnu
 ```
  
 To build our project for the Pi we use,
 
 ```bash
-$cargo build --target=arm-unknown-linux-gnueabihf
+$cargo build
 ```
 We can check if we have successfully created an arm binary by using ``readelf``,
 ```bash
