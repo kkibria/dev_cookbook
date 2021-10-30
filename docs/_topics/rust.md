@@ -227,7 +227,7 @@ Now you can copy appropriate libraries to
 * <https://github.com/deifactor/ninomiya>
 * <https://github.com/diwic/dbus-rs/blob/master/dbus-codegen/examples/adv_server_codegen.rs> server example.
 * <https://github.com/diwic/dbus-rs/blob/master/dbus/examples/match_signal.rs> client example using dbus-codegen-rust.
-
+* <https://github.com/kkibria/rustdbuscross>
 
 ```
 pi dbus
