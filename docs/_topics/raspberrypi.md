@@ -165,7 +165,12 @@ to a drive letter. You can do rest of your development using popular ``vscode`` 
 
 
 ## vscode for development
-It is quite easy to setup. Read [Visual Studio Code Remote Development over SSH to a Raspberry Pi is butter](https://www.hanselman.com/blog/VisualStudioCodeRemoteDevelopmentOverSSHToARaspberryPiIsButter.aspx). Unfortunately, pi zero does not work because the microsoft's vscode remote server is not compiled for armv6 only supports armv7. I am not sure if the source code is available for one to re-compile for armv6.   
+It is quite easy to setup. Read [Visual Studio Code Remote Development over SSH to a Raspberry Pi is butter](https://www.hanselman.com/blog/VisualStudioCodeRemoteDevelopmentOverSSHToARaspberryPiIsButter.aspx). Unfortunately, pi zero does not work because the microsoft's vscode remote server is not compiled for armv6 only supports armv7. I am not sure if the source code is available for one to re-compile for armv6.
+
+This kind of capability has been done for atom called atom-remote what uses rmate (remote for another editor called textmate). They do the editing ove ssh. There is also rmate extension for vscode, <https://github.com/rafaelmaiolla/remote-vscode>. More reading to do for sure.
+
+* <https://github.com/randy3k/remote-atom>
+* <https://github.com/aurora/rmate>
 
 ## Configure IOT setup mechanism by user
 If we build IOT device, it needs to be configured. For example the user needs to setup the wifi connection information so that it can be connected to internet.
@@ -304,6 +309,15 @@ USB networking.
 Make sure that the **power cable is removed from the Pi**. Simply plug in the Pi USB OTG port to a PC or laptop. PC will power and recognize the
 Pi device. At this point you can open a browser and browse to 
 ``http://raspberrypi.local`` and the web page will be displayed.
+
+However there is one problem in this case,
+* <https://learn.adafruit.com/turning-your-raspberry-pi-zero-into-a-usb-gadget/ethernet-gadget>
+
+My desktop works fine but my laptop is treating pi as a com port as this article mentioned.
+I am manually trying to install
+ndis driver on my windows 10. Haven't figured out how to yet.
+
+
 
 ## <a name="idea1-impl">Raspberry pi as Access Point and Wifi client
 
