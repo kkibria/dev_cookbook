@@ -316,8 +316,8 @@ However there is one problem in this case,
 My desktop works fine but my laptop is treating pi as a com port as this article mentioned.
 I am manually trying to install
 ndis driver on my windows 10. Haven't figured out how to yet.
-
-
+* <https://forum.moddevices.com/t/rndis-driver-for-windows-10/299/7> seems
+like here they suggested a way to install rndis driver. I downloaded the zip file.
 
 ## <a name="idea1-impl">Raspberry pi as Access Point and Wifi client
 
