@@ -269,7 +269,7 @@ This will bring up ``nano`` with the permission file. Add following line at the 
 ```
 Now save the file. You can add more than one commands in comma separated paths if needed. Check documentation for ``visudo``.
 
-### Idea 1: Configure via wifi
+### <a name="idea1"></a>Idea 1: Configure via wifi
 Set it up initially as a wifi access point on power up. 
 Then use it to setup up the configuration.
 
@@ -326,9 +326,9 @@ The full documentation is here, read carefully before you install the driver,
 
 I downloaded the zip file from [microsof.net](https://modclouddownloadprod.blob.core.windows.net/shared/mod-duo-rndis.zip) site,
 installed it and it worked. zip file is saved in the github repo, ``files\mod-duo-rndis.zip``.
-## Raspberry pi as Access Point and Wifi client<a name="idea1-impl"></a>
+## <a name="idea1-impl"></a>Raspberry pi as Access Point and Wifi client
 
-This is an example of how the *idea 1* can be implemented. This was collected from the tutorials found on internet. 
+This is an example of how the [*idea 1*](#idea1) can be implemented. This was collected from the tutorials found on internet <https://www.raspberrypi.org/forums/viewtopic.php?t=211542>. 
 
 > It is based on IOT wifi's [solution](https://pifi.imti.co/), but I wanted to use a language other than Go to manage my wifi connections, so all changes are within the standard Raspbian Stretch OS.
 
