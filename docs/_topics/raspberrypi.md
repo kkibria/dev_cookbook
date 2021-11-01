@@ -314,12 +314,18 @@ However there is one problem in this case,
 * <https://learn.adafruit.com/turning-your-raspberry-pi-zero-into-a-usb-gadget/ethernet-gadget>
 
 My desktop works fine but my laptop is treating pi as a com port as this article mentioned.
-I am manually trying to install
-ndis driver on my windows 10. Haven't figured out how to yet.
-* <https://forum.moddevices.com/t/rndis-driver-for-windows-10/299/7> seems
-like here they suggested a way to install rndis driver. I downloaded the zip file.
-installed it and it worked.
+I am manually trying to install ndis driver on my windows 10, but microsoft site was no help.
+Appearently a certificate is needed for the inf file they suggested. Gota research more to find
+where that certificate for their inf file is located.
 
+Meanwhile this post, <https://forum.moddevices.com/t/rndis-driver-for-windows-10/299/7>
+suggested a way to install a rndis driver from moddevice. 
+
+The full documentation is here, read carefully before you install the driver,
+* <https://wiki.moddevices.com/wiki/Troubleshooting_Windows_Connection>
+
+I downloaded the zip file.
+installed it and it worked. zip file is saved in the github repo, ``files\mod-duo-rndis.zip``.
 ## <a name="idea1-impl">Raspberry pi as Access Point and Wifi client
 
 This is an example of how the *idea 1* can be implemented. This was collected from the tutorials found on internet. 
