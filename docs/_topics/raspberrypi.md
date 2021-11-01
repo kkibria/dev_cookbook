@@ -324,9 +324,9 @@ suggested a way to install a rndis driver from moddevice.
 The full documentation is here, read carefully before you install the driver,
 * <https://wiki.moddevices.com/wiki/Troubleshooting_Windows_Connection>
 
-I downloaded the zip file.
+I downloaded the zip file from [microsof.net](https://modclouddownloadprod.blob.core.windows.net/shared/mod-duo-rndis.zip) site,
 installed it and it worked. zip file is saved in the github repo, ``files\mod-duo-rndis.zip``.
-## <a name="idea1-impl">Raspberry pi as Access Point and Wifi client
+## Raspberry pi as Access Point and Wifi client<a name="idea1-impl"></a>
 
 This is an example of how the *idea 1* can be implemented. This was collected from the tutorials found on internet. 
 
