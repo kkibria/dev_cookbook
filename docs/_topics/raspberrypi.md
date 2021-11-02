@@ -742,4 +742,12 @@ in command line and executes it.
 # go lang for pi 0
 * [Cross Compiling Golang Applications For Use On A Raspberry Pi](https://www.thepolyglotdeveloper.com/2017/04/cross-compiling-golang-applications-raspberry-pi/).
 You tube [video](https://youtu.be/lDvlysiMbCs).
-* [WPA supplicant over D-Bus using go for raspberry pi](https://github.com/mark2b/wpa-connect). 
+* [WPA supplicant over D-Bus using go for raspberry pi](https://github.com/mark2b/wpa-connect).
+* <https://golang.org/doc/tutorial/getting-started>
+
+use go build with following to compile for pi
+```
+env GOOS=linux GOARCH=arm GOARM=5 go build
+```
+
+I tried with GOARM=6 and it worked too.
