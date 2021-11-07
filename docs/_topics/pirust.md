@@ -169,7 +169,7 @@ Bash
 dpkg-deb -x /path/to/package.deb /path/to/empty/folder
 ```
 
-## Use `libget` to get the required libraries
+## Use ``libget`` to get the required libraries
 when you installed the toolchain in wsl2 it also installed ``libget``. This automates everything
 we discussed in above section. this will install the libraries in ``~/rootfs``. 
 We can add the libraries to our root file system from ~/rootfs using `rsync`
