@@ -169,8 +169,8 @@ Bash
 dpkg-deb -x /path/to/package.deb /path/to/empty/folder
 ```
 
-## Use ``libget`` to get the required libraries
-when you installed the toolchain in wsl2 it also installed ``libget``. This automates everything
+## Use **libget** to get the required libraries
+when you installed the toolchain in wsl2, it also installed ``libget``. This automates everything
 we discussed in above section. this will install the libraries in ``~/rootfs``. 
 We can add the libraries to our root file system from ~/rootfs using `rsync`
 ```
@@ -206,7 +206,7 @@ popd
 
 > Note: We are not putting them in libraries as we are not going to use `build.rs`.
 
-> Note: we should automate this link generation process and actually store links in a separate folder instead of polluting the rootfs and have rust use this folder for linking.
+> Note: we should automate this link generation process and actually store links in a separate folder instead of polluting the rootfs and have rust use this folder for linking by specifying it's absolute path in `~/.cargo/config` search link section, `rustc-link-search`.
 
 Then take all the contents of the folder you extracted the package into and move them into another folder called libraries, which you create at the root of your Rust project. This is the location we directed the GCC linker to look for the libraries.
 
