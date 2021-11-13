@@ -179,7 +179,7 @@ rsync -vR --progress -rl --delete-after --safe-links {etc,lib,sbin,usr,var} $HOM
 popd
 ```
 
-## Create links to library for rust
+## Details on links to library for rust
 Enter the folder you have extracted the package into and take a look at the files. The folder structure can be ./lib/arm-linux-gnueabihf or even ./usr/lib/arm-linux-gnueabihf inside this folder. The relevant files are the .so files. Some libraries however have another number after the .so, for example library.so.3. In this case, you have to add a symlink to library.so because that's where the GCC linker will look for it. The symlink must be in the same directory as the file it points to. To create a symlink called library.so that points to library.so.3, you would use the following command.
 
 Bash
@@ -204,10 +204,6 @@ ln -sf libsystemd.so.0 libsystemd.so
 popd
 ```
 
-> Note: We are not putting them in libraries as we are not going to use `build.rs`.
-
-> Note: we should automate this link generation process and actually store links in a separate folder instead of polluting the rootfs and have rust use this folder for linking by specifying it's absolute path in `~/.cargo/config` search link section, `rustc-link-search`.
-
 Then take all the contents of the folder you extracted the package into and move them into another folder called libraries, which you create at the root of your Rust project. This is the location we directed the GCC linker to look for the libraries.
 
 Repeat the extraction, symlinking and moving for all the other libraries.
@@ -223,7 +219,27 @@ Finally, after all this is done, your libraries folder should look something lik
 ./usr/lib/arm-linux-gnueabihf/liblz4.so.1
 ...
 ```
-Finally, you are able to cross compile the project without error messages.
+
+## Use **liblink** to make links to library for rust
+
+When you installed the toolchain in wsl2, it also installed ``liblink``. This automates everything
+we discussed in above section. This will install the links in ``~/liblink`` folder. 
+
+
+```
+liblink dbus-1 gcrypt gpg-error lz4 pcre lzma pthread dl selinux systemd
+```
+
+> ``~/liblink`` is
+not inside the rust project folder. As a result, we can simply choose to make
+rust use this folder directly for linking. In such case, we will specify 
+the absolute path of ``~/liblink``
+in `~/.cargo/config` search link section, `rustc-link-search` without 
+using `build.rs`.
+
+
+## Cross compile
+Finally, you will be able to cross compile the project without error messages.
 
 Bash
 ```
