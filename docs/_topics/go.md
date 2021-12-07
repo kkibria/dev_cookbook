@@ -11,8 +11,8 @@ The powershell does not have the environment variables setup for `go` when it st
 First setup the powershell startup as shown in
 [Powershell setup](vscode#powershell-setup).
 
-In your go project directory create `.psrc.ps1` and put the following get the
-environments.
+In your go project directory create `.psrc.ps1` and put the following to get the
+environment variables setup.
 ```bash
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
 $env:GOPATH = [Environment]::GetEnvironmentVariable("GOPATH","User")
