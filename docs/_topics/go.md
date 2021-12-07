@@ -29,7 +29,13 @@ Alternatively you can setup your custom go binary path and `GOPATH` in this file
 * <https://github.com/webview/webview>
 * <https://github.com/wailsapp/wails>
 * <https://youtu.be/Dg9rUXxNV-c>
+* <https://github.com/asticode/go-astilectron>
 
+> TODO: astilectron is using tcp connection for ipc. But path based connection
+> will much be much faster as long as both endpoints are within the same host which 
+> is the most typical case. Under the hood path based connection uses unix domain
+> socket or windows named pipe depending on the o/s. As such the go side need to adjust
+> for path based connection.
 
 ## using dbus
 
