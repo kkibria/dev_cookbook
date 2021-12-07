@@ -46,10 +46,10 @@ g++ -ggdb -s <files>
 
 Vscode requires xterm, so install, sudo apt install xterm
 
-## powershell setup
+## Powershell setup
 
-When powershell starts, it look for startup script, the path of the script is
-stored in `$profile` variable.
+When powershell starts, it looks for startup script using the path 
+stored in the `$profile` variable.
 
 You can view and edit this file by typing `code $profile` in the powershell.
 Probably simplest strategy here is to look for a script in the project root
