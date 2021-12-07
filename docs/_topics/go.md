@@ -8,21 +8,8 @@ title: Go language
 
 ## vscode powershell setup
 The powershell does not have the environment variables setup for `go` when it starts.
-
-When powershell starts, it look for startup script, the path of the script is
-stored in `$profile` variable.
-You can view and edit this file by typing `code $profile` in the powershell.
-You can enter the commands you like to execute in this script.
-
-Probably simplest strategy is to look for a file in the project root folder called `.psrc.ps1`
-and if it exists, execute the file.
-
-```bash
-$rc = ".psrc.ps1"
-if (Test-Path -Path $rc -PathType Leaf) {
-    & $rc
-}
-```
+First setup the powershell startup as shown in
+[Powershell setup](vscode#powershell-setup).
 
 In your go project directory create `.psrc.ps1` and put the following get the
 environments.

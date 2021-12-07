@@ -45,3 +45,21 @@ To strip debugging symbol use -s option at release build.
 g++ -ggdb -s <files>
 
 Vscode requires xterm, so install, sudo apt install xterm
+
+## powershell setup
+
+When powershell starts, it look for startup script, the path of the script is
+stored in `$profile` variable.
+
+You can view and edit this file by typing `code $profile` in the powershell.
+Probably simplest strategy here is to look for a script in the project root
+folder called `.psrc.ps1` and if it exists, execute the script.
+
+Add the following to the opened startup script,
+```bash
+$rc = ".psrc.ps1"
+if (Test-Path -Path $rc -PathType Leaf) {
+    & $rc
+}
+```
+This way you can put project specific startup commands in `.psrc.ps1`.
