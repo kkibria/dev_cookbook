@@ -1,9 +1,11 @@
 ---
-title: Install vscode in ubuntu
+title: Using vscode
 ---
 
 # {{ page.title }}
 
+
+## Install vscode in ubuntu
 First, update the packages index and install the dependencies by typing:
 ```bash
 sudo apt update
