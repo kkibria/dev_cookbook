@@ -44,3 +44,7 @@ title: Audio Processing
 
 * <https://wiki.linuxaudio.org/wiki/programming_libraries>
 * <http://www.portaudio.com/>. Audacity uses this.
+* <https://github.com/AuLib/AuLib>
+
+## DAW golang in audio
+* <https://github.com/dskinner/snd>

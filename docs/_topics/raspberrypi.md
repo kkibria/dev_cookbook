@@ -147,6 +147,15 @@ valid users = pi
 public=no
 ```
 
+Make sure that the `path` points to a folder that has read write permission for all the`valid users`. 
+If you want to force a user or group when you write a file in your samba share you can use following,
+```
+[devcode]
+...
+force user = user1
+force group = group1
+```
+
 It is also best to comment out anything that you don't need to use such ``printers`` or ``home`` sections.
 
 Before we start the server, you’ll want to set a Samba password - this is not the same as your standard default password (raspberry), but there’s no harm in reusing this if you want to, as this is a low-security, local network project.
