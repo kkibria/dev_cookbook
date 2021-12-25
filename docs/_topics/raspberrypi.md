@@ -140,11 +140,11 @@ In our example, you’ll need to add the following entry:
 [devcode]
 Comment = Pi shared folder
 path = /home/pi/devcode
-writeable=Yes
-create mask=0750
-directory mask=0750
+writeable = yes
+create mask = 0750
+directory mask = 0750
 valid users = pi 
-public=no
+public = no
 ```
 
 Make sure that the `path` points to a folder that has read write permission for all the`valid users`. 
