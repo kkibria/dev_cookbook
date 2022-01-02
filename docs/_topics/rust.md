@@ -12,6 +12,9 @@ title: Rust language
 * [Let's Learn Rust: Structs and Traits](https://youtu.be/LKYSl7kM5q8)
 * <https://tourofrust.com>
 
+
+## desktop app with rust
+* <https://tauri.studio>
 ## Using rust in Raspberry pi
 * [How to Get Started With Rust on Raspberry Pi](https://www.makeuseof.com/tag/getting-started-rust-raspberry-pi/)
 * [Program the real world using Rust on Raspberry Pi](https://opensource.com/article/19/3/physical-computing-rust-raspberry-pi)
