@@ -65,3 +65,9 @@ if (Test-Path -Path $rc -PathType Leaf) {
 }
 ```
 This way you can put project specific startup commands in `.psrc.ps1`.
+One common usage of this is would be to add or modify path variable.
+```bash
+$env:Path = "SomeRandomPath";             (replaces existing path) 
+$env:Path += ";SomeRandomPath"            (appends to existing path)
+```
+
