@@ -221,3 +221,16 @@ export PKG_CONFIG_SYSROOT_DIR="${RPI_SYSROOT}"
 
 ## Rust Qt binding
 * <https://youtu.be/McgwDB13igo>, github <https://github.com/KDE/rust-qt-binding-generator>
+
+
+
+## using rust with vscode in windows
+If you are using powershell in vscode, the path might not pickup rust compiler.
+Read [Powershell setup](vscode#powershell-setup) for vscode for more information.
+
+Place `.psrc.ps1` file at the root of the project folder with following, which is the default
+path of rust install.
+```
+$env:Path += ";$profile/.cargo/bin"
+```
+If you installed rust to a custom path, use that path instead.
