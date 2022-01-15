@@ -13,6 +13,9 @@ title: Rust language
 * <https://tourofrust.com>
 
 
+## rust libraries
+* <https://crates.io/>
+
 ## desktop app with rust
 * <https://tauri.studio>
 ## Using rust in Raspberry pi
