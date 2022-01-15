@@ -12,6 +12,7 @@ title: Music
 ## rust midi library
 * <https://docs.rs/midly/latest/midly/>
 * <https://tauri.studio>
+* <https://crates.io/crates/serde_json>
 
 We can load midi file in a rust based tauri app. Use svelte for for the app logic.
 We can try functions in rust to do even midi processing at native speed.
