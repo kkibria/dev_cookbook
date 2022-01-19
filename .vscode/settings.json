@@ -23,5 +23,6 @@
         "stebbins",
         "usercode",
         "xhttp"
-    ]
+    ],
+    "cmake.configureOnOpen": false
 }

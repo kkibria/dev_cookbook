@@ -18,6 +18,13 @@ title: Rust language
 
 ## desktop app with rust
 * <https://tauri.studio>
+Most practical application pattern is what they call lockdown pattern (event api) added with rust command api.
+* <https://tauri.studio/en/docs/guides/command>
+* <https://tauri.studio/en/docs/guides/events>
+
+
+
+
 ## Using rust in Raspberry pi
 * [How to Get Started With Rust on Raspberry Pi](https://www.makeuseof.com/tag/getting-started-rust-raspberry-pi/)
 * [Program the real world using Rust on Raspberry Pi](https://opensource.com/article/19/3/physical-computing-rust-raspberry-pi)
