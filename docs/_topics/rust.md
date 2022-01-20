@@ -5,6 +5,7 @@ title: Rust language
 
 ## Learning rust
 * [The rust book](https://doc.rust-lang.org/book/). Expand the TOC by pressing the menu icon on the top left of the page.
+* [The Rust Lang Book](https://www.youtube.com/playlist?list=PLai5B987bZ9CoVR-QEIN9foz4QCJ0H2Y8). I like this, watch along with the rust book.
 * [Rust: A Language for the Next 40 Years - Carol Nichols](https://youtu.be/A3AdN7U24iU).
 * [Rust Out Your C by Carol](https://youtu.be/SKGVItFlK3w). The [Slides](https://github.com/carols10cents/rust-out-your-c-talk).
 * [Stanford Seminar The Rust Programming Language - The Best Documentary Ever](https://youtu.be/SZvs15hC81U)
