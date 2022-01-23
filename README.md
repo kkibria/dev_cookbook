@@ -1,4 +1,5 @@
 # This repo consists of all my programming recipes
+This is no longer maintained, I migrated to a mdbook based site, <https://kkibria.github.io/my_cookbook>
 
 ## gitbook articles that inspired me to create this book
 
